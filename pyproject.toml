@@ -1,0 +1,31 @@
+[project]
+name = "spending-tracker"
+version = "0.1.0"
+description = "Phone-first supermarket spending tracker (Spain)"
+requires-python = ">=3.12"
+dependencies = [
+    "alembic>=1.20.0",
+    "fastapi>=0.141.1",
+    "httpx>=0.28.1",
+    "itsdangerous>=2.2.0",
+    "psycopg[binary]>=3.3.6",
+    "pydantic-settings>=2.15.0",
+    "sqlmodel>=0.0.46",
+    "tzdata>=2026.4",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "respx>=0.23.1",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+filterwarnings = ["ignore:Using `httpx` with `starlette.testclient`"]
+
+[tool.vercel]
+# Vercel's Python runtime installs from pyproject.toml + uv.lock and loads this ASGI app.
+entrypoint = "app.main:app"

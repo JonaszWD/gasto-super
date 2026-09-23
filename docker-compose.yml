@@ -1,0 +1,62 @@
+# Local development only (production: Vercel + Neon).
+#   docker compose up                          app on http://localhost:8000 with hot reload
+#   docker compose run --rm migrate            apply Alembic migrations
+#   docker compose run --rm collect run --chain mercadona   run a price collector
+x-app: &app
+  build: .
+  image: gasto-super-dev
+  env_file:
+    - path: .env
+      required: false
+  environment:
+    DATABASE_URL: postgresql+psycopg://gasto:gasto@db:5432/gasto
+    TEST_DATABASE_URL: postgresql+psycopg://gasto:gasto@db:5432/gasto_test
+    COOKIE_SECURE: "false"
+  volumes:
+    - .:/app
+  depends_on:
+    db:
+      condition: service_healthy
+
+services:
+  db:
+    image: postgres:18-alpine  # same major version as Neon's default
+    environment:
+      POSTGRES_USER: gasto
+      POSTGRES_PASSWORD: gasto
+      POSTGRES_DB: gasto
+    ports:
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-5433}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ./docker/postgres-init.sql:/docker-entrypoint-initdb.d/10-test-db.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gasto -d gasto"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    <<: *app
+    ports:
+      - "127.0.0.1:8000:8000"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/healthz', timeout=4).status == 200 else 1)"]
+      interval: 15s
+      timeout: 5s
+      start_period: 10s
+      retries: 3
+
+  migrate:
+    <<: *app
+    profiles: [tools]
+    command: ["alembic", "upgrade", "head"]
+
+  collect:
+    <<: *app
+    profiles: [tools]
+    entrypoint: ["python", "-m", "collectors"]
+    command: ["run", "--all"]
+
+volumes:
+  pgdata:

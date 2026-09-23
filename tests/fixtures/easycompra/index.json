@@ -1,0 +1,21 @@
+{
+ "updated_at": "2026-09-23T11:19:07+00:00",
+ "supermarkets": {
+  "carrefour": {
+   "file": "carrefour.json",
+   "count": 3,
+   "fresh": true
+  },
+  "dia": {
+   "file": "dia.json",
+   "count": 2,
+   "fresh": false
+  },
+  "lidl": {
+   "file": "lidl.json",
+   "count": 0,
+   "fresh": true
+  }
+ },
+ "total": 5
+}

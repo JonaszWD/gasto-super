@@ -1,0 +1,36 @@
+name: Migrate database
+
+# Manual only. Migrations never run at app startup or on deploy.
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Type "migrate" to apply pending Alembic migrations to the production database
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  migrate:
+    if: inputs.confirm == 'migrate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL_DIRECT }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: "0.11.24"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --locked --no-dev
+      - name: Current revision
+        run: uv run --no-sync alembic current
+      - name: Upgrade
+        run: uv run --no-sync alembic upgrade head
+      - name: New revision
+        run: |
+          uv run --no-sync alembic current
+          echo "Migrated to: $(uv run --no-sync alembic current 2>/dev/null | tail -1)" >> "$GITHUB_STEP_SUMMARY"

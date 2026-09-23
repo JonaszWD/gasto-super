@@ -1,0 +1,17 @@
+{
+  "name": "Gasto Súper",
+  "short_name": "Gasto Súper",
+  "description": "Registra lo que gastas en el supermercado escaneando códigos de barras.",
+  "lang": "es-ES",
+  "start_url": "/#/scan",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f6f7f6",
+  "theme_color": "#1a7f5a",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

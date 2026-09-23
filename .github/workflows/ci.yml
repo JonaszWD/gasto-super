@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    services:
+      postgres:
+        image: postgres:18-alpine  # same major version as Neon
+        env:
+          POSTGRES_USER: gasto
+          POSTGRES_PASSWORD: gasto
+          POSTGRES_DB: gasto_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U gasto -d gasto_test"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgresql+psycopg://gasto:gasto@localhost:5432/gasto_test
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: "0.11.24"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --locked
+      - name: Tests (Postgres)
+        run: uv run pytest -q
+      - name: Frontend syntax check
+        run: for f in public/js/*.js; do node --check "$f"; done

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Gasto Súper</title>
+  <meta name="theme-color" content="#f6f7f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121413" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Gasto Súper">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+  <script src="https://cdn.jsdelivr.net/npm/@zxing/browser@0.2.1/umd/zxing-browser.min.js"
+          integrity="sha384-HRtzk9lZgkbSgvUyQrnfC/GxiXZgwaNyD7hC9wcXlsBpDhkS80ISl73juef2FRuf"
+          crossorigin="anonymous" defer></script>
+  <script type="module" src="/js/app.js"></script>
+</head>
+<body>
+  <main id="view" class="view" aria-live="polite"></main>
+
+  <nav class="tabbar" data-i18n-aria="nav.label" aria-label="Navegación">
+    <a href="#/scan" data-tab="scan"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3M7 8v8M10 8v8M13 8v8M17 8v8"/></svg><span data-i18n="tab.scan"></span></a>
+    <a href="#/compare" data-tab="compare"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/></svg><span data-i18n="tab.compare"></span></a>
+    <a href="#/history" data-tab="history"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg><span data-i18n="tab.history"></span></a>
+    <a href="#/stats" data-tab="stats"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg><span data-i18n="tab.stats"></span></a>
+    <a href="#/more" data-tab="more"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h.01M12 12h.01M19 12h.01"/></svg><span data-i18n="tab.more"></span></a>
+  </nav>
+
+  <section id="login" class="login" hidden>
+    <form class="stack login-form" novalidate>
+      <img src="/icons/icon.svg" alt="" class="login-icon" width="72" height="72">
+      <h1 data-i18n="login.title"></h1>
+      <p class="muted" data-i18n="login.hint"></p>
+      <label class="field"><span data-i18n="login.password"></span>
+        <input type="password" name="password" autocomplete="current-password" enterkeyhint="go" required>
+      </label>
+      <p class="error" hidden></p>
+      <button type="submit" class="btn primary block" data-i18n="login.submit"></button>
+    </form>
+  </section>
+
+  <div id="sheet-backdrop" class="sheet-backdrop" hidden></div>
+  <section id="sheet" class="sheet" role="dialog" aria-modal="true" hidden></section>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <div id="flash" class="flash" aria-hidden="true"></div>
+  <!-- iOS 18+ gives haptic feedback when a switch checkbox toggles; used as a best-effort vibration fallback. -->
+  <label id="haptic" class="visually-hidden" aria-hidden="true"><input type="checkbox" switch tabindex="-1"></label>
+</body>
+</html>

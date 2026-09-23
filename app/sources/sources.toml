@@ -1,0 +1,34 @@
+# Price sources. Each can be enabled/disabled independently; a failing source never stops others.
+# Research notes and risks per source: see README "Price sources".
+
+[mercadona]
+enabled = true
+min_interval_seconds = 1.5     # gap between requests (never parallel)
+max_detail_fetches = 400       # product-detail calls per run to backfill EANs (fetched once each)
+
+# Mercadona top-level category ids -> department. Anything not listed is not collected
+# (cosmetics, hair care, make-up, parapharmacy, pets, baby hygiene...).
+[mercadona.departments]
+food = [1, 2, 3, 4, 5, 6, 7, 9, 11, 12, 13, 14, 15, 16, 17]
+drink = [8, 10, 18, 19]
+household = [26]
+
+# Subcategory overrides: baby *food* only (not nappies or hygiene).
+[mercadona.subcategories]
+food = [216]
+
+[easycompra]
+enabled = true
+min_interval_seconds = 1.0
+chains = ["dia", "carrefour", "lidl"]
+
+[openprices]
+enabled = true
+min_interval_seconds = 1.0
+radius_km = 10
+days = 120
+max_pages = 20
+
+# No usable source yet: product API blocked (HTTP 403) for non-browser clients. See README.
+[alcampo]
+enabled = false

@@ -1,0 +1,55 @@
+{
+ "results": [
+  {
+   "id": 12,
+   "name": "Aceite, especias y salsas",
+   "order": 7,
+   "is_extended": false,
+   "icon_url": null,
+   "categories": [
+    {
+     "id": 112,
+     "name": "Aceite, vinagre y sal",
+     "order": 7,
+     "layout": 1,
+     "published": true,
+     "is_extended": false
+    }
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Cuidado facial y corporal",
+   "order": 241,
+   "is_extended": false,
+   "icon_url": null,
+   "categories": [
+    {
+     "id": 185,
+     "name": "Cuidado e higiene facial",
+     "order": 241,
+     "layout": 1,
+     "published": true,
+     "is_extended": false
+    }
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Limpieza y hogar",
+   "order": 374,
+   "is_extended": false,
+   "icon_url": null,
+   "categories": [
+    {
+     "id": 229,
+     "name": "Limpieza vajilla",
+     "order": 374,
+     "layout": 1,
+     "published": true,
+     "is_extended": false
+    }
+   ]
+  }
+ ]
+}

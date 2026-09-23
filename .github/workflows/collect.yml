@@ -1,0 +1,78 @@
+name: Collect prices
+
+on:
+  schedule:
+    # Cron is UTC: 01:30 UTC = 03:30 in Madrid in summer (CEST), 02:30 in winter (CET).
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+    inputs:
+      target:
+        description: What to collect
+        type: choice
+        default: all
+        options: [all, mercadona, dia, carrefour, lidl, openprices]
+      limit:
+        description: Max products per source (empty = no limit; for testing)
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+# Never two collection runs at once (and so never two requests to one chain in parallel).
+concurrency:
+  group: collect-prices
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    name: ${{ matrix.target }}
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ matrix.target == 'mercadona' && 40 || 10 }}
+    strategy:
+      # One job per chain: a failure in one doesn't stop the others.
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON((inputs.target && inputs.target != 'all') && format('["{0}"]', inputs.target) || '["mercadona","dia","carrefour","lidl","openprices"]') }}
+    env:
+      # Neon *direct* (non-pooled) connection string.
+      DATABASE_URL: ${{ secrets.DATABASE_URL_DIRECT }}
+      SOURCES_USER_AGENT: ${{ vars.SOURCES_USER_AGENT || 'GastoSuper/0.1 (personal price comparison)' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: "0.11.24"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --locked --no-dev
+      - name: Collect
+        env:
+          TARGET: ${{ matrix.target }}
+          LIMIT: ${{ inputs.limit }}
+        run: |
+          args=(--chain "$TARGET")
+          [ "$TARGET" = openprices ] && args=(--source openprices)
+          if [ -n "$LIMIT" ]; then
+            [[ "$LIMIT" =~ ^[0-9]+$ ]] || { echo "limit must be a number"; exit 2; }
+            args+=(--limit "$LIMIT")
+          fi
+          uv run --no-sync python -m collectors run "${args[@]}"
+
+  report:
+    needs: collect
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL_DIRECT }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: "0.11.24"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --locked --no-dev
+      - name: Database size report
+        run: uv run --no-sync python -m app.tools.db_report --markdown

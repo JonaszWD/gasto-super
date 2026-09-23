@@ -1,0 +1,179 @@
+{
+ "id": 112,
+ "name": "Aceite, vinagre y sal",
+ "order": 7,
+ "layout": 1,
+ "published": true,
+ "is_extended": false,
+ "categories": [
+  {
+   "id": 420,
+   "name": "Aceite de oliva",
+   "order": 7,
+   "layout": 2,
+   "published": true,
+   "is_extended": false,
+   "image": null,
+   "subtitle": null,
+   "products": [
+    {
+     "id": "4241",
+     "slug": "aceite-oliva-04o-hacendado-garrafa",
+     "limit": 999,
+     "badges": {
+      "is_water": false,
+      "requires_age_check": false
+     },
+     "status": null,
+     "packaging": "Garrafa",
+     "published": true,
+     "share_url": "https://tienda.mercadona.es/product/4241/aceite-oliva-04o-hacendado-garrafa",
+     "thumbnail": "https://prod-mercadona.imgix.net/images/3b8cde7b3cb069ee0316029012cf8562.jpg?fit=crop&h=300&w=300",
+     "categories": [
+      {
+       "id": 12,
+       "name": "Aceite, especias y salsas",
+       "level": 0,
+       "order": 7
+      }
+     ],
+     "display_name": "Aceite de oliva 0,4º Hacendado",
+     "main_feature": "",
+     "unavailable_from": null,
+     "price_instructions": {
+      "iva": null,
+      "is_new": false,
+      "is_pack": false,
+      "pack_size": null,
+      "unit_name": null,
+      "unit_size": 5.0,
+      "bulk_price": "3.45",
+      "unit_price": "17.25",
+      "approx_size": false,
+      "size_format": "l",
+      "total_units": null,
+      "unit_selector": true,
+      "bunch_selector": false,
+      "drained_weight": null,
+      "selling_method": 0,
+      "tax_percentage": "4.000",
+      "price_decreased": false,
+      "reference_price": "3.450",
+      "min_bunch_amount": 1.0,
+      "reference_format": "L",
+      "previous_unit_price": "       17.75",
+      "increment_bunch_amount": 1.0
+     },
+     "unavailable_weekdays": [],
+     "is_new_arrival": false
+    },
+    {
+     "id": "4240",
+     "slug": "aceite-oliva-04o-hacendado-botella",
+     "limit": 999,
+     "badges": {
+      "is_water": false,
+      "requires_age_check": false
+     },
+     "status": null,
+     "packaging": "Botella",
+     "published": true,
+     "share_url": "https://tienda.mercadona.es/product/4240/aceite-oliva-04o-hacendado-botella",
+     "thumbnail": "https://prod-mercadona.imgix.net/images/65c2349950feb1958362e06217003b10.jpg?fit=crop&h=300&w=300",
+     "categories": [
+      {
+       "id": 12,
+       "name": "Aceite, especias y salsas",
+       "level": 0,
+       "order": 7
+      }
+     ],
+     "display_name": "Aceite de oliva 0,4º Hacendado",
+     "main_feature": null,
+     "unavailable_from": null,
+     "price_instructions": {
+      "iva": null,
+      "is_new": false,
+      "is_pack": false,
+      "pack_size": null,
+      "unit_name": null,
+      "unit_size": 1.0,
+      "bulk_price": "3.70",
+      "unit_price": "3.70",
+      "approx_size": false,
+      "size_format": "l",
+      "total_units": null,
+      "unit_selector": true,
+      "bunch_selector": false,
+      "drained_weight": null,
+      "selling_method": 0,
+      "tax_percentage": "4.000",
+      "price_decreased": false,
+      "reference_price": "3.700",
+      "min_bunch_amount": 1.0,
+      "reference_format": "L",
+      "previous_unit_price": "        3.80",
+      "increment_bunch_amount": 1.0
+     },
+     "unavailable_weekdays": [],
+     "is_new_arrival": false
+    },
+    {
+     "id": "4717",
+     "slug": "aceite-oliva-virgen-extra-hacendado-garrafa",
+     "limit": 999,
+     "badges": {
+      "is_water": false,
+      "requires_age_check": false
+     },
+     "status": null,
+     "packaging": "Garrafa",
+     "published": true,
+     "share_url": "https://tienda.mercadona.es/product/4717/aceite-oliva-virgen-extra-hacendado-garrafa",
+     "thumbnail": "https://prod-mercadona.imgix.net/images/cd149804838dc230dad3c2a314cf2286.jpg?fit=crop&h=300&w=300",
+     "categories": [
+      {
+       "id": 12,
+       "name": "Aceite, especias y salsas",
+       "level": 0,
+       "order": 7
+      }
+     ],
+     "display_name": "Aceite de oliva virgen extra Hacendado",
+     "main_feature": null,
+     "unavailable_from": null,
+     "price_instructions": {
+      "iva": null,
+      "is_new": false,
+      "is_pack": false,
+      "pack_size": null,
+      "unit_name": null,
+      "unit_size": 3.0,
+      "bulk_price": "4.27",
+      "unit_price": "12.80",
+      "approx_size": false,
+      "size_format": "l",
+      "total_units": null,
+      "unit_selector": true,
+      "bunch_selector": false,
+      "drained_weight": null,
+      "selling_method": 0,
+      "tax_percentage": "4.000",
+      "price_decreased": false,
+      "reference_price": "4.267",
+      "min_bunch_amount": 1.0,
+      "reference_format": "L",
+      "previous_unit_price": "       13.55",
+      "increment_bunch_amount": 1.0
+     },
+     "unavailable_weekdays": [],
+     "is_new_arrival": false
+    }
+   ]
+  }
+ ],
+ "next_category": {
+  "id": 115,
+  "name": "Especias"
+ }
+}

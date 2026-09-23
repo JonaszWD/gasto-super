@@ -1,0 +1,27 @@
+{
+  "_comment": "Variable-weight EAN-13 layouts (prefixes 20-29). Positions are 0-based offsets into the 13 digits. kind=price: value is EUR with `decimals` decimals; kind=weight: value is kg with `decimals` decimals (3 = grams). Keys are slugified store names (e.g. 'mercadona', 'el-corte-ingles'); a store's rules are tried first, then 'default'. Verify against a few of your own labels and add per-store entries as needed. 'example-weight-store' shows a weight layout and is never matched by a real store unless you rename it.",
+  "stores": {
+    "default": [
+      {
+        "prefixes": ["20", "21", "22", "23", "24", "25", "26", "27", "28", "29"],
+        "kind": "price",
+        "item_start": 2,
+        "item_length": 5,
+        "value_start": 7,
+        "value_length": 5,
+        "decimals": 2
+      }
+    ],
+    "example-weight-store": [
+      {
+        "prefixes": ["28", "29"],
+        "kind": "weight",
+        "item_start": 2,
+        "item_length": 5,
+        "value_start": 7,
+        "value_length": 5,
+        "decimals": 3
+      }
+    ]
+  }
+}
