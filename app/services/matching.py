@@ -11,6 +11,7 @@ from sqlalchemy import or_
 from sqlmodel import Session, col, select
 
 from app.models import CanonicalProduct, Listing, ProductMatch
+from app.services.names import clean_name
 from app.services.text import normalize
 
 STOPWORDS = {
@@ -25,14 +26,14 @@ STORE_BRANDS = {
     "lidl", "milbona", "aldi", "milsani", "ahorramas", "alipende", "belbake", "solevita", "pikok",
 }
 MIN_SCORE = 0.45
-MIN_SIZE_RATIO = 0.75
+MIN_SIZE_RATIO = 0.5  # cards compare unit price, so pack size only rules out very different formats
 
 
 def keywords(name: str, brand: str | None = None) -> set[str]:
     brand_tokens = set(normalize(brand).split()) if brand else set()
     return {
         t
-        for t in normalize(name).split()
+        for t in normalize(clean_name(name, brand)).split()
         if len(t) > 1 and not t.isdigit() and t not in STOPWORDS and t not in STORE_BRANDS and t not in brand_tokens
     }
 

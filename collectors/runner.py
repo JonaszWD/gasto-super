@@ -57,7 +57,9 @@ async def run_source(
         session.add(run)
         session.commit()
 
-        client = http or PoliteClient(user_agent=settings.sources_user_agent, min_interval=adapter.min_interval)
+        client = http or PoliteClient(
+            user_agent=adapter.user_agent or settings.sources_user_agent, min_interval=adapter.min_interval
+        )
         ctx = SourceContext(postal_code=pc, http=client, cache=DbCache(session), chains=chains)
         try:
             await _collect_catalog(session, adapter, ctx, listing_pc, stats, limit)

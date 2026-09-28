@@ -10,7 +10,7 @@ from app.sources.base import PoliteClient
 from collectors import __main__ as cli
 from collectors.runner import RunStats, run_source
 from tests.sources_helpers import fixture, no_sleep
-from tests.test_sources import easycompra_handler, mercadona_handler
+from tests.test_sources import alcampo_handler, easycompra_handler, mercadona_handler
 
 
 def client_for(handler) -> PoliteClient:  # type: ignore[no-untyped-def]
@@ -60,6 +60,21 @@ async def test_source_failure_is_reported_not_raised(clean_db: Engine) -> None:
         assert s.exec(select(CollectorRun)).one().status == "failed"
 
 
+async def test_alcampo_run_stores_listings(clean_db: Engine) -> None:
+    stats = await run_source(clean_db, "alcampo", http=client_for(alcampo_handler), limit=10)
+    assert stats.status == "ok" and stats.products_checked == 4  # only "leche" has a recorded page
+    with Session(clean_db) as s:
+        assert {li.postal_code for li in s.exec(select(Listing)).all()} == {""}  # not location-specific
+
+
+async def test_alcampo_blocked_run_fails_with_a_clear_message(clean_db: Engine) -> None:
+    stats = await run_source(clean_db, "alcampo", http=client_for(lambda r: httpx.Response(403, text="")))
+    assert stats.status == "failed"
+    assert any("blocking requests" in m for m in stats.messages)
+    with Session(clean_db) as s:
+        assert s.exec(select(CollectorRun)).one().status == "failed"
+
+
 async def test_easycompra_stale_chain_is_partial(clean_db: Engine) -> None:
     stats = await run_source(clean_db, "easycompra", chains={"carrefour", "dia"}, http=client_for(easycompra_handler))
     assert stats.status == "partial" and stats.products_checked == 3
@@ -83,14 +98,14 @@ def test_cli_isolates_sources_and_writes_summary(
     summary = tmp_path / "summary.md"
     monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
     code = cli.main(["run", "--all"])
-    assert calls == ["mercadona", "easycompra", "openprices"]  # a crash doesn't stop the others
+    assert calls == ["mercadona", "easycompra", "openprices", "alcampo"]  # a crash doesn't stop the others
     assert code == 1  # but the job is marked failed
     text = summary.read_text()
     assert "| mercadona |" in text and "| failed |" in text
 
 
 def test_cli_chain_without_source(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
-    assert cli.main(["run", "--chain", "alcampo"]) == 0
+    assert cli.main(["run", "--chain", "lidl"]) == 0
     assert "No enabled source" in capsys.readouterr().out
 
 

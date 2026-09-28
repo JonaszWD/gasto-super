@@ -3,12 +3,13 @@
 import httpx
 import pytest
 
+from app.sources.alcampo import AlcampoAdapter, parse_entity as parse_alcampo_entity
 from app.sources.base import SourceError
 from app.sources.easycompra import EasyCompraAdapter, guess_department
 from app.sources.mercadona import MercadonaAdapter
 from app.sources.openprices import OpenPricesAdapter, chain_for
 from app.sources.registry import build_adapter, load_config
-from tests.sources_helpers import fixture, make_ctx
+from tests.sources_helpers import FIXTURES, fixture, make_ctx
 
 
 def mercadona() -> MercadonaAdapter:
@@ -171,3 +172,113 @@ def test_chain_for() -> None:
     assert chain_for({"osm_brand": "Hipercor"}) == "el-corte-ingles"
     assert chain_for({"osm_brand": "Diagonal Market"}) is None
     assert chain_for(None) is None
+
+
+def alcampo() -> AlcampoAdapter:
+    adapter = build_adapter("alcampo", load_config())
+    assert isinstance(adapter, AlcampoAdapter)
+    return adapter
+
+
+def alcampo_handler(request: httpx.Request) -> httpx.Response:
+    path = request.url.path
+    if path == "/search" and request.url.params.get("q") == "leche":
+        return httpx.Response(200, text=(FIXTURES / "alcampo/search_leche.html").read_text(encoding="utf-8"))
+    if path == "/search":
+        return httpx.Response(200, text="<html><body>no state here</body></html>")
+    if path == "/products/54180":
+        return httpx.Response(200, text=(FIXTURES / "alcampo/product_54180.html").read_text(encoding="utf-8"))
+    return httpx.Response(404, text="")
+
+
+async def test_alcampo_search_parses_page_state_and_skips_non_food_and_unpriced() -> None:
+    ctx, seen = make_ctx(alcampo_handler)
+    found = await alcampo().search(ctx, "leche")
+    assert seen[0].headers["accept"].startswith("text/html")
+    # 999001 is under Perfumería (not collected), 999002 has an empty price.
+    assert [x.chain_product_id for x in found] == ["54180", "54178", "53549", "99193"]
+    pack = found[0]
+    assert pack.chain_id == "alcampo" and pack.ean is None
+    assert pack.name == "AUCHAN Leche semidesnatada de vaca 6 x 1l Producto Alcampo."
+    assert pack.price_cents == 528 and pack.unit_price_cents == 88
+    assert pack.quantity and (pack.quantity.value, pack.quantity.unit) == (6.0, "l")
+    assert pack.department == "food" and pack.category == "Leche semidesnatada"
+    assert pack.url == "https://www.compraonline.alcampo.es/products/54180"
+
+
+async def test_alcampo_catalog_walks_search_terms_and_dedupes() -> None:
+    ctx, seen = make_ctx(alcampo_handler)
+    adapter = AlcampoAdapter({"food": ["Leche, Huevos, Lácteos, Yogures y Bebidas vegetales"]}, ["leche", "pan", "leche"])
+    listings = [x async for x in adapter.fetch_catalog(ctx)]
+    assert [r.url.params["q"] for r in seen] == ["leche", "pan", "leche"]
+    assert len(listings) == 4 and len({x.chain_product_id for x in listings}) == 4
+
+
+async def test_alcampo_catalog_keeps_going_after_a_failed_search() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.params.get("q") == "pan":
+            return httpx.Response(403, text="")
+        return alcampo_handler(request)
+
+    ctx, _ = make_ctx(handler)
+    adapter = AlcampoAdapter({"food": ["Leche, Huevos, Lácteos, Yogures y Bebidas vegetales"]}, ["pan", "leche"])
+    listings = [x async for x in adapter.fetch_catalog(ctx)]
+    assert len(listings) == 4
+    assert any("pan" in w and "403" in w for w in ctx.warnings)
+
+
+async def test_alcampo_product_page() -> None:
+    ctx, _ = make_ctx(alcampo_handler)
+    product = await alcampo().fetch_product(ctx, "54180")
+    assert product is not None
+    assert product.price_cents == 528 and product.unit_price_cents == 88
+    assert product.size_text == "6000ml" and product.department == "food"
+    assert await alcampo().fetch_product(ctx, "1") is None
+
+
+def test_alcampo_sends_a_browser_user_agent() -> None:
+    assert "Mozilla/5.0" in (alcampo().user_agent or "")
+
+
+def test_alcampo_pack_in_name_beats_a_wrong_size_field() -> None:
+    entity = {
+        "retailerProductId": "201028",
+        "name": "PULEVA Tido Leche entera 6 x 200 ml.",
+        "categoryPath": ["Leche, Huevos, Lácteos, Yogures y Bebidas vegetales", "Leche", "Leche entera"],
+        "price": {
+            "current": {"amount": "2.57", "currency": "EUR"},
+            "unit": {"label": "fop.price.per.litre", "current": {"amount": "4.28", "currency": "EUR"}},
+        },
+        "size": {"value": "600ml"},  # as served by Alcampo; the pack is 1,2 l
+    }
+    listing = parse_alcampo_entity(entity, "food")
+    assert listing and listing.quantity and (listing.quantity.value, listing.quantity.unit) == (1.2, "l")
+    assert listing.unit_price_cents is None and listing.resolved_unit_price() == 214
+
+    entity["size"] = {"value": "1200ml"}  # consistent size: Alcampo's unit price is kept
+    entity["price"]["unit"]["current"]["amount"] = "2.14"
+    listing = parse_alcampo_entity(entity, "food")
+    assert listing and listing.unit_price_cents == 214
+
+
+async def test_alcampo_catalog_stops_after_three_refusals_in_a_row() -> None:
+    ctx, seen = make_ctx(lambda r: httpx.Response(403, text=""))
+    adapter = AlcampoAdapter({"food": ["Leche, Huevos, Lácteos, Yogures y Bebidas vegetales"]}, ["a", "b", "c", "d", "e"])
+    with pytest.raises(SourceError, match="blocking"):
+        [x async for x in adapter.fetch_catalog(ctx)]
+    assert len(seen) == 3  # "d" and "e" are never requested
+
+
+async def test_alcampo_refusal_count_resets_after_a_good_page() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.params.get("q") == "leche":
+            return alcampo_handler(request)
+        return httpx.Response(429, text="")
+
+    ctx, seen = make_ctx(handler)
+    adapter = AlcampoAdapter(
+        {"food": ["Leche, Huevos, Lácteos, Yogures y Bebidas vegetales"]}, ["a", "b", "leche", "c", "d"]
+    )
+    listings = [x async for x in adapter.fetch_catalog(ctx)]
+    assert len(listings) == 4
+    assert {r.url.params["q"] for r in seen} == {"a", "b", "leche", "c", "d"}  # 429s are retried, never fatal here

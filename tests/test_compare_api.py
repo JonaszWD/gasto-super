@@ -96,6 +96,7 @@ def test_manual_match_actions(client: TestClient, catalog: dict[str, int]) -> No
 class FakeMercadona:
     supports_live_refresh = True
     id = "mercadona"
+    user_agent = None
 
     def __init__(self, result: RawListing | None = None, error: Exception | None = None, delay: float = 0) -> None:
         self.result, self.error, self.delay = result, error, delay

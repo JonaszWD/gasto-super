@@ -22,7 +22,7 @@ async function request(method, path, body) {
   const data = await resp.json().catch(() => null);
   if (!resp.ok) {
     const detail = data?.detail;
-    const code = typeof detail === "string" ? detail : "generic";
+    const code = typeof detail === "string" ? detail : resp.status >= 500 ? "server" : "generic";
     if (resp.status === 401 && code === "unauthorized") window.dispatchEvent(new Event("unauthorized"));
     throw new ApiError(resp.status, code);
   }

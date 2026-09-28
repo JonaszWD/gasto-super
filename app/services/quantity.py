@@ -67,18 +67,25 @@ def _to_base(amount: float, unit: str) -> Quantity:
     return Quantity(round(amount * factor, 6), base)
 
 
+def pack_quantity(text: str | None) -> Quantity | None:
+    """Total of an explicit "6 x 200 ml" style pack in `text`, or None if there isn't one."""
+    if not text:
+        return None
+    m = _MULTI.search(strip_accents(text).lower().replace("\u00a0", " "))
+    if m and int(m.group(1)) > 0:
+        return _to_base(int(m.group(1)) * _num(m.group(2)), m.group(3))
+    return None
+
+
 def parse_quantity(text: str | None) -> Quantity | None:
     """Return the total amount described by `text`, or None if nothing recognisable."""
     if not text:
         return None
+    pack = pack_quantity(text)
+    if pack:
+        return pack
     s = strip_accents(text).lower()
     s = s.replace("\u00a0", " ")
-
-    m = _MULTI.search(s)
-    if m:
-        count, amount, unit = int(m.group(1)), _num(m.group(2)), m.group(3)
-        if count > 0:
-            return _to_base(count * amount, unit)
 
     m = _COUNT_OF.search(s)
     if m and UNITS[m.group(3)][0] != "unit":

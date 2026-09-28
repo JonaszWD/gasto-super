@@ -1,7 +1,8 @@
 """EasyCompra community dataset (github.com/elopositor/EasyCompra-datos).
 
 Daily JSON files per chain, built by the EasyCompra project from the chains' public websites.
-Used for chains whose own APIs sit behind bot protection (Dia, Carrefour) and for Lidl.
+Used for chains whose own APIs sit behind bot protection (Dia, Carrefour). It also has Lidl,
+but sources.toml leaves it out: no pack sizes (so no unit price) and non-food items mixed in.
 - Prices are NOT tied to a postal code (stored with postal_code "").
 - Licence: personal, non-commercial use. Partial catalogues (hundreds of items per chain).
 - index.json marks each chain `fresh`; stale chains are skipped so their prices age visibly.

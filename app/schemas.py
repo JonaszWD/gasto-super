@@ -173,6 +173,7 @@ class ChainPriceOut(BaseModel):
     price_cents: int | None = None
     unit_price_cents: int | None = None
     unit: str | None = None
+    quantity_value: float | None = None
     last_seen_at: UtcDatetime | None = None
     stale: bool = False
     cheapest: bool = False

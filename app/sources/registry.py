@@ -3,6 +3,7 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
+from app.sources.alcampo import AlcampoAdapter
 from app.sources.base import SourceAdapter
 from app.sources.easycompra import EasyCompraAdapter
 from app.sources.mercadona import MercadonaAdapter
@@ -30,13 +31,15 @@ def build_adapter(source_id: str, config: dict[str, Any] | None = None) -> Sourc
             adapter = OpenPricesAdapter(
                 radius_km=cfg.get("radius_km", 10), days=cfg.get("days", 120), max_pages=cfg.get("max_pages", 20)
             )
+        case "alcampo":
+            adapter = AlcampoAdapter(cfg.get("departments"), cfg.get("search_terms"))
         case _:
             return None
     adapter.min_interval = cfg.get("min_interval_seconds", adapter.min_interval)
     return adapter
 
 
-ALL_SOURCES = ("mercadona", "easycompra", "openprices")
+ALL_SOURCES = ("mercadona", "easycompra", "openprices", "alcampo")
 
 
 def enabled_sources(config: dict[str, Any] | None = None) -> list[str]:

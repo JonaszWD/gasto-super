@@ -157,6 +157,8 @@ class SourceAdapter(ABC):
     location_specific: bool = False
     supports_live_refresh: bool = False
     min_interval: float = 1.5
+    # Overrides the configured SOURCES_USER_AGENT for sources that only answer browsers.
+    user_agent: str | None = None
 
     async def search(self, ctx: SourceContext, query: str) -> list[RawListing]:
         raise SearchNotSupported(self.id)

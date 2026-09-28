@@ -133,14 +133,14 @@ In the repository, go to **Settings → Secrets and variables → Actions**:
 ### 5. Price collection
 
 `collect.yml` runs every night at 01:30 UTC, which is 03:30 in Madrid in summer and 02:30 in winter.
-- There is one job per chain (`mercadona`, `dia`, `carrefour`, `lidl`) plus `openprices`, so one failure doesn't stop the others.
+- There is one job per chain (`mercadona`, `dia`, `carrefour`) plus `openprices`, so one failure doesn't stop the others.
 - Only one collection runs at a time.
 - Each run writes a summary to its page (products checked, prices changed, errors per chain) and finishes with the database size report.
 
 To collect manually, go to **Actions → Collect prices → Run workflow**. Pick one target or `all`; "limit" is for quick tests.
 
 **Minutes budget:**
-- Mercadona takes about 15 minutes (about 150 category requests plus up to 400 product-detail requests, at 1 request every 1.5 s). The other jobs take about 1 minute each.
+- Mercadona takes about 15 minutes (about 150 category requests plus up to 400 product-detail requests, at 1 request every 1.5 s). Alcampo takes about 4 minutes (about 80 search pages at 1 every 2 s). The other jobs take about 1 minute each.
 - That's roughly 20 minutes a night, or about 600 of the 2,000 free minutes a month for a private repository.
 - The first two weeks fill in Mercadona EANs gradually (400 a night).
 
@@ -157,10 +157,11 @@ Researched in September 2026. All of these are unofficial and can change or disa
 | Chain | Source | Location-specific | Notes / risks |
 |---|---|---|---|
 | Mercadona | Mercadona's storefront JSON API (`tienda.mercadona.es/api`) | **Yes**: the postal code maps to a warehouse (28020 → `mad3`) | No login needed. Undocumented, and **`robots.txt` disallows `/api`**. Used for personal use only, politely: 1 request every 1.5 s, never in parallel, food/drink/household categories only, each EAN fetched once. "Refresh now" works for Mercadona. |
-| Dia, Carrefour, Lidl | [EasyCompra-datos](https://github.com/elopositor/EasyCompra-datos), a community dataset updated daily | No (general prices) | Partial catalogues (Carrefour about 900, Dia about 500 with no EANs, Lidl about 100). Licence: personal, non-commercial use. A chain marked `fresh: false` is skipped, so its prices age and show as stale. |
+| Dia, Carrefour | [EasyCompra-datos](https://github.com/elopositor/EasyCompra-datos), a community dataset updated daily | No (general prices) | Partial catalogues (Carrefour about 900, Dia about 500 with no EANs). Lidl is left out in `sources.toml`: its ~100 items have no pack sizes, so no unit price, and include non-food. Licence: personal, non-commercial use. A chain marked `fresh: false` is skipped, so its prices age and show as stale. |
 | Several | [Open Prices](https://prices.openfoodfacts.org) (Open Food Facts) | Yes (10 km around the postal code) | Crowd-sourced and sparse in Spain. Shops are mapped to chains by their OpenStreetMap brand. |
-| Alcampo | none | | The product API returns HTTP 403 to non-browser clients. |
-| Dia/Carrefour direct | not used | | Protected by Akamai (HTTP 403). Getting past that would need bot-detection evasion, which this project doesn't do. |
+| Alcampo | Alcampo's shop pages (`compraonline.alcampo.es`), read from the product data embedded in the HTML (approach from [grocery-cli](https://github.com/jgalea/grocery-cli)) | No (default region) | The JSON API returns HTTP 403 to non-browser clients, so this source sends a browser User-Agent. The catalogue is whatever the `search_terms` in `sources.toml` return (up to 50 products each), limited to food, drink and household categories. No EANs, so Alcampo only appears as "Similar" matches. Pages are 1–2 MB each; 1 request every 2 s. A run stops after 3 refused requests (HTTP 403/429) in a row. "Refresh now" works for Alcampo. |
+| Lidl | Open Prices only | | Lidl Spain has no online grocery shop: its search API returns weekly offers and non-food items without unit prices. |
+| Dia/Carrefour direct | not used | | Protected by Akamai (HTTP 403); a browser User-Agent isn't enough. |
 | Your purchases | the spending tracker | | Shown on each product as **"precio pagado"**. |
 
 To add a chain, add a module in `app/sources/` that implements `SourceAdapter` (`search`, `fetch_catalog`, `fetch_product`), register it in `registry.py`, and add a fixture-based test.

@@ -1,7 +1,7 @@
 // Price comparison screens: search, product detail (history + manual matching), shopping list.
 import { api } from "./api.js";
 import { stepChart } from "./charts.js";
-import { formatDate, formatMoney, formatShortDate } from "./format.js";
+import { formatDate, formatMoney, formatQuantity, formatShortDate } from "./format.js";
 import { t } from "./i18n.js";
 import { Scanner, scanFeedback } from "./scanner.js";
 import { closeSheet, errorMessage, h, openSheet, toast } from "./ui.js";
@@ -13,6 +13,14 @@ const cstate = { query: "", results: null, postalCode: "" };
 function unitPrice(row) {
   if (row.unit_price_cents == null || !row.unit) return "";
   return t(`compare.per_unit.${row.unit}`, { price: formatMoney(row.unit_price_cents) });
+}
+
+// Pack size ("400 g", "1,5 L", "6 ud"): names are shown without it, see app/services/names.py.
+function sizeLabel(value, unit) {
+  if (!value || !unit) return "";
+  if (unit === "unit") return t("compare.size.unit", { n: formatQuantity(value) });
+  if (value < 1) return `${formatQuantity(value * 1000)} ${unit === "kg" ? "g" : "ml"}`;
+  return `${formatQuantity(value)} ${unit === "kg" ? "kg" : "L"}`;
 }
 
 function matchBadge(row) {
@@ -41,7 +49,7 @@ function priceRow(row, { actions = false } = {}) {
       ${!priced ? `<span class="muted">${h(row.match === "none" ? "—" : t("compare.no_price"))}</span>`
         : unitPrice(row)
           // Unit price (€/kg, €/L, €/ud) is what compares across pack sizes, so it leads.
-          ? `<strong>${h(unitPrice(row))}</strong><span class="muted small">${formatMoney(row.price_cents)}</span>`
+          ? `<strong>${h(unitPrice(row))}</strong><span class="muted small">${[formatMoney(row.price_cents), h(sizeLabel(row.quantity_value, row.unit))].filter(Boolean).join(" · ")}</span>`
           : `<strong>${formatMoney(row.price_cents)}</strong>`}
     </div>
     ${meta.length ? `<div class="prow-meta muted small">${meta.join(" · ")}</div>` : ""}
@@ -74,7 +82,7 @@ function productHead(card, link = true) {
   const p = card.product;
   const img = card.image_url ? `<img src="${h(card.image_url)}" alt="" class="product-img" loading="lazy" referrerpolicy="no-referrer">`
                              : `<div class="product-img placeholder" aria-hidden="true"></div>`;
-  const sub = [p.brand, p.ean].filter(Boolean).join(" · ");
+  const sub = [sizeLabel(p.quantity_value, p.quantity_unit), p.brand, p.ean].filter(Boolean).join(" · ");
   const inner = `${img}<div class="product-title"><h2>${h(p.name)}</h2><p class="muted small">${h(sub)}</p></div>`;
   return link ? `<a class="product-head" href="#/compare/product/${p.id}">${inner}</a>` : `<div class="product-head">${inner}</div>`;
 }

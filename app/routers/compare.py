@@ -26,6 +26,7 @@ from app.services.barcode_parser import normalize as normalize_barcode
 from app.services.catalog import link_listing, record_listing_price, upsert_listing, valid_ean
 from app.services.compare import ProductCard, build_card, chain_names, postal_code, search_products
 from app.services.kv import DbCache
+from app.services.names import clean_name
 from app.services.quantity import Quantity, unit_price_cents
 from app.sources.base import PoliteClient, SourceContext, SourceError
 from app.sources.registry import build_adapter, enabled_sources
@@ -44,7 +45,9 @@ def card_out(session: Session, card: ProductCard) -> ProductCardOut:
     p = card.product
     assert p.id is not None
     return ProductCardOut(
-        product=ComparedProduct.model_validate(p, from_attributes=True),
+        product=ComparedProduct.model_validate(p, from_attributes=True).model_copy(
+            update={"name": clean_name(p.name, p.brand)}
+        ),
         prices=[
             ChainPriceOut(**{**r.__dict__, "can_refresh": r.source in live and r.listing_id is not None})
             for r in card.prices
@@ -141,7 +144,9 @@ async def refresh_listing(listing_id: int, session: SessionDep, settings: Settin
     if adapter is None or not adapter.supports_live_refresh or listing.source not in enabled_sources():
         raise HTTPException(status_code=409, detail="refresh_not_supported")
     timeout = settings.refresh_timeout_seconds
-    client = PoliteClient(user_agent=settings.sources_user_agent, min_interval=0, timeout=timeout, retries=0)
+    client = PoliteClient(
+        user_agent=adapter.user_agent or settings.sources_user_agent, min_interval=0, timeout=timeout, retries=0
+    )
     ctx = SourceContext(
         postal_code=listing.postal_code or postal_code(session, settings.default_postal_code),
         http=client,

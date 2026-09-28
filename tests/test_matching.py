@@ -101,7 +101,11 @@ def test_similar_requires_comparable_size() -> None:
                   source="x", chain_id="dia", chain_product_id="2")
     other_unit = Listing(name="Aceite de oliva", department="food", quantity_value=1.0, quantity_unit="kg",
                          source="x", chain_id="dia", chain_product_id="3")
+    # Jar vs can: 570 g and 400 g are the same product in another format (unit price compares them).
+    jar = Listing(name="Aceite de oliva", department="food", quantity_value=0.57, quantity_unit="l",
+                  source="x", chain_id="dia", chain_product_id="4")
     assert score(p, near) > 0.8
+    assert score(p, jar) > 0
     assert score(p, far) == 0
     assert score(p, other_unit) == 0
 

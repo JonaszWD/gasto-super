@@ -66,6 +66,7 @@ const STRINGS = {
     "compare.per_unit.kg": "{price}/kg",
     "compare.per_unit.l": "{price}/L",
     "compare.per_unit.unit": "{price}/ud",
+    "compare.size.unit": "{n} ud",
     "compare.not_location": "Precio general, no de tu zona",
     "compare.refresh": "Actualizar ahora",
     "compare.refreshed": "Precio actualizado",
@@ -207,6 +208,7 @@ const STRINGS = {
 
     "error.generic": "Algo ha fallado. Inténtalo de nuevo.",
     "error.network": "Sin conexión con el servidor.",
+    "error.server": "El servidor ha fallado. Inténtalo en unos minutos.",
     "error.invalid_price": "Precio no válido. Usa por ejemplo 1,25",
     "error.invalid_quantity": "Cantidad no válida.",
     "error.name_required": "Escribe el nombre del producto.",
@@ -262,6 +264,7 @@ const STRINGS = {
     "compare.per_unit.kg": "{price}/kg",
     "compare.per_unit.l": "{price}/L",
     "compare.per_unit.unit": "{price}/unit",
+    "compare.size.unit": "{n} units",
     "compare.not_location": "General price, not for your area",
     "compare.refresh": "Refresh now",
     "compare.refreshed": "Price updated",
@@ -403,6 +406,7 @@ const STRINGS = {
 
     "error.generic": "Something went wrong. Please try again.",
     "error.network": "Can't reach the server.",
+    "error.server": "The server had an error. Try again in a few minutes.",
     "error.invalid_price": "Invalid price. Use e.g. 1.25",
     "error.invalid_quantity": "Invalid quantity.",
     "error.name_required": "Enter the product name.",

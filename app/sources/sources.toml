@@ -20,7 +20,8 @@ food = [216]
 [easycompra]
 enabled = true
 min_interval_seconds = 1.0
-chains = ["dia", "carrefour", "lidl"]
+# Lidl left out: its EasyCompra data has no pack sizes (no unit price) and mixes in non-food items.
+chains = ["dia", "carrefour"]
 
 [openprices]
 enabled = true
@@ -29,6 +30,33 @@ radius_km = 10
 days = 120
 max_pages = 20
 
-# No usable source yet: product API blocked (HTTP 403) for non-browser clients. See README.
+# Server-rendered shop pages, fetched with a browser User-Agent (the JSON API answers 403).
+# No category walk: the catalogue is whatever these searches return (up to 50 hits each).
 [alcampo]
-enabled = false
+enabled = true
+min_interval_seconds = 2.0     # pages are 1-2 MB each
+search_terms = [
+    "leche", "huevos", "yogur", "queso", "mantequilla", "nata", "bebida vegetal",
+    "pan", "pan de molde", "harina", "arroz", "pasta", "espaguetis", "macarrones", "garbanzos", "lentejas",
+    "alubias", "aceite de oliva", "aceite de girasol", "vinagre", "sal", "azucar", "tomate frito",
+    "atun", "sardinas", "mayonesa", "ketchup", "caldo", "sopa",
+    "cafe", "cacao", "te", "galletas", "cereales", "mermelada", "miel", "chocolate",
+    "pollo", "ternera", "cerdo", "carne picada", "jamon", "jamon cocido", "pavo", "chorizo", "salchichas",
+    "salmon", "merluza", "gambas",
+    "patatas", "cebolla", "tomate", "lechuga", "zanahoria", "pimiento", "platano", "manzana", "naranja", "limon",
+    "pizza", "croquetas", "verduras congeladas", "helado", "gazpacho", "hummus",
+    "agua", "refresco", "cola", "zumo", "cerveza", "vino tinto",
+    "detergente", "suavizante", "lavavajillas", "lejia", "friegasuelos", "papel higienico", "papel de cocina",
+    "bolsas de basura",
+]
+
+# Top-level shop category (first element of the product's categoryPath) -> department.
+# Anything not listed is not collected (perfumery, baby, parapharmacy, pets, non-food...).
+[alcampo.departments]
+food = [
+    "Frescos", "Leche, Huevos, Lácteos, Yogures y Bebidas vegetales", "Alimentación", "Desayuno y Merienda",
+    "Congelados", "Comida Preparada", "Supermercado Ecológico",
+    "Sin Gluten / Sin Lactosa, Nutrición deportiva y Funcional", "Veganos",
+]
+drink = ["Bebidas"]
+household = ["Droguería"]

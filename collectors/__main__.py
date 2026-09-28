@@ -5,6 +5,7 @@
     uv run python -m collectors run --source openprices        # one source (Open Prices covers many chains)
     uv run python -m collectors run --all
     uv run python -m collectors run --chain mercadona --limit 50   # quick local test
+    uv run python -m collectors import-xlsx FILE... [--dry-run]    # one-off catalogue export import
 
 Uses DATABASE_URL (in production: Neon's *direct* connection string).
 Exit code 1 when a source failed completely, so the CI job shows red; partial runs exit 0.
@@ -15,6 +16,7 @@ import asyncio
 import logging
 import os
 import sys
+from datetime import datetime
 
 from app.config import get_settings
 from app.db import make_engine
@@ -99,6 +101,40 @@ async def cmd_run(args: argparse.Namespace) -> int:
     return 1 if any(r.status == "failed" for r in results) else 0
 
 
+def cmd_import_xlsx(args: argparse.Namespace) -> int:
+    from pathlib import Path
+
+    from collectors import xlsx_import
+
+    observed_at = None
+    if args.observed_at:
+        observed_at = datetime.fromisoformat(args.observed_at)
+        if observed_at.tzinfo is None:
+            observed_at = observed_at.replace(tzinfo=xlsx_import.MADRID)
+    try:
+        listings, parse_stats = xlsx_import.parse_files(
+            [Path(f) for f in args.files], set(args.chain) if args.chain else None, observed_at
+        )
+    except (OSError, ValueError) as exc:
+        print(exc, file=sys.stderr)
+        return 2
+    if args.limit is not None:
+        listings = listings[: args.limit]
+    print(xlsx_import.describe(listings, parse_stats))
+    if args.dry_run:
+        return 0
+    engine = make_engine(get_settings().database_url)
+    stats = xlsx_import.import_listings(engine, listings, parse_stats)
+    engine.dispose()
+    print(
+        f"{stats.status}: {stats.products_checked} imported, {stats.prices_changed} prices changed, "
+        f"{stats.new_listings} new, {stats.eans_added} with EAN from other sources, {stats.errors} errors"
+    )
+    for m in stats.messages[:10]:
+        print(f"    ! {m}")
+    return 1 if stats.status == "failed" else 0
+
+
 def main(argv: list[str] | None = None) -> int:
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
     logging.getLogger("httpx").setLevel(logging.WARNING)
@@ -113,6 +149,12 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--limit", type=int, help="stop after N products per source (testing)")
     run.add_argument("--max-detail", type=int, help="override max product-detail fetches (EAN backfill)")
     sub.add_parser("report", help="database size and row counts")
+    imp = sub.add_parser("import-xlsx", help="import Carrefour/Dia catalogue exports (.xlsx)")
+    imp.add_argument("files", nargs="+", help="xlsx files (Id, Nombre, Precio, Precio Pack, Formato, ...)")
+    imp.add_argument("--chain", action="append", choices=["carrefour", "dia"], help="only this chain (repeatable)")
+    imp.add_argument("--observed-at", help="price date, ISO (default: DDMMYYYY-HHMMSS in the file name, Madrid)")
+    imp.add_argument("--limit", type=int, help="import only the first N products (testing)")
+    imp.add_argument("--dry-run", action="store_true", help="parse and report, don't touch the database")
     args = parser.parse_args(argv)
 
     if args.command == "list":
@@ -123,6 +165,8 @@ def main(argv: list[str] | None = None) -> int:
         sys.argv = [sys.argv[0], "--markdown"] if os.environ.get("GITHUB_STEP_SUMMARY") else [sys.argv[0]]
         db_report.main()
         return 0
+    if args.command == "import-xlsx":
+        return cmd_import_xlsx(args)
     if not (args.all or args.chain or args.source):
         parser.error("run needs --chain, --source or --all")
     return asyncio.run(cmd_run(args))

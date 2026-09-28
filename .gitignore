@@ -16,3 +16,5 @@ data/
 *.db-shm
 *.db-wal
 .pytest_cache/
+.env.*
+!.env.example

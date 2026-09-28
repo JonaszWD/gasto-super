@@ -23,6 +23,7 @@ for f in public/js/*.js; do node --check "$f"; done   # the only JS check (CI ru
 
 uv run alembic revision --autogenerate -m "..."   # then review; tests/test_migrations.py fails if models and migrations differ
 uv run python -m collectors list | run (--chain X | --source S | --all) | report
+uv run python -m collectors import-xlsx FILE... [--dry-run]   # Carrefour/Dia catalogue exports (source "xlsx"; openpyxl is a dev dep)
 uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
 ```
 
@@ -48,7 +49,7 @@ uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
    - `CanonicalProduct` (EAN optional, department food/drink/household, normalized quantity) ← `Listing` (source, chain, chain product id, `postal_code` or `""` for non-location-specific sources) ← `ListingPrice`.
    - **Price history is change-only:** `ListingPrice` rows are price *periods* (`first_seen_at`/`last_seen_at`). `services/prices.record_observation` inserts only when the price or unit price changes, otherwise it moves `last_seen_at`; observations older than the latest row are ignored. "Stale" means `last_seen_at` is more than 7 days old.
    - **Linking** (`services/catalog.link_listing`): a shared EAN means the same canonical product. A listing without an EAN gets its own canonical product, which is upgraded in place or merged (`merge_canonical`, which moves shopping-list items) once an EAN arrives. `link_source="manual"` links are never touched by collectors.
-   - **Similar matching** (`services/matching.py`) is computed at read time. It requires the same department and unit, size within ±25% and keyword overlap, and ignores store brands. `ProductMatch` confirm/reject rows always override it.
+   - **Similar matching** (`services/matching.py`) is computed at read time. It requires the same department and unit, pack sizes at most 2× apart and keyword overlap on cleaned names (`services/names.clean_name`: no size, packaging or store brand). `ProductMatch` confirm/reject rows always override it.
    - The read side is `services/compare.py`: cards per chain in `COMPARED_CHAINS`, "cheapest" by unit price only when there are at least 2 prices, "precio pagado" rows from tracker purchases, shopping-list totals, and a 2-store split that is returned only if it uses both stores and beats the best single store.
 
 **Price sources** (`app/sources/`, shared by the collectors and the web "refresh now" endpoint):
@@ -57,9 +58,10 @@ uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
 - Sources are enabled and configured in `app/sources/sources.toml`, which includes Mercadona's category→department allowlist.
 - Current sources:
   - `mercadona`: unofficial storefront API; postal code → warehouse, cached in `appsetting`; EANs only from product detail, backfilled at `max_detail_fetches` per run.
-  - `easycompra`: community dataset for Dia/Carrefour/Lidl; not location-specific; chains marked not-fresh are skipped with a warning.
+  - `easycompra`: community dataset for Dia/Carrefour (Lidl left out in `sources.toml`: no pack sizes); not location-specific; chains marked not-fresh are skipped with a warning.
   - `openprices`: postal code geocoded via Nominatim; OSM brand → chain.
-- Dia/Carrefour/Alcampo direct APIs are behind bot protection. Do not add bot-detection evasion.
+  - `alcampo`: server-rendered shop pages (`window.__INITIAL_STATE__` `productEntities`), fetched with a browser User-Agent (`SourceAdapter.user_agent`) because the JSON API answers 403 to other clients. Catalogue = the `search_terms` in `sources.toml`, filtered by top-level category → department. No EANs, not location-specific.
+- Dia/Carrefour direct APIs are behind Akamai; a browser User-Agent isn't enough there.
 - `collectors/` is only the CLI and runner (per-item savepoints, `CollectorRun` rows, GitHub step summary). It is excluded from the Vercel bundle, so web code must not import from it.
 
 **Search** (`services/synonyms.py`):

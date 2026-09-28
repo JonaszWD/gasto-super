@@ -9,6 +9,7 @@ from sqlmodel import Session, col, select
 from app.models import AppSetting, CanonicalProduct, Chain, Listing, ListingPrice, Purchase, Store, Trip, utcnow
 from app.services.catalog import valid_ean
 from app.services.matching import find_similar
+from app.services.names import clean_name
 from app.services.prices import is_stale
 from app.services.synonyms import query_groups, relevance, sql_filter
 
@@ -27,6 +28,7 @@ class ChainPrice:
     price_cents: int | None = None
     unit_price_cents: int | None = None
     unit: str | None = None
+    quantity_value: float | None = None  # pack size in `unit`
     last_seen_at: datetime | None = None
     stale: bool = False
     cheapest: bool = False
@@ -113,7 +115,8 @@ def build_card(
     for row, listing in chosen:
         lp = prices.get(listing.id)  # type: ignore[arg-type]
         row.listing_id = listing.id
-        row.listing_name = listing.name
+        row.listing_name = clean_name(listing.name, listing.brand)
+        row.quantity_value = listing.quantity_value
         row.source = listing.source
         row.unit = listing.quantity_unit
         row.location_specific = listing.postal_code != ""
@@ -228,12 +231,12 @@ def compare_list(
             assert card.product.id is not None
             if row.price_cents is None:
                 missing += 1
-                lines.append(ListLine(card.product.id, card.product.name, qty, None, "none"))
+                lines.append(ListLine(card.product.id, clean_name(card.product.name, card.product.brand), qty, None, "none"))
                 continue
             total += row.price_cents * qty
             similar += row.match in ("similar", "confirmed")
             stale += row.stale
-            lines.append(ListLine(card.product.id, card.product.name, qty, row.price_cents * qty, row.match))
+            lines.append(ListLine(card.product.id, clean_name(card.product.name, card.product.brand), qty, row.price_cents * qty, row.match))
         totals.append(ChainTotal(chain_id, names.get(chain_id, chain_id), total, missing, similar, stale, lines))
     totals.sort(key=lambda t: (t.missing, t.total_cents))
     return totals, best_split(totals)

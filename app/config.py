@@ -7,7 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
+    # env_ignore_empty: a variable set to "" (easy to do in the Vercel UI) means "use the default"
+    # instead of crashing the whole app at import time.
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore", env_ignore_empty=True)
 
     # Any Postgres URL. The web app uses Neon's *pooled* URL, collectors/migrations the direct one.
     database_url: str = "postgresql+psycopg://gasto:gasto@localhost:5433/gasto"

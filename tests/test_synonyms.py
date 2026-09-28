@@ -45,9 +45,9 @@ def test_compare_search_in_english(client: TestClient, clean_db: Engine) -> None
         add_listing(s, "mercadona", "m2", "Aceite de oliva 0,4º Hacendado", 1725, size="Garrafa 5 l", ean="8402001027482")
         add_listing(s, "mercadona", "m3", "Tomate frito Hacendado", 69, ean="8480000160164")
     names = [c["product"]["name"] for c in client.get("/api/compare/search", params={"q": "milk"}).json()["results"]]
-    assert names == ["Leche entera Hacendado"]
+    assert names == ["Leche entera"]
     names = [c["product"]["name"] for c in client.get("/api/compare/search", params={"q": "olive oil"}).json()["results"]]
-    assert names == ["Aceite de oliva 0,4º Hacendado"]
+    assert names == ["Aceite de oliva 0,4º"]
     assert client.get("/api/compare/search", params={"q": "tea"}).json()["results"] == []
 
 
@@ -111,7 +111,7 @@ def test_compare_search_ranks_most_relevant_first(client: TestClient, clean_db: 
         ]):
             add_listing(s, "mercadona", f"p{i}", name, 100 + i, ean=None)
     names = [c["product"]["name"] for c in client.get("/api/compare/search", params={"q": "peppers"}).json()["results"]]
-    assert names[0] == "Pimienta negra molida Hacendado"
+    assert names[0] == "Pimienta negra molida"
     assert names[-1] == "Salmón ahumado a la pimienta"
 
 

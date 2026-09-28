@@ -121,3 +121,12 @@ def test_hash_roundtrip() -> None:
     assert verify_password("s3cret-password", stored)
     assert not verify_password("s3cret-passwore", stored)
     assert not verify_password("x", "garbage")
+
+
+def test_empty_env_vars_fall_back_to_defaults(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Vercel lets you save a variable with an empty value; that must not crash the app.
+    monkeypatch.setenv("SESSION_MAX_AGE_DAYS", "")
+    monkeypatch.setenv("COOKIE_SECURE", "")
+    settings = Settings(_env_file=None)  # ignore a developer's local .env
+    assert settings.session_max_age_days == 400
+    assert settings.cookie_secure is True
