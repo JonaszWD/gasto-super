@@ -32,6 +32,8 @@ BROWSER_USER_AGENT = (
 HTML_HEADERS = {"Accept": "text/html,application/xhtml+xml", "Accept-Language": "es-ES,es;q=0.9"}
 # Consecutive 403/429 answers after which a catalogue run gives up.
 MAX_BLOCKED_IN_A_ROW = 3
+# Where the last capped run stopped: "<term index>:<products to skip in that term's results>".
+CURSOR_KEY = "alcampo:cursor"
 
 
 class AlcampoBlocked(SourceError):
@@ -46,13 +48,19 @@ class AlcampoAdapter(SourceAdapter):
     min_interval = 2.0
     user_agent = BROWSER_USER_AGENT
 
-    def __init__(self, departments: dict[str, list[str]] | None = None, search_terms: list[str] | None = None) -> None:
+    def __init__(
+        self,
+        departments: dict[str, list[str]] | None = None,
+        search_terms: list[str] | None = None,
+        max_products: int | None = None,
+    ) -> None:
         # normalized top-level category name -> department; anything else is skipped.
         self.departments: dict[str, str] = {}
         for dept, names in (departments or {}).items():
             for name in names:
                 self.departments[normalize(name)] = dept
         self.search_terms = list(search_terms or [])
+        self.max_products = max_products or None  # per catalogue run; None = every term
 
     def department_for(self, category_path: list[str] | None) -> str | None:
         if not category_path:
@@ -79,9 +87,19 @@ class AlcampoAdapter(SourceAdapter):
         return out
 
     async def fetch_catalog(self, ctx: SourceContext) -> AsyncIterator[RawListing]:
+        """Walk the search terms. With max_products set, each run takes the next that many products
+        and remembers where it stopped (term + position, in appsetting), so successive nights
+        rotate through the whole term list instead of re-reading the first terms."""
+        terms = self.search_terms
+        if not terms:
+            return
+        start, skip = self._cursor(ctx, len(terms)) if self.max_products else (0, 0)
         seen: set[str] = set()
+        yielded = 0
         blocked_in_a_row = 0
-        for term in self.search_terms:
+        for step in range(len(terms)):
+            index = (start + step) % len(terms)
+            term = terms[index]
             try:
                 found = await self._search_page(ctx, term)
             except AlcampoBlocked as exc:
@@ -98,10 +116,34 @@ class AlcampoAdapter(SourceAdapter):
                 ctx.warnings.append(f"Alcampo: search {term!r} failed ({exc})")
                 continue
             blocked_in_a_row = 0
-            for listing in found:
-                if listing.chain_product_id not in seen:
-                    seen.add(listing.chain_product_id)
+            first = skip if step == 0 else 0
+            for position in range(first, len(found)):
+                listing = found[position]
+                if listing.chain_product_id in seen:
+                    continue
+                seen.add(listing.chain_product_id)
+                yielded += 1
+                if self.max_products and yielded >= self.max_products:
+                    # Saved before the last yield: the runner may close us right after it.
+                    if position + 1 < len(found):
+                        self._save_cursor(ctx, index, position + 1)
+                    else:
+                        self._save_cursor(ctx, (index + 1) % len(terms), 0)
                     yield listing
+                    return
+                yield listing
+        if self.max_products:
+            self._save_cursor(ctx, start, 0)  # the whole list fitted in one run
+
+    def _cursor(self, ctx: SourceContext, n_terms: int) -> tuple[int, int]:
+        try:
+            index, skip = (int(x) for x in (ctx.cache.get(CURSOR_KEY) or "0:0").split(":"))
+        except ValueError:
+            return 0, 0
+        return (index, skip) if 0 <= index < n_terms and skip >= 0 else (0, 0)
+
+    def _save_cursor(self, ctx: SourceContext, index: int, skip: int) -> None:
+        ctx.cache.set(CURSOR_KEY, f"{index}:{skip}")
 
     async def search(self, ctx: SourceContext, query: str) -> list[RawListing]:
         return await self._search_page(ctx, query)

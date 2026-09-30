@@ -60,9 +60,9 @@ uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
   - `mercadona`: unofficial storefront API; postal code → warehouse, cached in `appsetting`; EANs only from product detail, backfilled at `max_detail_fetches` per run.
   - `easycompra`: community dataset for Dia/Carrefour (Lidl left out in `sources.toml`: no pack sizes); not location-specific; chains marked not-fresh are skipped with a warning.
   - `openprices`: postal code geocoded via Nominatim; OSM brand → chain.
-  - `alcampo`: server-rendered shop pages (`window.__INITIAL_STATE__` `productEntities`), fetched with a browser User-Agent (`SourceAdapter.user_agent`) because the JSON API answers 403 to other clients. Catalogue = the `search_terms` in `sources.toml`, filtered by top-level category → department. No EANs, not location-specific.
+  - `alcampo`: server-rendered shop pages (`window.__INITIAL_STATE__` `productEntities`), fetched with a browser User-Agent (`SourceAdapter.user_agent`) because the JSON API answers 403 to other clients. Catalogue = the `search_terms` in `sources.toml`, filtered by top-level category → department, `max_products_per_run` per night with a rotating cursor (`alcampo:cursor` in `appsetting`). Stops after 3 consecutive 403/429. No EANs, not location-specific.
 - Dia/Carrefour direct APIs are behind Akamai; a browser User-Agent isn't enough there.
-- `collectors/` is only the CLI and runner (per-item savepoints, `CollectorRun` rows, GitHub step summary). It is excluded from the Vercel bundle, so web code must not import from it.
+- `collectors/` is only the CLI and runner (`CollectorRun` rows, GitHub step summary). Collectors run on US GitHub runners against Neon in Frankfurt (~150 ms per round trip), so the runner stores products in batches of 200 via `services/catalog.store_listings` (a few statements per batch, same rules as `upsert_listing` + `record_listing_price`); a failed batch is redone per item with savepoints. Don't add per-product queries to that path. It is excluded from the Vercel bundle, so web code must not import from it.
 
 **Search** (`services/synonyms.py`):
 - Queries become ordered groups of alternatives (English→Spanish grocery table; the first translation is the primary meaning).

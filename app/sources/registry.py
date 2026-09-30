@@ -32,7 +32,7 @@ def build_adapter(source_id: str, config: dict[str, Any] | None = None) -> Sourc
                 radius_km=cfg.get("radius_km", 10), days=cfg.get("days", 120), max_pages=cfg.get("max_pages", 20)
             )
         case "alcampo":
-            adapter = AlcampoAdapter(cfg.get("departments"), cfg.get("search_terms"))
+            adapter = AlcampoAdapter(cfg.get("departments"), cfg.get("search_terms"), cfg.get("max_products_per_run"))
         case _:
             return None
     adapter.min_interval = cfg.get("min_interval_seconds", adapter.min_interval)

@@ -35,6 +35,9 @@ max_pages = 20
 [alcampo]
 enabled = true
 min_interval_seconds = 2.0     # pages are 1-2 MB each
+# Products per nightly run. Each run continues where the last one stopped, so the term list
+# below is covered in rotation (about 60 nights for ~3,000 products). Remove for a full run.
+max_products_per_run = 50
 search_terms = [
     "leche", "huevos", "yogur", "queso", "mantequilla", "nata", "bebida vegetal",
     "pan", "pan de molde", "harina", "arroz", "pasta", "espaguetis", "macarrones", "garbanzos", "lentejas",

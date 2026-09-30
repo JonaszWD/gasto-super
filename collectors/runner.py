@@ -8,14 +8,16 @@ from sqlmodel import Session, col, select
 
 from app.config import get_settings
 from app.models import CollectorRun, Listing, utcnow
-from app.services.catalog import record_listing_price, upsert_listing
+from app.services.catalog import record_listing_price, store_listings, upsert_listing, valid_ean
 from app.services.compare import postal_code as current_postal_code
 from app.services.kv import DbCache
 from app.sources.base import PoliteClient, SourceContext
 from app.sources.registry import build_adapter, load_config
 
 log = logging.getLogger("collectors")
-COMMIT_EVERY = 200
+# Products stored (and committed) per batch; see store_listings.
+BATCH_SIZE = 200
+COMMIT_EVERY = BATCH_SIZE  # used by the one-at-a-time spreadsheet import
 
 
 @dataclass
@@ -86,28 +88,63 @@ async def run_source(
     return stats
 
 
-async def _collect_catalog(session, adapter, ctx, listing_pc, stats: RunStats, limit) -> None:  # type: ignore[no-untyped-def]
+def _store(session, source: str, raws: list, listing_pc: str, stats: RunStats) -> list[tuple[bool, bool] | None]:  # type: ignore[type-arg]
+    """Store one batch and commit it; (is_new, price_changed) per raw, None where it failed.
+
+    If the batch fails, it is redone product by product so one bad product only costs itself
+    (slow, but only on the rare batch with a bad product)."""
+    results: list[tuple[bool, bool] | None]
     try:
-        async for raw in adapter.fetch_catalog(ctx):
-            if limit is not None and stats.products_checked >= limit:
-                break
+        with session.begin_nested():
+            results = list(store_listings(session, source, raws, listing_pc))
+    except Exception:
+        log.warning("batch of %d failed; storing one by one", len(raws), exc_info=True)
+        results = []
+        for raw in raws:
             try:
                 with session.begin_nested():
-                    listing, is_new = upsert_listing(session, adapter.id, raw, listing_pc)
-                    changed = record_listing_price(session, listing, raw)
+                    listing, is_new = upsert_listing(session, source, raw, listing_pc)
+                    results.append((is_new, record_listing_price(session, listing, raw)))
             except Exception as exc:  # one bad product must not stop the run
+                results.append(None)
                 stats.errors += 1
                 if len(stats.messages) < 20:
                     stats.messages.append(f"{raw.chain_id}/{raw.chain_product_id}: {exc}")
-                continue
-            stats.products_checked += 1
-            stats.new_listings += is_new
-            stats.prices_changed += changed
-            if stats.products_checked % COMMIT_EVERY == 0:
-                session.commit()
-        session.commit()
+    session.commit()
+    return results
+
+
+def _store_catalog(session, source: str, raws: list, listing_pc: str, stats: RunStats) -> None:  # type: ignore[type-arg]
+    for result in _store(session, source, raws, listing_pc, stats):
+        if result is None:
+            continue
+        is_new, changed = result
+        stats.products_checked += 1
+        stats.new_listings += is_new
+        stats.prices_changed += changed
+
+
+async def _collect_catalog(session, adapter, ctx, listing_pc, stats: RunStats, limit) -> None:  # type: ignore[no-untyped-def]
+    batch: list = []  # type: ignore[type-arg]
+    seen = 0
+    try:
+        async for raw in adapter.fetch_catalog(ctx):
+            if limit is not None and seen >= limit:
+                break
+            seen += 1
+            batch.append(raw)
+            if len(batch) >= BATCH_SIZE:
+                _store_catalog(session, adapter.id, batch, listing_pc, stats)
+                batch = []
+        _store_catalog(session, adapter.id, batch, listing_pc, stats)
     except Exception as exc:
         session.rollback()
+        if batch:  # products fetched before the failure (e.g. the source blocking us) are still worth keeping
+            try:
+                _store_catalog(session, adapter.id, batch, listing_pc, stats)
+            except Exception:
+                session.rollback()
+                log.exception("could not store the last batch of %s", adapter.id)
         stats.errors += 1
         stats.messages.append(f"catalog: {exc}")
         stats.status = "failed" if stats.products_checked == 0 else "partial"
@@ -129,17 +166,20 @@ async def _backfill_eans(session, adapter, ctx, listing_pc, run, stats: RunStats
         .order_by(col(Listing.id))
         .limit(budget)
     ).all()
+    fetched: list = []  # type: ignore[type-arg]
     for listing in missing:
         try:
             raw = await adapter.fetch_product(ctx, listing.chain_product_id)
-            if raw is None:
-                continue
-            with session.begin_nested():
-                updated, _ = upsert_listing(session, adapter.id, raw, listing_pc)
-                stats.prices_changed += record_listing_price(session, updated, raw)
-                stats.eans_added += updated.ean is not None
         except Exception as exc:
             stats.errors += 1
             if len(stats.messages) < 20:
                 stats.messages.append(f"detail {listing.chain_product_id}: {exc}")
-    session.commit()
+            continue
+        if raw is not None:
+            fetched.append(raw)
+    for start in range(0, len(fetched), BATCH_SIZE):
+        chunk = fetched[start : start + BATCH_SIZE]
+        for raw, result in zip(chunk, _store(session, adapter.id, chunk, listing_pc, stats)):
+            if result is not None:
+                stats.prices_changed += result[1]
+                stats.eans_added += valid_ean(raw.ean) is not None  # these listings had no EAN before

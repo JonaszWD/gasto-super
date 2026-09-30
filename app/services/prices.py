@@ -37,23 +37,43 @@ def record_observation(session: Session, listing_id: int, obs: Observation) -> b
     - Observation older than what we already know: ignored (history is append-only in time).
     """
     current = latest_price(session, listing_id)
+    new_row = apply_observation(current, listing_id, obs)
+    if new_row is not None:
+        session.add(new_row)
+    elif current is not None:
+        session.add(current)
+    return new_row is not None
+
+
+def apply_observation(current: ListingPrice | None, listing_id: int, obs: Observation) -> ListingPrice | None:
+    """The rules of record_observation without the database: returns the new price row to insert,
+    or None (after moving `current.last_seen_at` forward when the price is unchanged)."""
     if current is not None:
         if obs.seen_at < current.last_seen_at:
-            return False
+            return None
         if current.price_cents == obs.price_cents and current.unit_price_cents == obs.unit_price_cents:
             current.last_seen_at = obs.seen_at
-            session.add(current)
-            return False
-    session.add(
-        ListingPrice(
-            listing_id=listing_id,
-            price_cents=obs.price_cents,
-            unit_price_cents=obs.unit_price_cents,
-            first_seen_at=obs.seen_at,
-            last_seen_at=obs.seen_at,
-        )
+            return None
+    return ListingPrice(
+        listing_id=listing_id,
+        price_cents=obs.price_cents,
+        unit_price_cents=obs.unit_price_cents,
+        first_seen_at=obs.seen_at,
+        last_seen_at=obs.seen_at,
     )
-    return True
+
+
+def latest_prices(session: Session, listing_ids: list[int]) -> dict[int, ListingPrice]:
+    """latest_price for many listings in one query."""
+    if not listing_ids:
+        return {}
+    stmt = (
+        select(ListingPrice)
+        .where(col(ListingPrice.listing_id).in_(listing_ids))
+        .distinct(col(ListingPrice.listing_id))
+        .order_by(col(ListingPrice.listing_id), col(ListingPrice.last_seen_at).desc(), col(ListingPrice.id).desc())
+    )
+    return {p.listing_id: p for p in session.exec(stmt).all()}
 
 
 def is_stale(last_seen_at: datetime, now: datetime, max_age_days: int = 7) -> bool:

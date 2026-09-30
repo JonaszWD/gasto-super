@@ -1,5 +1,7 @@
 """Source adapters against recorded responses (tests/fixtures), never the real stores."""
 
+import json
+
 import httpx
 import pytest
 
@@ -282,3 +284,44 @@ async def test_alcampo_refusal_count_resets_after_a_good_page() -> None:
     listings = [x async for x in adapter.fetch_catalog(ctx)]
     assert len(listings) == 4
     assert {r.url.params["q"] for r in seen} == {"a", "b", "leche", "c", "d"}  # 429s are retried, never fatal here
+
+
+def alcampo_page(term: str, count: int) -> str:
+    """A search page with `count` food products whose ids start with the term."""
+    entities = {
+        f"uuid-{term}-{i}": {
+            "retailerProductId": f"{term}{i}",
+            "name": f"Producto {term} {i} 1 l",
+            "categoryPath": ["Alimentación"],
+            "price": {"current": {"amount": "1.00", "currency": "EUR"}},
+        }
+        for i in range(count)
+    }
+    return '<script>window.__INITIAL_STATE__={"data":{"products":{"productEntities":%s}}};</script>' % json.dumps(entities)
+
+
+async def test_alcampo_capped_runs_rotate_through_the_terms() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(200, text=alcampo_page(request.url.params["q"], 4))
+
+    adapter = AlcampoAdapter({"food": ["Alimentación"]}, ["a", "b"], max_products=3)
+    ctx, seen = make_ctx(handler)
+    nights = []
+    for _ in range(3):
+        nights.append([x.chain_product_id async for x in adapter.fetch_catalog(ctx)])  # same cache: next night
+    assert nights == [["a0", "a1", "a2"], ["a3", "b0", "b1"], ["b2", "b3", "a0"]]
+    assert [r.url.params["q"] for r in seen] == ["a", "a", "b", "b", "a"]
+    assert ctx.cache.get("alcampo:cursor") == "0:1"
+
+
+async def test_alcampo_blocked_run_does_not_move_the_cursor() -> None:
+    adapter = AlcampoAdapter({"food": ["Alimentación"]}, ["a", "b", "c"], max_products=3)
+    ctx, _ = make_ctx(lambda r: httpx.Response(403, text=""))
+    ctx.cache.set("alcampo:cursor", "1:2")
+    with pytest.raises(SourceError):
+        [x async for x in adapter.fetch_catalog(ctx)]
+    assert ctx.cache.get("alcampo:cursor") == "1:2"
+
+
+def test_alcampo_config_caps_nightly_products() -> None:
+    assert alcampo().max_products == 50
