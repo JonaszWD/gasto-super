@@ -222,6 +222,52 @@ class ProductDetailOut(ProductCardOut):
     history: list[ChainHistory]
 
 
+class ProductTypeSummaryOut(BaseModel):
+    slug: str
+    name_es: str
+    name_en: str
+    products: int
+    chains: int
+    unit: str | None
+    min_unit_price_cents: int | None
+    min_chain_name: str | None
+
+
+class ProductTypesOut(BaseModel):
+    query: str
+    types: list[ProductTypeSummaryOut]
+
+
+class TypeOfferOut(BaseModel):
+    product_id: int
+    listing_id: int
+    name: str
+    price_cents: int
+    unit_price_cents: int | None
+    unit: str | None
+    quantity_value: float | None
+    last_seen_at: UtcDatetime
+    stale: bool
+    location_specific: bool
+
+
+class TypeChainOut(BaseModel):
+    chain_id: str
+    chain_name: str
+    cheapest: bool
+    offers: list[TypeOfferOut]
+
+
+class ProductTypeDetailOut(BaseModel):
+    slug: str
+    name_es: str
+    name_en: str
+    unit: str | None
+    default_amount: float
+    postal_code: str
+    chains: list[TypeChainOut]
+
+
 class MatchAction(BaseModel):
     listing_id: int
     action: str = Field(pattern="^(confirm|reject|relink|reset)$")
@@ -263,12 +309,30 @@ class ListItemIn(BaseModel):
     quantity: int = Field(default=1, ge=1, le=99)
 
 
+class ListTypeIn(BaseModel):
+    product_type: str = Field(max_length=60)
+    amount: float = Field(gt=0, le=100)
+    unit: Literal["kg", "l", "unit"]
+
+
+class ListTypeAmountIn(BaseModel):
+    amount: float = Field(gt=0, le=100)
+
+
 class ListLineOut(BaseModel):
-    product_id: int
+    key: str
+    product_id: int | None
     name: str
     quantity: int
     price_cents: int | None
     match: str
+    product_type: str | None = None
+    name_en: str | None = None  # types only: products keep the chain's (Spanish) name
+    amount: float | None = None
+    unit: str | None = None
+    chosen_product_id: int | None = None
+    chosen_name: str | None = None
+    packs: int | None = None
 
 
 class ChainTotalOut(BaseModel):
@@ -286,7 +350,7 @@ class SplitOut(BaseModel):
     chain_names: list[str]
     total_cents: int
     missing: int
-    assignment: dict[int, str]
+    assignment: dict[str, str]  # line key -> chain id
 
 
 class ShoppingListOut(BaseModel):

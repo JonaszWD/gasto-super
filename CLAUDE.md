@@ -24,6 +24,7 @@ for f in public/js/*.js; do node --check "$f"; done   # the only JS check (CI ru
 uv run alembic revision --autogenerate -m "..."   # then review; tests/test_migrations.py fails if models and migrations differ
 uv run python -m collectors list | run (--chain X | --source S | --all) | report
 uv run python -m collectors import-xlsx FILE... [--dry-run]   # Carrefour/Dia catalogue exports (source "xlsx"; openpyxl is a dev dep)
+uv run python -m collectors retype                # re-apply app/product_types.toml (also runs after every `run`)
 uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
 ```
 
@@ -50,6 +51,7 @@ uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
    - **Price history is change-only:** `ListingPrice` rows are price *periods* (`first_seen_at`/`last_seen_at`). `services/prices.record_observation` inserts only when the price or unit price changes, otherwise it moves `last_seen_at`; observations older than the latest row are ignored. "Stale" means `last_seen_at` is more than 7 days old.
    - **Linking** (`services/catalog.link_listing`): a shared EAN means the same canonical product. A listing without an EAN gets its own canonical product, which is upgraded in place or merged (`merge_canonical`, which moves shopping-list items) once an EAN arrives. `link_source="manual"` links are never touched by collectors.
    - **Similar matching** (`services/matching.py`) is computed at read time. It requires the same department and unit, pack sizes at most 2× apart and keyword overlap on cleaned names (`services/names.clean_name`: no size, packaging or store brand). `ProductMatch` confirm/reject rows always override it.
+   - **Product types** (`app/product_types.toml`, `services/product_types.py`): generic names ("Pechuga de pollo") grouping products across chains. Rules are head-anchored patterns on the cleaned name plus exclude words/categories; first match in file order wins. `CanonicalProduct.product_type` holds the slug, set in `_canonical_from_listing` and by `catalog.retype` (one read + one batched update). Types are searched through their es/en names with the synonym groups, so "chicken" lists every chicken type; `/api/compare/types` and `/api/compare/types/{slug}` compare the cheapest unit price per chain. A `ShoppingListItem` is either a product (`quantity` packs) or a type (`amount` in `amount_unit`, DB check constraint); list lines are keyed `p:<id>` / `t:<slug>`, and a type line costs each chain's cheapest way to cover the amount (`compare.cheapest_for_amount`: whole packs, or unit price × amount for "aprox"/"granel" items).
    - The read side is `services/compare.py`: cards per chain in `COMPARED_CHAINS`, "cheapest" by unit price only when there are at least 2 prices, "precio pagado" rows from tracker purchases, shopping-list totals, and a 2-store split that is returned only if it uses both stores and beats the best single store.
 
 **Price sources** (`app/sources/`, shared by the collectors and the web "refresh now" endpoint):
@@ -71,7 +73,8 @@ uv run python -m app.tools.hash_password          # value for APP_PASSWORD_HASH
 - The tracker product search uses the same helpers in Python (`text_matches`).
 
 **Frontend** (`public/js`, ES modules, hash router in `app.js`):
-- `compare.js` holds the comparison screens and `ui.js` the shared sheets/toasts.
+- `compare.js` holds the comparison screens, `ui.js` the shared sheets/toasts, `scanner.js` the camera/barcode flow.
+- **Design sources:** `PRODUCT.md` (users, positioning, product principles) and `DESIGN.md` (visual system: off-white canvas, near-black ink, light-weight serif display, pastel gradient orbs) drive UI work. Fonts are self-hosted in `public/fonts/` (Inter body, Spectral 300 as the display substitute), exposed via CSS vars like `--display` in `public/css/app.css`. `.impeccable/config.json` records accepted design-lint exceptions.
 - `api.js` dispatches a window `unauthorized` event on a 401, which shows the login screen.
 - `@zxing/browser` is loaded from jsDelivr with pinned SRI. iOS needs `playsinline`/`muted`/`autoplay` and HTTPS for the camera.
 - **i18n:** every UI string lives in `public/js/i18n.js` with `es` and `en` tables that must keep identical keys. The language is stored server-side (`appsetting.language` via `/api/settings`) and mirrored in localStorage for the login screen.

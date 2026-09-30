@@ -1,0 +1,434 @@
+# Product types: generic names ("Pechuga de pollo") that group specific products from every chain,
+# so a search for "chicken" can offer the kinds of chicken and compare their price per kg.
+# Read by app/services/product_types.py; products are classified by the collectors
+# (`python -m collectors retype` re-applies this file to every product).
+#
+# Rules match the cleaned product name (no pack size or store brand; lower case, no accents):
+#   match    patterns anchored at the START of the name (Spanish names lead with what the product is)
+#   exclude  patterns found ANYWHERE in the name that rule the type out (cooked, breaded, snacks...)
+#   exclude_categories  text found in the chain's category (normalised the same way)
+# Pattern tokens: a word; "word*" = any word starting with it; "~" = up to 3 other words.
+#   amount   default amount when a type is added to the shopping list, in the unit its products
+#            are priced in (kg, l or units); 1 when left out.
+# The first type whose rules match wins, and file order is also the display order.
+
+# Never typed: pet food and baby food use the same words ("sopas de pollo para gatos").
+exclude_categories = ["mascota", "gato", "perro", "infantil", "bebe", "potito"]
+
+# Shared by the fresh meat and fish types: prepared, cooked or cured versions are other products.
+[sets]
+prepared = ["cocid*", "brasead*", "asad*", "lonchas", "fiambre", "empanad*", "rebozad*", "marinad*", "adobad*",
+            "relleno*", "curad*", "ahumad*", "kentucky", "nuggets", "crispy", "barbacoa", "teriyaki", "curry",
+            "salsa", "pechuguita*", "tacos", "cocinad*", "hamburguesa*"]
+prepared_categories = ["jamon cocido", "charcuteria", "embutido", "platos preparados", "empanados", "rebozados",
+                       "elaborados", "conserva", "ahumados", "precocinados"]
+
+# ---------------------------------------------------------------- chicken
+[types.pollo-entero]
+es = "Pollo entero"
+en = "Whole chicken"
+match = ["pollo* ~ entero*", "pollo* ~ limpio*", "pollo para asar"]
+exclude = ["@prepared", "medio", "picanton"]
+exclude_categories = ["@prepared_categories"]
+
+[types.pechuga-de-pollo]
+es = "Pechuga de pollo"
+en = "Chicken breast"
+match = ["pechuga* ~ de pollo", "pechuga* pollo", "pechuga* de pollo", "filete* de pechuga* ~ de pollo",
+         "filete* de pechuga* pollo"]
+exclude = ["@prepared", "natural", "troceada", "hierbas"]
+exclude_categories = ["@prepared_categories"]
+
+[types.muslos-de-pollo]
+es = "Muslos de pollo"
+en = "Chicken thighs"
+match = ["muslo* ~ de pollo"]
+exclude = ["@prepared", "mini"]
+exclude_categories = ["@prepared_categories"]
+
+[types.contramuslos-de-pollo]
+es = "Contramuslos de pollo"
+en = "Chicken thigh fillets"
+match = ["contramuslo* ~ de pollo", "filete* de contramuslo* ~ de pollo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.alas-de-pollo]
+es = "Alas de pollo"
+en = "Chicken wings"
+match = ["alas ~ de pollo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.jamoncitos-de-pollo]
+es = "Jamoncitos de pollo"
+en = "Chicken drumsticks"
+match = ["jamoncito* ~ de pollo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.cuartos-traseros-de-pollo]
+es = "Cuartos traseros de pollo"
+en = "Chicken leg quarters"
+match = ["cuartos traseros ~ de pollo", "traseros ~ de pollo", "cuartos de pollo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.solomillos-de-pollo]
+es = "Solomillos de pollo"
+en = "Chicken tenderloins"
+match = ["solomillo* ~ de pollo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+# ---------------------------------------------------------------- pork and beef
+[types.lomo-de-cerdo]
+es = "Lomo de cerdo"
+en = "Pork loin"
+match = ["lomo* de cerdo", "cinta de lomo"]
+exclude = ["@prepared", "embuchado", "iberico"]
+exclude_categories = ["@prepared_categories"]
+
+[types.solomillo-de-cerdo]
+es = "Solomillo de cerdo"
+en = "Pork tenderloin"
+match = ["solomillo* ~ de cerdo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.costillas-de-cerdo]
+es = "Costillas de cerdo"
+en = "Pork ribs"
+match = ["costilla* ~ de cerdo"]
+exclude = ["@prepared", "iberico"]
+exclude_categories = ["@prepared_categories"]
+
+[types.chuletas-de-cerdo]
+es = "Chuletas de cerdo"
+en = "Pork chops"
+match = ["chuleta* ~ de cerdo", "chuleta* de aguja", "chuleta* aguja de cerdo", "chuleta* lomo de cerdo"]
+exclude = ["@prepared", "iberico"]
+exclude_categories = ["@prepared_categories"]
+
+[types.panceta-de-cerdo]
+es = "Panceta de cerdo"
+en = "Pork belly"
+match = ["panceta de cerdo", "panceta fresca"]
+exclude = ["@prepared", "salad*", "oread*"]
+exclude_categories = ["@prepared_categories"]
+
+[types.carne-picada-mixta]
+es = "Carne picada mixta"
+en = "Mixed minced meat"
+match = ["carne picada mixta", "carne picada ~ cerdo y vacuno", "carne picada ~ vacuno y cerdo",
+         "carne picada ~ ternera y cerdo", "carne picada ~ cerdo y ternera"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.carne-picada-de-vacuno]
+es = "Carne picada de vacuno"
+en = "Minced beef"
+match = ["carne picada ~ vacuno", "carne picada ~ ternera", "carne picada ~ anojo"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+[types.filetes-de-ternera]
+es = "Filetes de ternera"
+en = "Beef steaks"
+match = ["filete* ~ de ternera", "filete* ~ de vacuno", "filete* ~ de anojo"]
+exclude = ["@prepared", "higado"]
+exclude_categories = ["@prepared_categories"]
+
+[types.entrecot]
+es = "Entrecot de vacuno"
+en = "Beef entrecote"
+match = ["entrecot*"]
+exclude = ["@prepared"]
+exclude_categories = ["@prepared_categories"]
+
+# ---------------------------------------------------------------- fish and seafood
+[types.salmon]
+es = "Salmón fresco"
+en = "Fresh salmon"
+match = ["salmon en filete*", "salmon en rodaja*", "salmon en porciones", "salmon media pieza", "salmon",
+         "filete* de salmon", "lomo* de salmon", "lomos y centros de salmon"]
+exclude = ["@prepared", "natural", "aceite", "tartar", "pate", "dados", "verduras", "listo", "salvaje"]
+exclude_categories = ["@prepared_categories"]
+
+[types.merluza]
+es = "Merluza"
+en = "Hake"
+match = ["merluza", "merluza ~ sin cabeza", "filete* de merluza", "lomo* de merluza", "rodaja* de merluza"]
+exclude = ["@prepared", "palitos", "varitas"]
+exclude_categories = ["@prepared_categories"]
+
+[types.atun-en-lata]
+es = "Atún en lata"
+en = "Canned tuna"
+amount = 0.25
+match = ["atun claro", "atun ~ al natural", "atun ~ en aceite", "atun ~ con aceite", "atun ~ sin aceite"]
+exclude = ["salsa", "escabeche", "tomate", "fresco", "solomillo", "rallado"]
+
+[types.gambas]
+es = "Gambas"
+en = "Prawns"
+amount = 0.5
+match = ["gamba*"]
+exclude = ["@prepared", "goma", "ajillo"]
+exclude_categories = ["@prepared_categories"]
+
+[types.langostinos]
+es = "Langostinos"
+en = "King prawns"
+amount = 0.5
+match = ["langostino*"]
+exclude = ["rebozad*", "empanad*", "caballitos", "salsa", "tempura"]
+exclude_categories = ["empanados", "rebozados", "platos preparados"]
+
+# ---------------------------------------------------------------- eggs and dairy
+[types.huevos]
+es = "Huevos"
+en = "Eggs"
+amount = 12
+match = ["huevo", "huevos"]
+exclude = ["chocolate", "sorpresa", "codorniz", "cocid*", "pascua", "liquid*", "clara*", "yema*"]
+
+[types.leche-sin-lactosa]
+es = "Leche sin lactosa"
+en = "Lactose-free milk"
+match = ["leche ~ sin lactosa", "leche sin lactosa"]
+exclude = ["condensada", "infantil", "fermentada", "polvo", "evaporada", "crecimiento", "continuacion", "cabra",
+           "coco", "avena", "soja", "almendra", "arroz", "chocolate", "cacao", "batido"]
+
+[types.leche-entera]
+es = "Leche entera"
+en = "Whole milk"
+match = ["leche entera"]
+exclude = ["condensada", "infantil", "fermentada", "polvo", "evaporada", "crecimiento", "continuacion", "cabra",
+           "chocolate", "cacao", "batido", "lactosa", "proteinas"]
+
+[types.leche-semidesnatada]
+es = "Leche semidesnatada"
+en = "Semi-skimmed milk"
+match = ["leche semidesnatada"]
+exclude = ["condensada", "infantil", "fermentada", "polvo", "evaporada", "crecimiento", "continuacion", "cabra",
+           "chocolate", "cacao", "batido", "lactosa", "proteinas"]
+
+[types.leche-desnatada]
+es = "Leche desnatada"
+en = "Skimmed milk"
+match = ["leche desnatada"]
+exclude = ["condensada", "infantil", "fermentada", "polvo", "evaporada", "crecimiento", "continuacion", "cabra",
+           "chocolate", "cacao", "batido", "lactosa", "proteinas"]
+
+[types.mantequilla]
+es = "Mantequilla"
+en = "Butter"
+amount = 0.25
+match = ["mantequilla"]
+exclude = ["cacahuete", "galleta*", "ajo", "hierbas"]
+
+[types.yogur-natural]
+es = "Yogur natural"
+en = "Plain yogurt"
+amount = 0.5
+match = ["yogur* natural*"]
+exclude = ["azucar*", "edulcorad*", "cabra", "oveja", "liquido", "bifidus", "con", "sabor", "griego"]
+
+[types.yogur-griego]
+es = "Yogur griego natural"
+en = "Greek yogurt"
+amount = 0.5
+match = ["yogur* griego* natural*", "yogur* ~ estilo griego natural", "yogur* griego*"]
+exclude = ["azucar*", "edulcorad*", "con", "de", "sabor", "fresa", "frutas", "ligero", "light", "miel", "stracciatella"]
+
+# ---------------------------------------------------------------- bread and pantry
+[types.pan-de-molde]
+es = "Pan de molde"
+en = "Sliced bread"
+amount = 0.5
+match = ["pan de molde"]
+exclude = ["sin gluten"]
+
+[types.arroz-redondo]
+es = "Arroz redondo"
+en = "Short-grain rice"
+match = ["arroz redondo", "arroz ~ redondo", "arroz bomba", "arroz para paella"]
+exclude = ["microondas", "integral", "cocido", "vasito*"]
+
+[types.arroz-largo]
+es = "Arroz largo"
+en = "Long-grain rice"
+match = ["arroz largo", "arroz ~ largo"]
+exclude = ["microondas", "integral", "cocido", "vasito*", "vaporizado"]
+
+[types.arroz-basmati]
+es = "Arroz basmati"
+en = "Basmati rice"
+amount = 0.5
+match = ["arroz basmati"]
+exclude = ["microondas", "cocido", "vasito*", "salvaje"]
+
+[types.macarrones]
+es = "Macarrones"
+en = "Macaroni"
+amount = 0.5
+match = ["macarron", "macarrones"]
+exclude = ["bolonesa", "cheese", "queso", "carbonara", "a la", "integral*", "sin gluten"]
+
+[types.espaguetis]
+es = "Espaguetis"
+en = "Spaghetti"
+amount = 0.5
+match = ["espagueti", "espaguetis"]
+exclude = ["bolonesa", "carbonara", "a la", "integral*", "sin gluten"]
+
+[types.aceite-de-oliva-virgen-extra]
+es = "Aceite de oliva virgen extra"
+en = "Extra virgin olive oil"
+match = ["aceite de oliva virgen extra"]
+exclude = ["spray", "aromatizad*", "sabor", "trufa", "guindilla", "ajo"]
+
+[types.aceite-de-oliva]
+es = "Aceite de oliva"
+en = "Olive oil"
+match = ["aceite de oliva"]
+exclude = ["virgen", "spray", "aromatizad*", "sabor", "orujo"]
+
+[types.aceite-de-girasol]
+es = "Aceite de girasol"
+en = "Sunflower oil"
+match = ["aceite ~ de girasol"]
+exclude = ["spray", "alto oleico"]
+
+[types.azucar-blanco]
+es = "Azúcar blanco"
+en = "White sugar"
+match = ["azucar blanco", "azucar blanca"]
+exclude = ["sobres", "terron*"]
+
+[types.harina-de-trigo]
+es = "Harina de trigo"
+en = "Wheat flour"
+match = ["harina de trigo"]
+exclude = ["integral", "sin gluten", "bizcocho*", "reposteria"]
+
+# ---------------------------------------------------------------- fruit and vegetables
+[types.tomates]
+es = "Tomates"
+en = "Tomatoes"
+match = ["tomate", "tomates"]
+exclude = ["frito", "triturado", "concentrado", "rallado", "seco*", "pelado", "troceado", "salsa", "ketchup", "zumo",
+           "aceite", "natural", "tamizado", "untar", "sofrito", "gazpacho", "polvo", "deshidratado"]
+
+[types.patatas]
+es = "Patatas"
+en = "Potatoes"
+match = ["patata", "patatas"]
+exclude = ["frit*", "prefrit*", "chips", "cocid*", "guarnicion", "microondas", "tortilla", "pure", "sabor", "light",
+           "paja", "gajo*", "horno", "snack", "sticks", "bravas", "congelad*", "ultracongelad*", "asad*", "alioli",
+           "allioli", "con", "original", "crinkle"]
+exclude_categories = ["platos preparados", "congelados", "aperitivos", "snacks"]
+
+[types.cebollas]
+es = "Cebollas"
+en = "Onions"
+match = ["cebolla", "cebollas"]
+exclude = ["frit*", "polvo", "caramelizad*", "granulad*", "molid*", "congelad*", "ultracongelad*", "crujiente",
+           "encurtid*", "vinagre"]
+
+[types.ajos]
+es = "Ajos"
+en = "Garlic"
+amount = 0.25
+match = ["ajo", "ajos"]
+exclude = ["perejil", "negro", "polvo", "granulad*", "molid*", "alinad*", "troceado", "congelad*", "ultracongelad*",
+           "puerro", "tierno", "picada", "pasta", "confitad*"]
+
+[types.platanos]
+es = "Plátanos de Canarias"
+en = "Canary Island bananas"
+match = ["platano* de canarias", "platano*"]
+exclude = ["macho", "tajadas", "chips", "frit*", "deshidratad*", "banana"]
+
+[types.bananas]
+es = "Bananas"
+en = "Bananas"
+match = ["banana", "bananas"]
+exclude = ["chips", "deshidratad*", "batido", "bebida"]
+
+[types.manzanas]
+es = "Manzanas"
+en = "Apples"
+match = ["manzana", "manzanas"]
+exclude = ["zumo", "compota", "pure", "sidra", "chips", "deshidratad*", "asad*", "tarta", "bebida"]
+
+[types.naranjas]
+es = "Naranjas"
+en = "Oranges"
+match = ["naranja", "naranjas"]
+exclude = ["zumo", "mermelada", "confitad*", "bebida", "refresco"]
+exclude_categories = ["bebidas", "refrescos"]
+
+[types.limones]
+es = "Limones"
+en = "Lemons"
+amount = 0.5
+match = ["limon", "limones"]
+exclude = ["exprimido", "zumo", "sabor", "bebida", "refresco", "confitad*", "nada"]
+exclude_categories = ["bebidas", "refrescos"]
+
+[types.lechuga]
+es = "Lechuga"
+en = "Lettuce"
+match = ["lechuga", "lechugas"]
+exclude = ["mezcla", "ensalada"]
+
+[types.zanahorias]
+es = "Zanahorias"
+en = "Carrots"
+match = ["zanahoria", "zanahorias"]
+exclude = ["rallad*", "tiras", "baby", "congelad*", "ultracongelad*", "zumo", "crema", "pure"]
+
+[types.pimientos-rojos]
+es = "Pimientos rojos"
+en = "Red peppers"
+match = ["pimiento* rojo*"]
+exclude = ["asad*", "piquillo", "tiras", "conserva", "verde", "tricolor", "congelad*", "ultracongelad*"]
+
+[types.pimientos-verdes]
+es = "Pimientos verdes"
+en = "Green peppers"
+match = ["pimiento* verde*", "pimiento* italiano*"]
+exclude = ["asad*", "piquillo", "tiras", "conserva", "rojo", "tricolor", "congelad*", "ultracongelad*"]
+
+[types.pepinos]
+es = "Pepinos"
+en = "Cucumbers"
+match = ["pepino", "pepinos"]
+exclude = ["snack", "encurtid*", "vinagre", "popits"]
+
+[types.calabacines]
+es = "Calabacines"
+en = "Courgettes"
+match = ["calabacin", "calabacines"]
+exclude = ["crema", "pure", "espaguetis", "congelad*", "ultracongelad*", "tiras", "rodajas"]
+
+[types.aguacates]
+es = "Aguacates"
+en = "Avocados"
+match = ["aguacate", "aguacates"]
+exclude = ["dados", "topping", "guacamole", "congelad*", "ultracongelad*", "aceite"]
+
+[types.fresas]
+es = "Fresas"
+en = "Strawberries"
+match = ["fresa", "fresas", "freson", "fresones"]
+exclude = ["goma", "nata", "chocolate", "congelad*", "ultracongelad*", "untar", "mermelada", "yogur", "sabor",
+           "batido", "bebida", "gominola*", "liofilizad*"]
+
+[types.uvas]
+es = "Uvas"
+en = "Grapes"
+match = ["uva", "uvas"]
+exclude = ["sabor", "zumo", "pasas", "mosto", "bebida"]

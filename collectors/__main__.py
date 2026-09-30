@@ -6,6 +6,7 @@
     uv run python -m collectors run --all
     uv run python -m collectors run --chain mercadona --limit 50   # quick local test
     uv run python -m collectors import-xlsx FILE... [--dry-run]    # one-off catalogue export import
+    uv run python -m collectors retype                             # re-apply app/product_types.toml
 
 Uses DATABASE_URL (in production: Neon's *direct* connection string).
 Exit code 1 when a source failed completely, so the CI job shows red; partial runs exit 0.
@@ -19,7 +20,11 @@ import sys
 from datetime import datetime
 
 from app.config import get_settings
+from sqlalchemy import Engine
+from sqlmodel import Session
+
 from app.db import make_engine
+from app.services.catalog import retype
 from app.sources.registry import ALL_SOURCES, build_adapter, enabled_sources, load_config, sources_for_chain
 from collectors.runner import RunStats, run_source
 
@@ -40,6 +45,14 @@ def summary_markdown(results: list[RunStats]) -> str:
     if notes:
         lines += ["", "<details><summary>Messages</summary>", "", *notes, "", "</details>"]
     return "\n".join(lines) + "\n"
+
+
+def run_retype(engine: Engine) -> int:
+    with Session(engine) as session:
+        changed = retype(session)
+        session.commit()
+    print(f"product types: {changed} products changed")
+    return changed
 
 
 def cmd_list() -> int:
@@ -91,6 +104,11 @@ async def cmd_run(args: argparse.Namespace) -> int:
         )
         for m in stats.messages[:10]:
             print(f"    ! {m}")
+    # Cheap (one read, one batched update); picks up rule changes in app/product_types.toml.
+    try:
+        run_retype(engine)
+    except Exception:
+        logging.exception("retype failed")
     engine.dispose()
 
     if results:
@@ -149,6 +167,7 @@ def main(argv: list[str] | None = None) -> int:
     run.add_argument("--limit", type=int, help="stop after N products per source (testing)")
     run.add_argument("--max-detail", type=int, help="override max product-detail fetches (EAN backfill)")
     sub.add_parser("report", help="database size and row counts")
+    sub.add_parser("retype", help="re-apply app/product_types.toml to every product")
     imp = sub.add_parser("import-xlsx", help="import Carrefour/Dia catalogue exports (.xlsx)")
     imp.add_argument("files", nargs="+", help="xlsx files (Id, Nombre, Precio, Precio Pack, Formato, ...)")
     imp.add_argument("--chain", action="append", choices=["carrefour", "dia"], help="only this chain (repeatable)")
@@ -167,6 +186,11 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     if args.command == "import-xlsx":
         return cmd_import_xlsx(args)
+    if args.command == "retype":
+        engine = make_engine(get_settings().database_url)
+        run_retype(engine)
+        engine.dispose()
+        return 0
     if not (args.all or args.chain or args.source):
         parser.error("run needs --chain, --source or --all")
     return asyncio.run(cmd_run(args))

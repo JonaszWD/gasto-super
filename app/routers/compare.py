@@ -18,13 +18,26 @@ from app.schemas import (
     PaidPriceOut,
     ProductCardOut,
     ProductDetailOut,
+    ProductTypeDetailOut,
+    ProductTypesOut,
+    ProductTypeSummaryOut,
     SearchOut,
     SettingsIn,
     SettingsOut,
+    TypeChainOut,
+    TypeOfferOut,
 )
 from app.services.barcode_parser import normalize as normalize_barcode
 from app.services.catalog import link_listing, record_listing_price, upsert_listing, valid_ean
-from app.services.compare import ProductCard, build_card, chain_names, postal_code, search_products
+from app.services.compare import (
+    ProductCard,
+    build_card,
+    chain_names,
+    postal_code,
+    search_products,
+    type_detail,
+    type_summaries,
+)
 from app.services.kv import DbCache
 from app.services.names import clean_name
 from app.services.quantity import Quantity, unit_price_cents
@@ -70,6 +83,55 @@ def search(session: SessionDep, settings: SettingsDep, q: str = Query(min_length
     names = chain_names(session)
     cards = [build_card(session, p, pc, settings.stale_after_days, names) for p in search_products(session, q, limit=8)]
     return SearchOut(query=q, postal_code=pc, results=[card_out(session, c) for c in cards])
+
+
+@router.get("/compare/types")
+def product_types(session: SessionDep, settings: SettingsDep, q: str = Query(min_length=1, max_length=100)) -> ProductTypesOut:
+    """Generic product types matching a search ("chicken" -> Pechuga de pollo, Pollo entero...)."""
+    pc = postal_code(session, settings.default_postal_code)
+    names = chain_names(session)
+    return ProductTypesOut(
+        query=q,
+        types=[
+            ProductTypeSummaryOut(
+                slug=s.type.slug,
+                name_es=s.type.es,
+                name_en=s.type.en,
+                products=s.products,
+                chains=s.chains,
+                unit=s.unit,
+                min_unit_price_cents=s.min_unit_price_cents,
+                min_chain_name=names.get(s.min_chain_id, s.min_chain_id) if s.min_chain_id else None,
+            )
+            for s in type_summaries(session, q, pc, settings.stale_after_days)
+        ],
+    )
+
+
+@router.get("/compare/types/{slug}")
+def product_type(slug: str, session: SessionDep, settings: SettingsDep) -> ProductTypeDetailOut:
+    pc = postal_code(session, settings.default_postal_code)
+    found = type_detail(session, slug, pc, settings.stale_after_days)
+    if found is None:
+        raise HTTPException(status_code=404, detail="type_not_found")
+    pt, unit, chains = found
+    return ProductTypeDetailOut(
+        slug=pt.slug,
+        name_es=pt.es,
+        name_en=pt.en,
+        unit=unit,
+        default_amount=pt.default_amount,
+        postal_code=pc,
+        chains=[
+            TypeChainOut(
+                chain_id=c.chain_id,
+                chain_name=c.chain_name,
+                cheapest=c.cheapest,
+                offers=[TypeOfferOut(**{k: v for k, v in o.__dict__.items() if k != "chain_id"}) for o in c.offers],
+            )
+            for c in chains
+        ],
+    )
 
 
 def _detail(session: Session, settings: Settings, product: CanonicalProduct) -> ProductDetailOut:

@@ -7,6 +7,7 @@ Alternatives are ordered: the typed word, then translations with the primary mea
 ("pepper" -> pimienta before pimiento). `relevance()` uses that order to rank results.
 """
 
+from difflib import get_close_matches
 from functools import lru_cache
 
 from app.services.text import normalize
@@ -187,6 +188,32 @@ def table() -> dict[str, list[str]]:
     return out
 
 
+@lru_cache
+def _vocabulary() -> dict[str, list[str]]:
+    """Single words the search knows, for typo correction: English words -> their translations,
+    Spanish words -> themselves."""
+    vocab: dict[str, list[str]] = {}
+    for en, es in table().items():
+        for word in es:
+            vocab.setdefault(word, [word])
+        if " " not in en:
+            vocab[en] = es
+    return vocab
+
+
+# Short words are left alone: at 4 letters a typo is too close to other real words ("eche" ~ "leche").
+_FUZZY_MIN_LEN, _FUZZY_CUTOFF = 5, 0.84
+
+
+def _corrected(word: str) -> list[str]:
+    """Translations of the closest known word, for a word the table doesn't know ("brest" -> pechuga)."""
+    vocab = _vocabulary()
+    if len(word) < _FUZZY_MIN_LEN or word.isdigit() or word in vocab:
+        return []
+    close = get_close_matches(word, vocab.keys(), n=1, cutoff=_FUZZY_CUTOFF)
+    return vocab[close[0]] if close else []
+
+
 def _singular(word: str) -> str | None:
     for suffix, repl in (("ies", "y"), ("oes", "o"), ("es", ""), ("s", "")):
         if word.endswith(suffix) and len(word) > len(suffix) + 2:
@@ -215,7 +242,9 @@ def query_groups(query: str, max_words: int = 6) -> list[Group]:
                 i += n
                 break
         else:
-            groups.append([words[i]])
+            # Unknown word: keep it as typed, plus the translations of a close known word, so a
+            # typo still finds something instead of emptying the whole search.
+            groups.append(list(dict.fromkeys([words[i], *_corrected(words[i])])))
             i += 1
     return groups
 

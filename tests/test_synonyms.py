@@ -27,6 +27,10 @@ from tests.compare_helpers import add_listing
         ("cafe", "Café molido natural", True),  # accents ignored
         ("lech", "Leche entera", True),  # word-start prefix
         ("eche", "Leche entera", False),  # not mid-word
+        ("chicken brest", "Pechuga de pollo fileteada", True),  # typos are corrected
+        ("chiken breast", "Pechuga de pollo fileteada", True),
+        ("pechga de pollo", "Pechuga de pollo fileteada", True),
+        ("brest", "Muslo de pollo", False),
     ],
 )
 def test_text_matches(query: str, name: str, found: bool) -> None:
@@ -37,6 +41,13 @@ def test_query_groups_phrases() -> None:
     assert query_groups("semi skimmed milk") == [["semi skimmed", "semidesnatada", "semidesnatado"], ["milk", "leche"]]
     assert query_groups("peppers") == [["peppers", "pimienta", "pimiento"]]  # primary meaning first
     assert query_groups("  ") == []
+
+
+def test_query_groups_typos() -> None:
+    assert query_groups("brest") == [["brest", "pechuga"]]  # typed word first, then the correction
+    assert query_groups("pollo") == [["pollo"]]  # known words aren't "corrected"
+    assert query_groups("pera") == [["pera"]]  # short words aren't either
+    assert query_groups("xyzzyq") == [["xyzzyq"]]
 
 
 def test_compare_search_in_english(client: TestClient, clean_db: Engine) -> None:

@@ -4,10 +4,10 @@ import {
   centsToInput, formatDate, formatDateTime, formatMoney, formatMonthLong, formatMonthShort,
   formatPlainDate, formatQuantity, formatShortDate, parseDecimal, parsePriceToCents,
 } from "./format.js";
-import { alternativeHtml, renderCompare, renderList, renderProduct } from "./compare.js";
+import { alternativeHtml, renderCompare, renderList, renderProduct, renderType } from "./compare.js";
 import { applyI18n, getLocale, LOCALES, setLocale, t, tCategory } from "./i18n.js";
 import { Scanner, scanFeedback } from "./scanner.js";
-import { closeSheet, confirmSheet, errorMessage, h, openSheet, promptSheet, sheetHooks, sheetOpen, toast } from "./ui.js";
+import { closeSheet, confirmSheet, errorMessage, h, icon, openSheet, promptSheet, sheetHooks, sheetOpen, toast } from "./ui.js";
 
 const state = {
   stores: [],
@@ -72,7 +72,7 @@ function renderStorePicker() {
     </header>
     <div class="store-grid">
       ${state.stores.map((s) => `<button class="store-btn" data-store="${s.id}">${h(s.name)}</button>`).join("")}
-      <button class="store-btn add" data-act="add-store">+ ${h(t("trip.add_store"))}</button>
+      <button class="store-btn add" data-act="add-store">${icon.plus}${h(t("trip.add_store"))}</button>
     </div>`;
   $view.querySelectorAll("[data-store]").forEach((btn) => {
     btn.onclick = async () => {
@@ -121,7 +121,7 @@ function renderScan() {
     <section class="trip-bar">
       <div>
         <div class="trip-store">${h(trip.store_name)}</div>
-        <div class="muted small">${h(itemsLabel(trip.item_count))}</div>
+        <div class="muted small trip-count">${h(itemsLabel(trip.item_count))}</div>
       </div>
       <div class="trip-total" aria-label="${h(t("trip.total"))}">${formatMoney(trip.total_cents)}</div>
     </section>
@@ -304,9 +304,9 @@ async function showProductSheet(code) {
 function quantityField(quantity, weighed) {
   return `<div class="field qty"><span>${h(t(weighed ? "purchase.quantity_kg" : "purchase.quantity"))}</span>
     <div class="stepper">
-      <button type="button" class="step" data-step="-1" aria-label="${h(t("purchase.decrease"))}" ${weighed ? "hidden" : ""}>−</button>
+      <button type="button" class="step" data-step="-1" aria-label="${h(t("purchase.decrease"))}" ${weighed ? "hidden" : ""}>${icon.minus}</button>
       <input name="quantity" inputmode="decimal" autocomplete="off" value="${h(formatQuantity(quantity))}">
-      <button type="button" class="step" data-step="1" aria-label="${h(t("purchase.increase"))}" ${weighed ? "hidden" : ""}>+</button>
+      <button type="button" class="step" data-step="1" aria-label="${h(t("purchase.increase"))}" ${weighed ? "hidden" : ""}>${icon.plus}</button>
     </div></div>`;
 }
 
@@ -411,11 +411,11 @@ async function renderHistory() {
   const trips = await api.trips();
   $view.innerHTML = `
     <header class="screen-head"><h1>${h(t("history.title"))}</h1></header>
+    <a class="btn primary block history-scan" href="#/scan">${icon.scan}${h(t(state.trip ? "history.continue_trip" : "history.new_trip"))}</a>
     ${trips.length ? `<ul class="items">${trips.map((tr) => `<li><a class="item" href="#/trip/${tr.id}">
-        <span class="item-main"><span class="item-name">${h(tr.store_name)}
-          ${tr.closed_at ? "" : `<span class="badge">${h(t("trip.open_badge"))}</span>`}</span>
-          <span class="item-sub">${h(formatDate(tr.started_at))} · ${h(itemsLabel(tr.item_count))}</span></span>
-        <span class="item-price">${formatMoney(tr.total_cents)}</span></a></li>`).join("")}</ul>`
+        <span class="item-main"><span class="item-name">${h(tr.store_name)}</span>
+          <span class="item-sub">${tr.closed_at ? "" : `<span class="badge">${h(t("trip.open_badge"))}</span> `}${h(formatDate(tr.started_at))} · ${h(itemsLabel(tr.item_count))}</span></span>
+        <span class="item-price">${formatMoney(tr.total_cents)}</span>${icon.chevron.replace("<svg", '<svg class="chev"')}</a></li>`).join("")}</ul>`
       : `<p class="muted empty">${h(t("history.empty"))}</p>`}`;
 }
 
@@ -430,7 +430,7 @@ async function renderTrip(id) {
   }
   $view.innerHTML = `
     <header class="screen-head">
-      <a class="back" href="#/history">‹ ${h(t("common.back"))}</a>
+      <a class="back" href="#/history">${icon.back}${h(t("common.back"))}</a>
       <h1>${h(trip.store_name)}</h1>
       <p class="muted">${h(formatDateTime(trip.started_at))} · ${h(itemsLabel(trip.item_count))}</p>
       <p class="hero">${formatMoney(trip.total_cents)}</p>
@@ -489,8 +489,8 @@ async function renderStats() {
   const [stats, products] = await Promise.all([api.stats(state.statsRange), api.statsProducts()]);
   const body = document.getElementById("stats-body");
   body.innerHTML = `
-    <section class="card">
-      <p class="muted small">${h(t("stats.total_range"))}</p>
+    <section class="stat-hero">
+      <p class="muted">${h(t("stats.total_range"))}</p>
       <p class="hero">${formatMoney(stats.range_total_cents)}</p>
     </section>
     <section class="card"><h2>${h(t("stats.by_category"))}</h2><div id="ch-cat"></div></section>
@@ -567,18 +567,18 @@ function seriesTable(buckets, fmtLabel) {
 async function renderMore() {
   $view.innerHTML = `
     <header class="screen-head"><h1>${h(t("more.title"))}</h1></header>
-    <section class="card">
+    <section class="card more-card">
       <a class="btn primary block" href="/api/export.csv?lang=${getLocale()}" download>${h(t("more.export"))}</a>
       <p class="muted small">${h(t("more.export_hint"))}</p>
     </section>
-    <section class="card">
+    <section class="card more-card">
       <h2>${h(t("settings.language"))}</h2>
       <div class="segmented two" role="radiogroup" aria-label="${h(t("settings.language"))}">
         ${LOCALES.map((l) => `<button type="button" role="radio" data-lang="${l}" aria-selected="${l === getLocale()}" aria-checked="${l === getLocale()}">${l === "es" ? "Español" : "English"}</button>`).join("")}
       </div>
       <p class="muted small">${h(t("settings.language_hint"))}</p>
     </section>
-    <section class="card">
+    <section class="card more-card">
       <h2>${h(t("settings.postal_code"))}</h2>
       <form class="row" id="pc-form" novalidate>
         <label class="field grow"><span class="visually-hidden">${h(t("settings.postal_code"))}</span>
@@ -587,12 +587,12 @@ async function renderMore() {
       </form>
       <p class="muted small">${h(t("settings.postal_code_hint"))}</p>
     </section>
-    <section class="card">
+    <section class="card more-card">
       <h2>${h(t("more.stores"))}</h2>
       <ul class="chips">${state.stores.map((s) => `<li>${h(s.name)}</li>`).join("")}</ul>
-      <button class="btn block" data-act="add-store">+ ${h(t("trip.add_store"))}</button>
+      <button class="btn block" data-act="add-store">${icon.plus}${h(t("trip.add_store"))}</button>
     </section>
-    <section class="card">
+    <section class="card more-card">
       <h2>${h(t("more.products"))}</h2>
       <p class="muted small">${h(t("more.products_hint"))}</p>
       <label class="field"><span class="visually-hidden">${h(t("product.search"))}</span>
@@ -684,15 +684,17 @@ function renameProductSheet(product, after) {
 // ---------- routing ----------
 
 function currentRoute() {
-  const [, name = "scan", arg, arg2] = location.hash.replace(/^#/, "").split("/");
-  return { name: name || "scan", arg, arg2 };
+  const [, name = "compare", arg, arg2] = location.hash.replace(/^#/, "").split("/");
+  return { name: name || "compare", arg, arg2 };
 }
 
 async function route() {
   closeSheet({ silent: true });
   const { name, arg, arg2 } = currentRoute();
   if (name !== "scan") state.scanner?.stop();
-  const tab = name === "trip" ? "history" : name;
+  // Scanning a trip starts from History, so it keeps that tab lit.
+  const tab = name === "trip" || name === "scan" ? "history" : name;
+  $view.dataset.screen = name;
   document.querySelectorAll(".tabbar a").forEach((a) => a.setAttribute("aria-current", a.dataset.tab === tab ? "page" : "false"));
   window.scrollTo(0, 0);
   try {
@@ -702,10 +704,15 @@ async function route() {
       case "stats": return await renderStats();
       case "compare":
         if (arg === "product") return await renderProduct($view, Number(arg2));
-        if (arg === "list") return await renderList($view);
+        if (arg === "type") return await renderType($view, arg2, "#/compare");
+        if (arg === "list") return location.replace("#/list"); // old link, before the list had its own tab
         return await renderCompare($view);
+      case "list":
+        if (arg === "type") return await renderType($view, arg2, "#/list");
+        return await renderList($view);
       case "more": return await renderMore();
-      default: return renderScan();
+      case "scan": return renderScan();
+      default: return await renderCompare($view);
     }
   } catch (err) {
     toast(errorMessage(err), "error");

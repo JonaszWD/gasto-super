@@ -61,6 +61,8 @@ export const api = {
 
   compareSearch: (q) => request("GET", `/api/compare/search?q=${enc(q)}`),
   compareProduct: (id) => request("GET", `/api/compare/products/${id}`),
+  productTypes: (q) => request("GET", `/api/compare/types?q=${enc(q)}`),
+  productType: (slug) => request("GET", `/api/compare/types/${enc(slug)}`),
   setMatch: (id, listingId, action) => request("POST", `/api/compare/products/${id}/matches`, { listing_id: listingId, action }),
   refreshListing: (listingId) => request("POST", `/api/compare/listings/${listingId}/refresh`),
   alternative: (barcode, storeId, priceCents) => {
@@ -75,6 +77,9 @@ export const api = {
   setListQuantity: (productId, quantity) =>
     request("PUT", `/api/shopping-list/items/${productId}`, { product_id: productId, quantity }),
   removeFromList: (productId) => request("DELETE", `/api/shopping-list/items/${productId}`),
+  addTypeToList: (slug, amount, unit) => request("POST", "/api/shopping-list/types", { product_type: slug, amount, unit }),
+  setListTypeAmount: (slug, amount) => request("PUT", `/api/shopping-list/types/${enc(slug)}`, { amount }),
+  removeTypeFromList: (slug) => request("DELETE", `/api/shopping-list/types/${enc(slug)}`),
 
   stats: (range) => request("GET", `/api/stats?range=${enc(range)}`),
   statsProducts: () => request("GET", "/api/stats/products"),

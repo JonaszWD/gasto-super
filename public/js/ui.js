@@ -5,6 +5,18 @@ import { t } from "./i18n.js";
 
 export const h = escapeHtml;
 
+// Inline stroke icons (styled by the surrounding CSS: stroke = currentColor).
+const svg = (d) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${d}"/></svg>`;
+export const icon = {
+  back: svg("M15 5l-7 7 7 7"),
+  chevron: svg("M9 5l7 7-7 7"),
+  plus: svg("M12 5v14M5 12h14"),
+  minus: svg("M5 12h14"),
+  refresh: svg("M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"),
+  search: svg("M11 18a7 7 0 1 1 0-14 7 7 0 0 1 0 14zM20 20l-4-4"),
+  scan: svg("M3 7V4h3M21 7V4h-3M3 17v3h3M21 17v3h-3M7 8v8M10 8v8M13 8v8M17 8v8"),
+};
+
 export function errorMessage(err) {
   if (err instanceof ApiError) {
     const key = `error.${err.code}`;

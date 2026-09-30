@@ -3,11 +3,12 @@
 from dataclasses import dataclass, field
 from datetime import datetime
 
-from sqlalchemy import tuple_
+from sqlalchemy import bindparam, tuple_
 from sqlmodel import Session, col, select, update
 
 from app.models import CanonicalProduct, Listing, ProductMatch, ShoppingListItem, utcnow
 from app.services.prices import Observation, apply_observation, latest_prices, record_observation
+from app.services.product_types import classify
 from app.services.quantity import Quantity, parse_quantity, unit_price_cents
 from app.services.text import search_text
 
@@ -202,7 +203,35 @@ def _canonical_from_listing(listing: Listing, ean: str | None) -> CanonicalProdu
         quantity_value=listing.quantity_value,
         quantity_unit=listing.quantity_unit,
         search_text=listing.search_text,
+        product_type=classify(listing.name, listing.brand, listing.category, listing.department),
     )
+
+
+def retype(session: Session) -> int:
+    """Re-apply app/product_types.toml to every canonical product; returns how many changed.
+
+    One read and one batched UPDATE, so it is cheap enough to run after every collection.
+    """
+    rows = session.exec(
+        select(
+            CanonicalProduct.id, CanonicalProduct.name, CanonicalProduct.brand, CanonicalProduct.category,
+            CanonicalProduct.department, CanonicalProduct.product_type,
+        )
+    ).all()
+    changes = [
+        {"pid": pid, "ptype": new}
+        for pid, name, brand, category, department, current in rows
+        if (new := classify(name, brand, category, department)) != current
+    ]
+    if changes:
+        stmt = (
+            update(CanonicalProduct)
+            .where(col(CanonicalProduct.id) == bindparam("pid"))
+            .values(product_type=bindparam("ptype"))
+            .execution_options(synchronize_session=False)
+        )
+        session.connection().execute(stmt, changes)
+    return len(changes)
 
 
 def merge_canonical(session: Session, old_id: int, new_id: int) -> None:

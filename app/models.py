@@ -2,7 +2,7 @@
 
 from datetime import UTC, datetime
 
-from sqlalchemy import Index, Numeric, UniqueConstraint, text
+from sqlalchemy import CheckConstraint, Index, Numeric, UniqueConstraint, text
 from sqlmodel import Field, SQLModel
 
 
@@ -81,6 +81,8 @@ class CanonicalProduct(SQLModel, table=True):
     quantity_unit: str | None = Field(default=None, max_length=8)
     # Lower-case, accent-free name + brand for portable LIKE search.
     search_text: str = Field(default="", max_length=400)
+    # Generic product type ("pechuga-de-pollo"), a key of app/product_types.toml; set by the collectors.
+    product_type: str | None = Field(default=None, max_length=60, index=True)
     created_at: datetime = Field(default_factory=utcnow)
 
 
@@ -139,9 +141,23 @@ class ProductMatch(SQLModel, table=True):
 
 
 class ShoppingListItem(SQLModel, table=True):
+    """Either a specific product (quantity = packs) or a product type (amount in amount_unit, e.g. 1 kg)."""
+
+    __table_args__ = (
+        CheckConstraint(
+            "(canonical_product_id IS NULL) <> (product_type IS NULL)", name="ck_shoppinglistitem_product_or_type"
+        ),
+    )
+
     id: int | None = Field(default=None, primary_key=True)
-    canonical_product_id: int = Field(foreign_key="canonicalproduct.id", unique=True, ondelete="CASCADE")
+    canonical_product_id: int | None = Field(
+        default=None, foreign_key="canonicalproduct.id", unique=True, ondelete="CASCADE"
+    )
     quantity: int = 1
+    # A key of app/product_types.toml; priced per chain from the type's cheapest suitable product.
+    product_type: str | None = Field(default=None, max_length=60, unique=True)
+    amount: float | None = Field(default=None, sa_type=Numeric(10, 3, asdecimal=False))
+    amount_unit: str | None = Field(default=None, max_length=8)  # kg | l | unit
     created_at: datetime = Field(default_factory=utcnow)
 
 
