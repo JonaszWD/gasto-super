@@ -161,7 +161,7 @@ export function lineChart(container, points, { fmtAxis }) {
 
 /**
  * Price history per chain as step lines (a price holds until it changes).
- * series: [{label, slot (1-5, fixed per chain), periods: [{start, end, value}] (ms timestamps)}]
+ * series: [{label, slot (1-6, fixed per chain), periods: [{start, end, value}] (ms timestamps)}]
  * Always has a legend (identity is never colour-only) and a crosshair tooltip listing every chain.
  */
 export function stepChart(container, series, { fmtValue, fmtDate }) {

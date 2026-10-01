@@ -10,7 +10,7 @@ on:
         description: What to collect
         type: choice
         default: all
-        options: [all, mercadona, dia, carrefour, alcampo, openprices]
+        options: [all, mercadona, dia, carrefour, alcampo, consum, openprices]
       limit:
         description: Max products per source (empty = no limit; for testing)
         required: false
@@ -33,7 +33,7 @@ jobs:
       # One job per chain: a failure in one doesn't stop the others.
       fail-fast: false
       matrix:
-        target: ${{ fromJSON((inputs.target && inputs.target != 'all') && format('["{0}"]', inputs.target) || '["mercadona","dia","carrefour","alcampo","openprices"]') }}
+        target: ${{ fromJSON((inputs.target && inputs.target != 'all') && format('["{0}"]', inputs.target) || '["mercadona","dia","carrefour","alcampo","consum","openprices"]') }}
     env:
       # Neon *direct* (non-pooled) connection string.
       DATABASE_URL: ${{ secrets.DATABASE_URL_DIRECT }}

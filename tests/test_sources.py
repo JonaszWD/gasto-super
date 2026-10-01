@@ -7,6 +7,7 @@ import pytest
 
 from app.sources.alcampo import AlcampoAdapter, parse_entity as parse_alcampo_entity
 from app.sources.base import SourceError
+from app.sources.consum import ConsumAdapter
 from app.sources.easycompra import EasyCompraAdapter, guess_department
 from app.sources.mercadona import MercadonaAdapter
 from app.sources.openprices import OpenPricesAdapter, chain_for
@@ -325,3 +326,68 @@ async def test_alcampo_blocked_run_does_not_move_the_cursor() -> None:
 
 def test_alcampo_config_caps_nightly_products() -> None:
     assert alcampo().max_products == 50
+
+
+# Consum: the fixtures follow the response shape documented by github.com/seravifer/supermarket-tracker
+# (src/consum/types.ts); the live shop couldn't be reached when they were written.
+
+
+def consum() -> ConsumAdapter:
+    adapter = build_adapter("consum", load_config())
+    assert isinstance(adapter, ConsumAdapter)
+    return adapter
+
+
+def consum_handler(request: httpx.Request) -> httpx.Response:
+    path = request.url.path
+    if path == "/api/rest/V1.0/catalog/product":
+        name = f"consum/catalog_{request.url.params['offset']}.json"
+        if (FIXTURES / name).exists():
+            return httpx.Response(200, json=fixture(name))
+        return httpx.Response(200, json={"totalCount": 7, "hasMore": False, "products": []})
+    if path == "/api/rest/V1.0/catalog/product/code/7062185":
+        return httpx.Response(200, json=fixture("consum/product_7062185.json"))
+    return httpx.Response(404, json={})
+
+
+async def test_consum_catalog_pages_and_skips_non_grocery_and_unpriced() -> None:
+    ctx, seen = make_ctx(consum_handler)
+    listings = [x async for x in consum().fetch_catalog(ctx)]
+
+    assert [r.url.params["offset"] for r in seen] == ["0", "4"]  # stops when hasMore is false
+    assert all(r.url.params["limit"] == "100" and r.headers["x-locale"] == "es" for r in seen)
+    by_id = {x.chain_product_id: x for x in listings}
+    assert set(by_id) == {"7062185", "7148261", "7001234", "7155555", "7177777"}  # no shampoo, no unpriced item
+
+    milk = by_id["7062185"]
+    assert milk.chain_id == "consum" and milk.ean == "8480000123459"
+    assert milk.name == "Leche Entera" and milk.brand == "Consum"
+    assert milk.price_cents == 95 and milk.unit_price_cents == 95
+    assert milk.quantity and milk.quantity.value == 1.0 and milk.quantity.unit == "l"
+    assert milk.department == "food" and milk.category == "Leche"
+    assert milk.url == "https://tienda.consum.es/es/p/leche-entera/7062185"
+
+    oil = by_id["7148261"]
+    assert oil.price_cents == 749  # the offer price, not the regular 8,95
+    assert by_id["7001234"].department == "drink"  # "Aguas" category
+    assert by_id["7001234"].unit_price_cents == 18  # 6 x 1,5 l at 0,18 €/L
+    detergent = by_id["7155555"]
+    assert detergent.department == "household"
+    assert detergent.unit_price_cents is None  # "per wash" isn't a unit we compare by
+    banana = by_id["7177777"]
+    assert banana.brand is None and banana.ean is None
+    assert banana.image_url and banana.image_url.endswith("1000x1000/7177777_001.jpg")  # media fallback
+
+
+async def test_consum_refresh_reads_one_product() -> None:
+    ctx, _ = make_ctx(consum_handler)
+    adapter = consum()
+    listing = await adapter.fetch_product(ctx, "7062185")
+    assert listing is not None and listing.price_cents == 99 and listing.department == "food"
+    assert await adapter.fetch_product(ctx, "1") is None
+
+
+async def test_consum_blocked_catalog_raises() -> None:
+    ctx, _ = make_ctx(lambda r: httpx.Response(403, text=""))
+    with pytest.raises(SourceError):
+        [x async for x in consum().fetch_catalog(ctx)]

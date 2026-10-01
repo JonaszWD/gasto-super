@@ -47,12 +47,13 @@
   --success-ink: #166534;
   --warn-bg: #f7eadb;
   --warn-ink: #7a4410;
-  /* Chain series: the five orb hues deepened to ≥3:1, fixed per chain (validated). */
+  /* Chain series: the five orb hues (plus an olive sixth) deepened to ≥3:1, fixed per chain (validated). */
   --series-1: #2e9a78;
   --series-2: #3f7fc4;
   --series-3: #c24f6e;
   --series-4: #7d62b8;
   --series-5: #b87a2e;
+  --series-6: #6b7f22;
   --chart-grid: #ecebe9;
   --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.04);
   --shadow-sheet: 0 -8px 32px rgba(12, 10, 9, 0.08);
@@ -101,6 +102,7 @@
     --series-3: #dd5f80;
     --series-4: #8469cc;
     --series-5: #c08536;
+    --series-6: #8fa33a;
     --chart-grid: #292524;
     --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.3);
     --shadow-sheet: 0 -8px 32px rgba(0, 0, 0, 0.5);
@@ -516,6 +518,7 @@ body.logged-out .tabbar, body.logged-out .view { display: none; }
 .key.s3, .line.s3, .dot.s3 { --c: var(--series-3); }
 .key.s4, .line.s4, .dot.s4 { --c: var(--series-4); }
 .key.s5, .line.s5, .dot.s5 { --c: var(--series-5); }
+.key.s6, .line.s6, .dot.s6 { --c: var(--series-6); }
 .key[class*=" s"] { background: var(--c); }
 .chart .line[class*=" s"] { stroke: var(--c); }
 .chart .dot[class*=" s"] { fill: var(--c); }

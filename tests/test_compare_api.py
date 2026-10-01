@@ -40,7 +40,7 @@ def test_search_card_lists_every_chain(client: TestClient, catalog: dict[str, in
     card = body["results"][0]
     assert card["product"]["ean"] == MILK_EAN
     rows = rows_by_chain(card)
-    assert list(rows) == ["mercadona", "carrefour", "dia", "lidl", "alcampo"]
+    assert list(rows) == ["mercadona", "carrefour", "dia", "lidl", "alcampo", "consum"]
     assert rows["mercadona"]["match"] == "exact" and rows["mercadona"]["price_cents"] == 95
     assert rows["mercadona"]["unit_price_cents"] == 95 and rows["mercadona"]["unit"] == "l"
     assert rows["carrefour"]["match"] == "exact"
