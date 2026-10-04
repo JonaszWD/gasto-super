@@ -111,7 +111,8 @@ async def main() -> int:
         f"- Catalogue size reported by Consum: {total}",
         f"- Products kept: {len(products)} (food {depts['food']}, drink {depts['drink']}, household {depts['household']})",
         f"- Skipped: {len(skipped)} ({Counter(r[3] for r in skipped).most_common()})",
-        f"- With EAN: {with_ean}; with a unit price: {with_unit}",
+        f"- With EAN: {with_ean}; with a pack size: {sum(1 for r in products if r[6])}; with a unit price: {with_unit}",
+        f"- Unit prices by unit: {Counter(r[6].split()[-1] for r in products if r[5] and r[6]).most_common()}",
     ]
     if prices:
         mid = prices[len(prices) // 2]

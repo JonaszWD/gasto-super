@@ -77,11 +77,11 @@ async def test_alcampo_blocked_run_fails_with_a_clear_message(clean_db: Engine) 
 
 async def test_consum_run_stores_listings_with_eans(clean_db: Engine) -> None:
     stats = await run_source(clean_db, "consum", http=client_for(consum_handler))
-    assert stats.status == "ok" and stats.products_checked == 5 and stats.new_listings == 5
+    assert stats.status == "ok" and stats.products_checked == 10 and stats.new_listings == 10
     with Session(clean_db) as s:
         listings = s.exec(select(Listing)).all()
         assert {li.postal_code for li in listings} == {""}  # not location-specific
-        assert next(li for li in listings if li.chain_product_id == "7062185").ean == "8480000123459"
+        assert next(li for li in listings if li.chain_product_id == "1669").ean == "8423230065137"
 
 
 async def test_easycompra_stale_chain_is_partial(clean_db: Engine) -> None:

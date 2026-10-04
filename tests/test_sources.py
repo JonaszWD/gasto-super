@@ -7,7 +7,9 @@ import pytest
 
 from app.sources.alcampo import AlcampoAdapter, parse_entity as parse_alcampo_entity
 from app.sources.base import SourceError
-from app.sources.consum import ConsumAdapter
+from app.services.catalog import RawListing
+from app.services.quantity import Quantity
+from app.sources.consum import ConsumAdapter, parse_product as parse_consum_product
 from app.sources.easycompra import EasyCompraAdapter, guess_department
 from app.sources.mercadona import MercadonaAdapter
 from app.sources.openprices import OpenPricesAdapter, chain_for
@@ -328,8 +330,7 @@ def test_alcampo_config_caps_nightly_products() -> None:
     assert alcampo().max_products == 50
 
 
-# Consum: the fixtures follow the response shape documented by github.com/seravifer/supermarket-tracker
-# (src/consum/types.ts); the live shop couldn't be reached when they were written.
+# Consum: real products recorded on the first live run (2026-10-04), verbatim.
 
 
 def consum() -> ConsumAdapter:
@@ -344,46 +345,81 @@ def consum_handler(request: httpx.Request) -> httpx.Response:
         name = f"consum/catalog_{request.url.params['offset']}.json"
         if (FIXTURES / name).exists():
             return httpx.Response(200, json=fixture(name))
-        return httpx.Response(200, json={"totalCount": 7, "hasMore": False, "products": []})
-    if path == "/api/rest/V1.0/catalog/product/code/7062185":
-        return httpx.Response(200, json=fixture("consum/product_7062185.json"))
+        return httpx.Response(200, json={"totalCount": 10, "hasMore": False, "products": []})
+    if path == "/api/rest/V1.0/catalog/product/code/1669":
+        return httpx.Response(200, json=fixture("consum/product_1669.json"))
     return httpx.Response(404, json={})
 
 
-async def test_consum_catalog_pages_and_skips_non_grocery_and_unpriced() -> None:
+async def consum_listings() -> dict[str, RawListing]:
     ctx, seen = make_ctx(consum_handler)
     listings = [x async for x in consum().fetch_catalog(ctx)]
-
-    assert [r.url.params["offset"] for r in seen] == ["0", "4"]  # stops when hasMore is false
+    assert [r.url.params["offset"] for r in seen] == ["0", "7"]  # stops when hasMore is false
     assert all(r.url.params["limit"] == "100" and r.headers["x-locale"] == "es" for r in seen)
-    by_id = {x.chain_product_id: x for x in listings}
-    assert set(by_id) == {"7062185", "7148261", "7001234", "7155555", "7177777"}  # no shampoo, no unpriced item
+    return {x.chain_product_id: x for x in listings}
 
-    milk = by_id["7062185"]
-    assert milk.chain_id == "consum" and milk.ean == "8480000123459"
-    assert milk.name == "Leche Entera" and milk.brand == "Consum"
-    assert milk.price_cents == 95 and milk.unit_price_cents == 95
-    assert milk.quantity and milk.quantity.value == 1.0 and milk.quantity.unit == "l"
-    assert milk.department == "food" and milk.category == "Leche"
-    assert milk.url == "https://tienda.consum.es/es/p/leche-entera/7062185"
 
-    oil = by_id["7148261"]
-    assert oil.price_cents == 749  # the offer price, not the regular 8,95
-    assert by_id["7001234"].department == "drink"  # "Aguas" category
-    assert by_id["7001234"].unit_price_cents == 18  # 6 x 1,5 l at 0,18 €/L
-    detergent = by_id["7155555"]
-    assert detergent.department == "household"
-    assert detergent.unit_price_cents is None  # "per wash" isn't a unit we compare by
-    banana = by_id["7177777"]
-    assert banana.brand is None and banana.ean is None
-    assert banana.image_url and banana.image_url.endswith("1000x1000/7177777_001.jpg")  # media fallback
+async def test_consum_catalog_reads_ean_price_and_size_from_the_description() -> None:
+    by_id = await consum_listings()
+    assert len(by_id) == 10
+    radish = by_id["1669"]
+    assert radish.chain_id == "consum" and radish.ean == "8423230065137"
+    assert radish.name == "Rabanito Bolsa" and radish.brand == "EL DULZE"
+    assert radish.price_cents == 130
+    assert radish.quantity == Quantity(0.25, "kg")  # only in the description: "Rabanito Bolsa 250 Gr"
+    assert radish.unit_price_cents == 520  # Consum's own 5,20 €/kg
+    assert radish.department == "food" and radish.category == "Zanahorias y otras raíces"
+    assert radish.url == "https://tienda.consum.es/es/p/rabanito-bolsa/1669"
+
+
+async def test_consum_uses_its_own_unit_price() -> None:
+    by_id = await consum_listings()
+    milk = by_id["12542"]
+    assert milk.price_cents == 122 and milk.unit_price_cents == 122  # offer price, not the regular 1,35
+    beer = by_id["142380"]
+    assert beer.quantity == Quantity(3.0, "l") and beer.unit_price_cents == 160  # 12 x 0,25 L on offer
+    bay = by_id["47092"]
+    assert bay.quantity == Quantity(0.015, "kg")  # "Caja 15 Gr" is one 15 g box
+    assert bay.unit_price_cents == 6600  # 6,60 € per 100 g -> 66 €/kg
+    dye = by_id["251694"]
+    assert dye.quantity == Quantity(1.0, "unit") and dye.unit_price_cents == 749
+    chicken = by_id["140814"]
+    assert chicken.size_text == "Bandeja 800 g aprox" and chicken.unit_price_cents == 695
+
+
+async def test_consum_derives_the_size_when_none_is_written() -> None:
+    by_id = await consum_listings()
+    plum = by_id["1834"]  # sold by the piece: 0,37 € at 3,50 €/kg
+    assert plum.size_text == "Pieza precio aprox."
+    assert plum.quantity == Quantity(0.106, "kg") and plum.unit_price_cents == 350
+    walnuts = by_id["1826"]  # loose, 6,20 € at 6,20 €/kg
+    assert walnuts.quantity == Quantity(1.0, "kg") and walnuts.unit_price_cents == 620
+
+
+async def test_consum_departments_from_categories_then_name() -> None:
+    by_id = await consum_listings()
+    assert by_id["162925"].department == "drink"  # "Ofertas en bebidas"
+    assert by_id["97956"].department == "household"  # "Lejías y amoniacos": from the name (lejía)
+    assert by_id["251694"].department == "food"  # hair dye: kept, shops stock it anyway
+
+
+def test_consum_skips_non_grocery_and_unpriced() -> None:
+    adapter = consum()
+    product = fixture("consum/product_1669.json")
+    assert isinstance(product, dict)
+    assert adapter.department_for({**product, "categories": [{"name": "Mascotas"}]}) is None
+    unpriced = {**product, "priceData": {**product["priceData"], "prices": []}}
+    assert parse_consum_product(unpriced, "food") is None
+    no_unit = {**product, "priceData": {**product["priceData"], "unitPriceUnitType": "1 Lv"}}
+    listing = parse_consum_product(no_unit, "food")
+    assert listing is not None and listing.unit_price_cents is None  # per wash: not compared
 
 
 async def test_consum_refresh_reads_one_product() -> None:
     ctx, _ = make_ctx(consum_handler)
     adapter = consum()
-    listing = await adapter.fetch_product(ctx, "7062185")
-    assert listing is not None and listing.price_cents == 99 and listing.department == "food"
+    listing = await adapter.fetch_product(ctx, "1669")
+    assert listing is not None and listing.price_cents == 130 and listing.department == "food"
     assert await adapter.fetch_product(ctx, "1") is None
 
 

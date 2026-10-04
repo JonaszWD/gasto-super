@@ -98,7 +98,8 @@ def parse_quantity(text: str | None) -> Quantity | None:
         q = _to_base(_num(m.group(1)), m.group(2))
         pack = _PACK.search(s)
         # "Pack 4 yogures 125 g" style: multiply only when the pack count precedes the size.
-        if pack and pack.start() < m.start() and q.unit != "unit":
+        # "Caja 15 g" is one 15 g box: the count must end before the size starts.
+        if pack and pack.end() <= m.start() and q.unit != "unit":
             q = Quantity(round(q.value * int(pack.group(1)), 6), q.unit)
         return q
 

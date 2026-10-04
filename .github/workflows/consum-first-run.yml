@@ -5,7 +5,11 @@ name: Consum first run
 on:
   push:
     branches: [claude/peaceful-cray-ur92n4]
-    paths: [.github/workflows/consum-first-run.yml, .github/scripts/consum_first_run.py]
+    paths:
+      - .github/workflows/consum-first-run.yml
+      - .github/scripts/consum_first_run.py
+      - app/sources/consum.py
+      - app/services/quantity.py
   workflow_dispatch:
 
 permissions:
