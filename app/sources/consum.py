@@ -14,8 +14,9 @@ github.com/seravifer/supermarket-tracker (catalogue walk) and github.com/maurovi
   empty. Consum's own unit price is used whenever its unit is one we compare by, and when no
   size is written anywhere it is derived from pack price / unit price.
 - No postal code: anonymous requests get the default zone (x-zone 0), stored with postal_code "".
-- No category allowlist by id (ids weren't checked against the live shop yet): non-grocery
-  categories are skipped by name, see `skip_categories` in sources.toml.
+- Categories are narrow leaf names ("Champú", "Labiales"); only pets and a few others are
+  skipped by name (`skip_categories` in sources.toml). Shampoo and make-up are kept on purpose:
+  supermarkets stock them anyway.
 Risks: undocumented, can change without notice. About 90 page requests per full run.
 """
 
