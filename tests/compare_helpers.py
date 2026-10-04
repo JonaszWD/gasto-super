@@ -21,12 +21,14 @@ def add_listing(
     brand: str | None = None,
     category: str | None = None,
     seen: datetime | None = None,
+    price_label: str | None = None,
 ) -> Listing:
     source = source or ("mercadona" if chain == "mercadona" else "easycompra")
     pc = postal_code if postal_code is not None else ("28020" if source == "mercadona" else "")
     raw = RawListing(
         chain_id=chain, chain_product_id=pid, name=name, price_cents=price, ean=ean, size_text=size,
         department=department, brand=brand, category=category, observed_at=seen,
+        price_label=price_label,
     )
     listing, _ = upsert_listing(session, source, raw, pc)
     record_listing_price(session, listing, raw)

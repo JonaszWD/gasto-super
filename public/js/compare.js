@@ -30,9 +30,15 @@ function matchBadge(row) {
   return `<span class="tag ${cls}">${h(label)}</span>`;
 }
 
+/** Tag for a price that isn't the plain shelf price (e.g. only with the Lidl Plus app). */
+function priceLabel(o) {
+  return o.price_label ? `<span class="tag warn">${h(t(`compare.label.${o.price_label}`))}</span>` : "";
+}
+
 function priceRow(row, { actions = false } = {}) {
   const priced = row.price_cents != null;
   const meta = [];
+  if (priced && row.price_label) meta.push(priceLabel(row));
   if (priced) {
     meta.push(row.stale
       ? `<span class="tag stale">${h(t("compare.stale"))}</span> ${h(formatDate(row.last_seen_at))}`
@@ -267,7 +273,7 @@ function offerMeta(o) {
   const seen = o.stale
     ? `<span class="tag stale">${h(t("compare.stale"))}</span> ${h(formatDate(o.last_seen_at))}`
     : h(t("compare.updated", { date: formatDate(o.last_seen_at) }));
-  return [seen, o.location_specific ? "" : h(t("compare.not_location"))].filter(Boolean).join(" · ");
+  return [priceLabel(o), seen, o.location_specific ? "" : h(t("compare.not_location"))].filter(Boolean).join(" · ");
 }
 
 /** One chain: its cheapest product of the type, the others folded away. */

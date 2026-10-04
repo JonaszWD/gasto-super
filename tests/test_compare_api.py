@@ -53,6 +53,17 @@ def test_search_card_lists_every_chain(client: TestClient, catalog: dict[str, in
     assert rows["mercadona"]["last_seen_at"].endswith("Z")
 
 
+def test_price_label_reaches_the_card(client: TestClient, clean_db: Engine) -> None:
+    with Session(clean_db) as s:
+        merc = add_listing(s, "mercadona", "m1", "Leche entera Hacendado", 95, ean=MILK_EAN, size="Brick 1 l")
+        add_listing(s, "lidl", "l2", "Leche entera Milbona 1 L", 89, ean=MILK_EAN, source="lidl", price_label="lidl_plus")
+        product_id = merc.canonical_product_id
+    body = client.get(f"/api/compare/products/{product_id}").json()
+    rows = rows_by_chain(body)
+    assert rows["lidl"]["price_label"] == "lidl_plus" and rows["lidl"]["price_cents"] == 89
+    assert rows["mercadona"]["price_label"] is None
+
+
 def test_search_by_ean(client: TestClient, catalog: dict[str, int]) -> None:
     body = client.get("/api/compare/search", params={"q": MILK_EAN}).json()
     assert len(body["results"]) == 1 and body["results"][0]["product"]["id"] == catalog["milk"]

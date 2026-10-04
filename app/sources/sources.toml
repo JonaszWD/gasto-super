@@ -78,3 +78,11 @@ skip_categories = [
 [consum.departments]
 drink = ["bebidas", "aguas", "refrescos", "cervezas", "vinos", "zumos", "licores", "bodega"]
 household = ["drogueria", "limpieza", "detergentes"]
+
+# Lidl's own search API, filtered to products sold in shops (~10 requests per run).
+# Lidl publishes only ~220 food products online. No EANs; one national price.
+[lidl]
+enabled = true
+min_interval_seconds = 1.0
+# Values of the API's `category` field that are groceries (the rest are paths like "Categorías/Moda/...").
+food_categories = ["Food", "F+V"]

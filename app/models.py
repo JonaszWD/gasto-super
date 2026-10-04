@@ -105,6 +105,8 @@ class Listing(SQLModel, table=True):
     department: str = Field(max_length=20)
     category: str | None = Field(default=None, max_length=120)
     size_text: str | None = Field(default=None, max_length=80)
+    # Set when the price isn't the plain shelf price: "lidl_plus" = only with the Lidl Plus app.
+    price_label: str | None = Field(default=None, max_length=20)
     quantity_value: float | None = Field(default=None, sa_type=Numeric(12, 4, asdecimal=False))
     quantity_unit: str | None = Field(default=None, max_length=8)
     image_url: str | None = Field(default=None, max_length=500)

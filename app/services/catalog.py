@@ -32,6 +32,8 @@ class RawListing:
     unit_price_cents: int | None = None
     image_url: str | None = None
     url: str | None = None
+    # Set when the price isn't the plain shelf price ("lidl_plus"); shown next to it.
+    price_label: str | None = None
     # When the price was observed; None = now.
     observed_at: datetime | None = None
     extra: dict = field(default_factory=dict)
@@ -92,6 +94,7 @@ def _apply_raw(listing: Listing, raw: RawListing) -> None:
     listing.department = raw.department
     listing.category = raw.category
     listing.size_text = raw.size_text
+    listing.price_label = raw.price_label
     listing.quantity_value = q.value if q else None
     listing.quantity_unit = q.unit if q else None
     listing.image_url = raw.image_url

@@ -38,6 +38,7 @@ class ChainPrice:
     cheapest: bool = False
     score: float | None = None
     location_specific: bool = False
+    price_label: str | None = None
 
 
 @dataclass
@@ -124,6 +125,7 @@ def build_card(
         row.source = listing.source
         row.unit = listing.quantity_unit
         row.location_specific = listing.postal_code != ""
+        row.price_label = listing.price_label
         if lp is None:  # listing known but never priced
             continue
         row.price_cents = lp.price_cents
@@ -210,6 +212,7 @@ class TypeOffer:
     stale: bool
     location_specific: bool
     by_weight: bool = False  # sold loose / "aprox": any amount can be bought at the unit price
+    price_label: str | None = None
 
 
 def _sold_by_weight(listing: Listing) -> bool:
@@ -277,6 +280,7 @@ def type_offers(session: Session, slugs: list[str], pc: str, stale_days: int = 7
                 stale=is_stale(lp.last_seen_at, now, stale_days),
                 location_specific=listing.postal_code != "",
                 by_weight=_sold_by_weight(listing),
+                price_label=listing.price_label,
             )
         )
     return out

@@ -178,6 +178,7 @@ class ChainPriceOut(BaseModel):
     stale: bool = False
     cheapest: bool = False
     location_specific: bool = False
+    price_label: str | None = None  # "lidl_plus": only with the Lidl Plus app
     can_refresh: bool = False
 
 
@@ -249,6 +250,7 @@ class TypeOfferOut(BaseModel):
     last_seen_at: UtcDatetime
     stale: bool
     location_specific: bool
+    price_label: str | None = None
 
 
 class TypeChainOut(BaseModel):

@@ -10,7 +10,7 @@ from app.sources.base import PoliteClient
 from collectors import __main__ as cli
 from collectors.runner import RunStats, run_source
 from tests.sources_helpers import fixture, no_sleep
-from tests.test_sources import alcampo_handler, consum_handler, easycompra_handler, mercadona_handler
+from tests.test_sources import alcampo_handler, consum_handler, easycompra_handler, lidl_handler, mercadona_handler
 
 
 def client_for(handler) -> PoliteClient:  # type: ignore[no-untyped-def]
@@ -84,6 +84,16 @@ async def test_consum_run_stores_listings_with_eans(clean_db: Engine) -> None:
         assert next(li for li in listings if li.chain_product_id == "1669").ean == "8423230065137"
 
 
+async def test_lidl_run_stores_the_lidl_plus_label(clean_db: Engine) -> None:
+    stats = await run_source(clean_db, "lidl", http=client_for(lidl_handler))
+    assert stats.status == "ok" and stats.products_checked == 3
+    with Session(clean_db) as s:
+        listings = {li.chain_product_id: li for li in s.exec(select(Listing)).all()}
+        assert {li.postal_code for li in listings.values()} == {""}  # one national price
+        assert listings["11040383"].price_label == "lidl_plus"
+        assert listings["11007752"].price_label is None
+
+
 async def test_easycompra_stale_chain_is_partial(clean_db: Engine) -> None:
     stats = await run_source(clean_db, "easycompra", chains={"carrefour", "dia"}, http=client_for(easycompra_handler))
     assert stats.status == "partial" and stats.products_checked == 3
@@ -107,14 +117,14 @@ def test_cli_isolates_sources_and_writes_summary(
     summary = tmp_path / "summary.md"
     monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
     code = cli.main(["run", "--all"])
-    assert calls == ["mercadona", "easycompra", "openprices", "alcampo", "consum"]  # a crash doesn't stop the others
+    assert calls == ["mercadona", "easycompra", "openprices", "alcampo", "consum", "lidl"]  # a crash doesn't stop the others
     assert code == 1  # but the job is marked failed
     text = summary.read_text()
     assert "| mercadona |" in text and "| failed |" in text
 
 
 def test_cli_chain_without_source(monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
-    assert cli.main(["run", "--chain", "lidl"]) == 0
+    assert cli.main(["run", "--chain", "aldi"]) == 0
     assert "No enabled source" in capsys.readouterr().out
 
 

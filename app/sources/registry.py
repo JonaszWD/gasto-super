@@ -7,6 +7,7 @@ from app.sources.alcampo import AlcampoAdapter
 from app.sources.base import SourceAdapter
 from app.sources.consum import ConsumAdapter
 from app.sources.easycompra import EasyCompraAdapter
+from app.sources.lidl import LidlAdapter
 from app.sources.mercadona import MercadonaAdapter
 from app.sources.openprices import OpenPricesAdapter
 
@@ -36,13 +37,15 @@ def build_adapter(source_id: str, config: dict[str, Any] | None = None) -> Sourc
             adapter = AlcampoAdapter(cfg.get("departments"), cfg.get("search_terms"), cfg.get("max_products_per_run"))
         case "consum":
             adapter = ConsumAdapter(cfg.get("departments"), cfg.get("skip_categories"))
+        case "lidl":
+            adapter = LidlAdapter(cfg.get("food_categories"))
         case _:
             return None
     adapter.min_interval = cfg.get("min_interval_seconds", adapter.min_interval)
     return adapter
 
 
-ALL_SOURCES = ("mercadona", "easycompra", "openprices", "alcampo", "consum")
+ALL_SOURCES = ("mercadona", "easycompra", "openprices", "alcampo", "consum", "lidl")
 
 
 def enabled_sources(config: dict[str, Any] | None = None) -> list[str]:

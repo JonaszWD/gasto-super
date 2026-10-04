@@ -11,6 +11,7 @@ from app.services.catalog import RawListing
 from app.services.quantity import Quantity
 from app.sources.consum import ConsumAdapter, parse_product as parse_consum_product
 from app.sources.easycompra import EasyCompraAdapter, guess_department
+from app.sources.lidl import LidlAdapter, in_shops, parse_product as parse_lidl_product
 from app.sources.mercadona import MercadonaAdapter
 from app.sources.openprices import OpenPricesAdapter, chain_for
 from app.sources.registry import build_adapter, load_config
@@ -427,3 +428,83 @@ async def test_consum_blocked_catalog_raises() -> None:
     ctx, _ = make_ctx(lambda r: httpx.Response(403, text=""))
     with pytest.raises(SourceError):
         [x async for x in consum().fetch_catalog(ctx)]
+
+
+# Lidl: real items recorded by the live check on 2026-10-04 (store=1 catalogue page), verbatim.
+
+
+def lidl() -> LidlAdapter:
+    adapter = build_adapter("lidl", load_config())
+    assert isinstance(adapter, LidlAdapter)
+    return adapter
+
+
+def lidl_handler(request: httpx.Request) -> httpx.Response:
+    if request.url.path == "/q/api/search":
+        name = f"lidl/search_{request.url.params['offset']}.json"
+        if (FIXTURES / name).exists():
+            return httpx.Response(200, json=fixture(name))
+        return httpx.Response(200, json={"numFound": 8, "items": []})
+    return httpx.Response(404, json={})
+
+
+def lidl_item(product_id: int) -> dict:
+    page = fixture("lidl/search_0.json")
+    assert isinstance(page, dict)
+    return next(i["gridbox"]["data"] for i in page["items"] if i["gridbox"]["data"]["productId"] == product_id)
+
+
+async def test_lidl_catalog_reads_food_sold_in_shops() -> None:
+    ctx, seen = make_ctx(lidl_handler)
+    listings = {x.chain_product_id: x async for x in lidl().fetch_catalog(ctx)}
+
+    assert [r.url.params["offset"] for r in seen] == ["0", "6"]  # stops at numFound
+    assert all(r.url.params["store"] == "1" and r.url.params["q"] == "*" for r in seen)
+    assert all(r.headers["accept"] == "*/*" for r in seen)  # application/json gets HTTP 406
+    assert set(listings) == {"11007752", "11040383", "11138328"}  # no sewing machines or jackets
+
+    skyr = listings["11007752"]
+    assert skyr.chain_id == "lidl" and skyr.ean is None
+    assert skyr.name == "Skyr natural" and skyr.brand == "MILBONA"
+    assert skyr.price_cents == 299 and skyr.price_label is None  # offer price (was 5 €)
+    assert skyr.quantity == Quantity(1.0, "kg") and skyr.resolved_unit_price() == 299
+    assert skyr.url == "https://www.lidl.es/p/milbona-skyr-natural/p11007752"
+    mussels = listings["11138328"]
+    assert mussels.name == "Mejillón vivo y limpio" and mussels.brand is None  # brand "-"
+    assert mussels.quantity == Quantity(1.4, "kg")
+
+
+async def test_lidl_plus_only_price_is_used_and_labelled() -> None:
+    ctx, _ = make_ctx(lidl_handler)
+    burgers = {x.chain_product_id: x async for x in lidl().fetch_catalog(ctx)}["11040383"]
+    assert burgers.price_cents == 255 and burgers.price_label == "lidl_plus"
+    assert burgers.quantity == Quantity(0.18, "kg")  # packaging from the Lidl Plus price
+
+
+def test_lidl_two_for_offer_uses_the_single_unit_price() -> None:
+    flour = lidl_item(11007752) | {"title": "Harina de trigo"}
+    flour["price"] = flour["price"] | {
+        "price": 0.35,  # the second bag's price
+        "packaging": {"text": "1 kg"},
+        "basePrice": {"text": "1 ud 0,69 €/kg / 2 uds 0,52 €/kg"},
+    }
+    listing = parse_lidl_product(flour)
+    assert listing is not None and listing.price_cents == 69 and listing.unit_price_cents == 69
+    plain = flour | {"price": flour["price"] | {"price": 2.49, "packaging": {"text": "256 g"}, "basePrice": {"text": "9,73 €/kg"}}}
+    listing = parse_lidl_product(plain)
+    assert listing is not None and listing.price_cents == 249 and listing.unit_price_cents == 973
+
+
+def test_lidl_skips_offers_not_in_shops() -> None:
+    now = 1_790_000_000
+    assert in_shops({}, now)
+    assert in_shops({"storeStartDate": now - 10, "storeEndDate": now + 10}, now)
+    assert not in_shops({"storeStartDate": now + 10}, now)  # not in shops yet
+    assert not in_shops({"storeStartDate": now - 20, "storeEndDate": now - 10}, now)  # offer over
+    assert parse_lidl_product(lidl_item(11007752) | {"price": {"price": None}, "lidlPlus": []}) is None
+
+
+async def test_lidl_blocked_raises() -> None:
+    ctx, _ = make_ctx(lambda r: httpx.Response(403, text=""))
+    with pytest.raises(SourceError):
+        [x async for x in lidl().fetch_catalog(ctx)]

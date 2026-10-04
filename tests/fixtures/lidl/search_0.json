@@ -1,0 +1,3862 @@
+{
+ "type": "search",
+ "version": "v2.0.0",
+ "numFound": 8,
+ "offset": 0,
+ "fetchsize": 60,
+ "items": [
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "100412024",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "WB4H6C5JjVzIUn1AP18479lmAT6t8R7zSsu9voXljo32zBH5UEhYJiiT7Wk=",
+     "keywordScore": "66dKGE7LP4NYautI7u1Sv0xDdBxbZ3CTLnq73cqPZpVITW8QqMQo4b1ubBk=",
+     "semanticScore": "qwjgnuIKg+CmKy5jn2SA8JWzbL5frSt5L4xVl8D55zpVitIJUmf5wyiZxCM=",
+     "keywordScoreRaw": "EURupc3eibxcQPFBRdvoXFJx6XRku60UiEHqyKfX2ypg/X4L3ya3iaB3hF8=",
+     "ratingScore": "2Ly2AZSWKSQucz62HSypNiHxc9Z50GYB+LKXrTea0tkBvsDJc6MHRClF5DQ=",
+     "freshnessScore": "Xa7E5+V4fmCVGHxUuojYuaFZeOIvqh7vaPZNMWesdwrfTzOcJ1JLRAMRol4=",
+     "searchHubImpressions": "zFNK2enma/4IDI9eXjz+guqUmt/FNEezgfA0+1LgZ1+P60bJb8+t99toc1Y=",
+     "searchHubClicks": "SrH9pY1CcqyXK+B5xiS4g++UnABJEKF7EossMnx53yb5CVqrlu9R4zb56q0=",
+     "searchHubCarts": "fVTHKp12cOmsrMQqMY/maj1JSNVktzah1Unam8cdH+xIdZxPoRAX0vU9itM=",
+     "businessRuleFactor": "X/N9lMngryxOsrt2E4wmLoTpt09KAt6PsBMVAx+UtGjbRLRF1E2NbrRxGYk="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1791065021430563,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": false,
+     "awards": [],
+     "brand": {
+      "logo": "https://www.lidl.es/assets/abb22c768d6b49afa9b0c8b51ece3def.jpeg",
+      "name": "SINGER",
+      "url": "https://www.lidl.es/q/brand/singer/b175",
+      "id": "SING",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/singer-maquina-de-coser-m3205/p100412024",
+     "canonicalUrl": "/p/singer-maquina-de-coser-m3205/p100412024",
+     "category": "Categorías/Hogar y cocina/Trabajo manual/Máquinas de coser",
+     "categorySecondaryPath": "0/20/2055/205510",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_100412024_26cdbf38",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "100412024",
+     "flashSales": false,
+     "fullTitle": "SINGER Máquina de coser »M3205«",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "537930"
+     ],
+     "image": "https://www.lidl.es/assets/gcp5de754632078434290f648903f975ab4.png",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcp5de754632078434290f648903f975ab4.png",
+      "accessibility": "Máquina de coser blanca con acento azul y dial de selección de puntadas."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "imageList": [
+      "https://www.lidl.es/assets/gcp5de754632078434290f648903f975ab4.png",
+      "https://www.lidl.es/assets/gcpe3baa84c5c354d378a6e53e6a50382aa.png",
+      "https://www.lidl.es/assets/gcp57454b3fb244427c9b528d55282051ed.png"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcp5de754632078434290f648903f975ab4.png",
+       "accessibility": "Máquina de coser blanca con acento azul y dial de selección de puntadas."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcpe3baa84c5c354d378a6e53e6a50382aa.png",
+       "accessibility": "Máquina de coser blanca con detalles azules, tela y tijeras sobre una mesa oscura."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp57454b3fb244427c9b528d55282051ed.png",
+       "accessibility": "Máquina de coser en mesa con telas, tijeras y cuadernos."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Categorías/Hogar y cocina/Trabajo manual/Máquinas de coser",
+      "fullTitle": "SINGER Máquina de coser »M3205«",
+      "moreDetails": "Saber más",
+      "supplementalDescription": "<p><strong>Velocidad de costura</strong>: 800 puntadas por minuto<br /> <strong>Longitud de puntada</strong>: 4 mm<br /> <strong>Ancho de puntada</strong>: 5 mm</p>",
+      "title": "Máquina de coser »M3205«",
+      "wonCategoryPrimary": "Mundos de necesidad/Cocina y hogar/Máquinas de coser y accesorios",
+      "wonCategoryPrimaryPath": "0/11/1118"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "online": true,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "endDate": "2026-10-11T21:59:59Z",
+      "endDateExclusive": "2026-10-11T22:00Z",
+      "hasStar": false,
+      "hasVat": true,
+      "hasZeroVat": false,
+      "packaging": {},
+      "price": 99.99,
+      "showEndDate": false,
+      "specialTaxes": [],
+      "startDate": "2026-09-20T22:00Z",
+      "superscript": "",
+      "tax": "21",
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 100412024,
+     "productType": "FLAT",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "ratings": {
+      "average": 4.6,
+      "count": 8,
+      "recommendedNo": 0,
+      "recommendedYes": 6,
+      "sizePercentage": 0,
+      "topRated": false
+     },
+     "regionsPrices": {},
+     "ribbons": [],
+     "renderedTs": 1791065021,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 2,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "Pronto online",
+         "type": "SOON_ONLINE",
+         "deliveryInfoText": "En las próximas 48 horas."
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "Pronto online",
+          "type": "SOON_ONLINE",
+          "deliveryInfoText": "En las próximas 48 horas."
+         }
+        ],
+        "validFrom": 1790546400
+       },
+       {
+        "badges": [
+         {
+          "text": "Pronto online",
+          "type": "SOON_ONLINE",
+          "deliveryInfoText": "En las próximas 48 horas."
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": false,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": true,
+      "backInStockNotificationSoldOut": true
+     },
+     "store": false,
+     "storeStartDate": 1790546400,
+     "title": "Máquina de coser »M3205«",
+     "timezoneId": "Europe/Madrid",
+     "zones": {
+      "BAL": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 99.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "homeDeliveryCharge": 4.99
+       },
+       "id": "BAL",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Baleares"
+      },
+      "CAN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": false,
+        "hasZeroVat": true,
+        "packaging": {},
+        "price": 99.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "0",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "homeDeliveryCharge": 4.99,
+        "zoneSurcharge": 3.0
+       },
+       "id": "CAN",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Islas Canarias"
+      },
+      "PEN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 99.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "homeDeliveryCharge": 4.99
+       },
+       "id": "PEN",
+       "isDefault": true,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Peninsula"
+      }
+     }
+    },
+    "productId": 100412024,
+    "meta": {
+     "sapProductCategory": {
+      "code": "205510",
+      "name": "Máquinas de coser",
+      "pathCode": "0/20/2055/205510",
+      "pathName": "Categorías/Hogar y cocina/Trabajo manual/Máquinas de coser"
+     },
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10094053",
+        "name": "Las mejores marcas para ti y tu hogar",
+        "url": "/c/las-mejores-marcas-para-ti-y-tu-hogar/a10094053",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "SINGER Máquina de coser »M3205«",
+     "ean": "7393033170554",
+     "gs1": {
+      "segment": {
+       "code": "70000000",
+       "family": {
+        "code": "70010000",
+        "clazz": {
+         "code": "70010400",
+         "brick": {
+          "code": "10001706",
+          "attributeGS1": []
+         }
+        }
+       }
+      }
+     },
+     "shopCategories": {
+      "shopCategory": [
+       {
+        "code": "205510",
+        "name": "Máquinas de coser",
+        "parent": "2055",
+        "superCategories": {
+         "category": [
+          {
+           "code": "2055",
+           "name": "Trabajo manual",
+           "parent": "20"
+          },
+          {
+           "code": "20",
+           "name": "Hogar y cocina",
+           "parent": "0"
+          },
+          {
+           "code": "0",
+           "name": "Categorías",
+           "parent": ""
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "wonCategoryBreadcrumbs": [
+      [
+       {
+        "id": "10067764",
+        "name": "Cocina y cuidado del hogar",
+        "url": "/c/cocina-y-cuidado-del-hogar/s10067764",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067530",
+        "name": "Máquinas de coser y accesorios",
+        "url": "/h/maquinas-de-coser-y-accesorios/h10067530",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "worldOfNeeds": [
+      {
+       "code": "1118",
+       "isMain": true,
+       "name": "Máquinas de coser y accesorios",
+       "parent": "11",
+       "superCategories": [
+        {
+         "code": "11",
+         "name": "Cocina y hogar",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "100412024"
+   },
+   "tracking": {
+    "position": 1,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.100412024",
+     "searchTrackingTitle": "M%C3%A1quina+de+coser+%C2%BBM3205%C2%AB",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.100412024",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 1,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Categorías/Hogar y cocina/Trabajo manual/Máquinas de coser"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "11007752",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "31QAjkKm8V0bn0qWG+KUVl5fJn8yM9KwA1yCl+TY89gUZdI9is+rXKiMt3s=",
+     "keywordScore": "Ee0Akt+uBAYpgpR8bdj7veDzEThzJ5E7TC6BsR/tNRF+TYhXPdQrooU7LZw=",
+     "semanticScore": "QHSMNtW41UiS803/TusWLguPrBQKoL117ZC0Ucn0vIIUoBnLcLK3qju5njw=",
+     "keywordScoreRaw": "DafvIYTYrlGVzUPrnv0p0OzivKN/fVCowCQqkjjwdqwQDR/eNMSw8xkYFwM=",
+     "ratingScore": "xUycjDrzJuzEmOaYPMVZZXPnLm0TN8k6Xf/3Vopm8Qt18uzGQLT905vmh/k=",
+     "freshnessScore": "rBqE7uZh5xD2rDz1100Bpx8yjm1FYtzsa30KSP65I4dOEuQn3bGEs89roCI=",
+     "searchHubImpressions": "9stgUng8dwEwW8bETq0f1/iHboTUK4lABGObNIso/updNMwIGumqEhwCBGI=",
+     "searchHubClicks": "58UKDYjOzp+q9yOHAWeX6gZeh6t3OSkpsRWiIq0AZ12XNoyxcErTTs7Bt7o=",
+     "searchHubCarts": "7aOxzIbzmwbI0xxrmjriYcI7FwM+pU6jf7BheerYJunAr717AFCf+lKbjV4=",
+     "businessRuleFactor": "eLMbE4Kqv0wWjG2VVID1oIHG8kjqMky+yJnRdy1hhDg6zZfrTQNqN7yc8aI="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1790892020876403,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": false,
+     "awards": [],
+     "brand": {
+      "name": "MILBONA",
+      "url": "/q/search?q=milbona",
+      "id": "MILA",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/milbona-skyr-natural/p11007752",
+     "canonicalUrl": "/p/milbona-skyr-natural/p11007752",
+     "category": "Food",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_11007752_d4ee1558",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "11007752",
+     "flashSales": false,
+     "fullTitle": "MILBONA Skyr natural",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "215443"
+     ],
+     "image": "https://www.lidl.es/assets/gcp846bf019072b45fdb2f304c3cf888d7b.png",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcp846bf019072b45fdb2f304c3cf888d7b.png",
+      "accessibility": "Cubo grande de skyr estilo islandés, sabor clásico, con alto contenido en proteínas."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "itemId": 11007752,
+     "imageList": [
+      "https://www.lidl.es/assets/gcp846bf019072b45fdb2f304c3cf888d7b.png",
+      "https://www.lidl.es/assets/gcp24a35e26301848e486b0f0dae44d3818.png",
+      "https://www.lidl.es/assets/gcpcae73cd98eb04120adab3f852f9f142c.png"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcp846bf019072b45fdb2f304c3cf888d7b.png",
+       "accessibility": "Cubo grande de skyr estilo islandés, sabor clásico, con alto contenido en proteínas."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp24a35e26301848e486b0f0dae44d3818.png",
+       "accessibility": "Skyr yogur estilo islandés clásico, bajo en grasa, alto en proteínas, 100g de proteína por 1000g, XXL."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcpcae73cd98eb04120adab3f852f9f142c.png",
+       "accessibility": "Yogur Skyr estilo islandés clásico, bajo en grasa, alto en proteínas, 100g de proteína por envase de 1000g, XXL."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Food",
+      "fullTitle": "MILBONA Skyr natural",
+      "moreDetails": "Saber más",
+      "title": "Skyr natural",
+      "wonCategoryPrimary": "Mundos de necesidad/Comida y cerca de la comida/Quesos, productos lácteos y huevos/Yogur",
+      "wonCategoryPrimaryPath": "0/17/1739/173911"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "nat": "0215443",
+     "online": false,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "discount": {
+       "absoluteDiscount": 2.01,
+       "deletedPrice": 5,
+       "discountHasStar": false,
+       "fromRecommendedPrice": false,
+       "hideBargainHint": false,
+       "bargainHintEnabled": false,
+       "bargainHintText": "Megadescuento",
+       "percentageDiscount": 40,
+       "showDiscount": true,
+       "showFrom": false,
+       "showPercentage": true,
+       "showUpTo": false
+      },
+      "displayedCurrency": "€",
+      "hasStar": false,
+      "hasVat": false,
+      "oldPrice": 5,
+      "packaging": {
+       "text": "1 kg"
+      },
+      "price": 2.99,
+      "priceTheme": "white_red",
+      "specialTaxes": [],
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 11007752,
+     "productType": "RETAIL",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "regions": [
+      44,
+      45,
+      46,
+      47,
+      48,
+      51,
+      52,
+      10,
+      11,
+      12,
+      56,
+      13,
+      57,
+      14,
+      58,
+      15,
+      59,
+      16,
+      17,
+      18,
+      19,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+     ],
+     "regionsV2": {
+      "44": {
+       "regionName": "Málaga",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "45": {
+       "regionName": "Jaén",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "46": {
+       "regionName": "Granada",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "47": {
+       "regionName": "Almería",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "48": {
+       "regionName": "Palma de mallorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "49": {
+       "regionName": "Santa Cruz de Tenerife",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "50": {
+       "regionName": "Las Palmas",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "51": {
+       "regionName": "Ceuta ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "52": {
+       "regionName": "Melilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "53": {
+       "regionName": "Fuerteventura",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "10": {
+       "regionName": "Valladolid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "54": {
+       "regionName": "Lanzarote",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "11": {
+       "regionName": "Segovia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "55": {
+       "regionName": "Gran Canaria",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "12": {
+       "regionName": "Soria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "56": {
+       "regionName": "Vit 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "13": {
+       "regionName": "Burgos",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "57": {
+       "regionName": "Cat 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "14": {
+       "regionName": "Palencia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "58": {
+       "regionName": "Menorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "15": {
+       "regionName": "Cantabria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "59": {
+       "regionName": "Ibiza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "16": {
+       "regionName": "Vizcaya",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "17": {
+       "regionName": "Guipuzcoa",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "18": {
+       "regionName": "Álava",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "19": {
+       "regionName": "La Rioja",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "1": {
+       "regionName": "A Coruña",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "2": {
+       "regionName": "Pontevedra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "3": {
+       "regionName": "Lugo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "4": {
+       "regionName": "Ourense",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "5": {
+       "regionName": "Asturias",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "6": {
+       "regionName": "León",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "7": {
+       "regionName": "Zamora",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "8": {
+       "regionName": "Salamanca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "9": {
+       "regionName": "Ávila",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "20": {
+       "regionName": "Navarra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "21": {
+       "regionName": "Huesca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "22": {
+       "regionName": "Zaragoza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "23": {
+       "regionName": "Teruel",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "24": {
+       "regionName": "Lleida",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "25": {
+       "regionName": "Tarragona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "26": {
+       "regionName": "Barcelona",
+       "isDefault": true,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "27": {
+       "regionName": "Girona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "28": {
+       "regionName": "Madrid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "29": {
+       "regionName": "Cáceres",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "30": {
+       "regionName": "Bádajoz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "31": {
+       "regionName": "Toledo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "32": {
+       "regionName": "Ciudad Real",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "33": {
+       "regionName": "Guadalajara",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "34": {
+       "regionName": "Cuenca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "35": {
+       "regionName": "Albacete",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "36": {
+       "regionName": "Castellón",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "37": {
+       "regionName": "Valencia ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "38": {
+       "regionName": "Alicante",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "39": {
+       "regionName": "Murcia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "40": {
+       "regionName": "Huelva",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "41": {
+       "regionName": "Sevilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "42": {
+       "regionName": "Cádiz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "43": {
+       "regionName": "Córdoba",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      }
+     },
+     "regionsPrices": {
+      "1": {
+       "currentPrice": {
+        "basePrice": {
+         "prefix": false
+        },
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "discount": {
+         "absoluteDiscount": 2.01,
+         "deletedPrice": 5,
+         "discountHasStar": false,
+         "fromNormalPriceForLidlPlus": false,
+         "fromRecommendedPrice": false,
+         "hideBargainHint": false,
+         "bargainHintEnabled": false,
+         "bargainHintText": "Megadescuento",
+         "percentageDiscount": 40,
+         "showDiscount": true,
+         "showFrom": false,
+         "showPercentage": true,
+         "showUpTo": false
+        },
+        "displayedCurrency": "€",
+        "endDate": "2026-10-04T21:59:59Z",
+        "endDateExclusive": "2026-10-04T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "oldPrice": 5,
+        "packaging": {
+         "text": "1 kg"
+        },
+        "price": 2.99,
+        "priceTheme": "white_red",
+        "specialTaxes": [],
+        "startDate": "2026-10-01T22:00Z",
+        "superscript": "",
+        "variantsHaveDifferentPrices": false
+       },
+       "futureLidlPlusPrices": []
+      }
+     },
+     "ribbons": [],
+     "renderedTs": 1790892020,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 0,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "En tienda",
+         "type": "IN_STORE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "En tienda",
+          "type": "IN_STORE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": false,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": false,
+      "backInStockNotificationSoldOut": false
+     },
+     "store": true,
+     "title": "Skyr natural",
+     "timezoneId": "Europe/Madrid",
+     "zones": {}
+    },
+    "productId": 11007752,
+    "meta": {
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10091217",
+        "name": "XXL",
+        "url": "/c/xxl/a10091217",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "MILBONA Skyr natural",
+     "ean": "4335619104587",
+     "retailLists": [
+      [
+       {
+        "id": 0
+       },
+       {
+        "id": 5379
+       },
+       {
+        "id": 3457
+       }
+      ]
+     ],
+     "lists": [
+      0,
+      5379,
+      3457
+     ],
+     "wonCategoryBreadcrumbs": [],
+     "worldOfNeeds": [
+      {
+       "code": "173911",
+       "isMain": true,
+       "name": "Yogur",
+       "parent": "1739",
+       "superCategories": [
+        {
+         "code": "1739",
+         "name": "Quesos, productos lácteos y huevos",
+         "parent": "17"
+        },
+        {
+         "code": "17",
+         "name": "Comida y cerca de la comida",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "11007752"
+   },
+   "tracking": {
+    "position": 47,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.11007752",
+     "searchTrackingTitle": "Skyr+natural",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.11007752",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 47,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Food"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "100408617",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "kS4fMJkNBzNz9+bnAIvkr54IoOfcCirOafZLY66UHn41rtlOHGj6Ct7npR8=",
+     "keywordScore": "+OyfSRT7805NZltKn72CKZ2iK/wsL1h6TVUHUX0hKciwZQ2tJkHuEj6nk74=",
+     "semanticScore": "kTwzFgNsX1inc1KiPZt1OP86Eev1hfXtKhtFRlrj6PoGt9FaJbe2bPIs/+0=",
+     "keywordScoreRaw": "0xLodoO1/ezqkrEvo9a9AZkGVhyLY5Yy/fiTIPn6aXo5XmsYHf3egjDe3ME=",
+     "ratingScore": "3Dk8KP8pXubzOMLHqnQdPs9QyS66Iu+ghkTtujG8DdwnQ5HIHzQoMMt4+dY=",
+     "freshnessScore": "m81ORQNiMneeyBenQnXxJ85cS6BonIWjQ5Du+rccishdm0XgmB9G4UiuOME=",
+     "searchHubImpressions": "b48dCPoEa/0Pqd6JREz8s9xUeueAMQXrXedaWZKZUz5WybVnl850Qif+3ZY=",
+     "searchHubClicks": "IPxY3HJeSed5ahnxYhrSAa7FPaibZk2vZld+oaAz9r2jFW+nhzjzIUE7SqM=",
+     "searchHubCarts": "HBD51OH+JXnP0/S6abzEcSpycTR3LmjEZNP9KMysZg3UiOGbTprtWRg9KD0=",
+     "businessRuleFactor": "KfQfAYEU3iVbTVUBTkfWseaT7lMqCiOwr2Ed7oCe8WDhNRTJJSm0n5ZoIyI="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1791114619481453,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": true,
+     "awards": [],
+     "brand": {
+      "logo": "https://www.lidl.es/assets/gcp58cd41f624e94d54b72a94572d82c227.png",
+      "name": "ESMARA®",
+      "url": "https://www.lidl.es/q/brand/esmara/b172",
+      "id": "ESMA",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/esmara-paraguas-de-bolsillo/p100408617",
+     "canonicalUrl": "/p/esmara-paraguas-de-bolsillo/p100408617",
+     "category": "Categorías/Moda/Moda femenina/Accesorios/Paraguas",
+     "categorySecondaryPath": "0/46/4610/461010/46101019",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_100408617_6f616235",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "100408617",
+     "flashSales": false,
+     "fullTitle": "ESMARA® Paraguas de bolsillo",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "514215"
+     ],
+     "image": "https://www.lidl.es/assets/gcpaa03f4fceb324696ab1b7772b933bde1.jpg",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcpaa03f4fceb324696ab1b7772b933bde1.jpg",
+      "accessibility": "Paraguas plegable azul con mango negro y muestras de color."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "imageList": [
+      "https://www.lidl.es/assets/gcpaa03f4fceb324696ab1b7772b933bde1.jpg",
+      "https://www.lidl.es/assets/gcp20453914b50a4f4ab2183cb9c79ee59b.jpg",
+      "https://www.lidl.es/assets/gcp3bb4e2a268c14539892134f51f67cd71.jpg"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcpaa03f4fceb324696ab1b7772b933bde1.jpg",
+       "accessibility": "Paraguas plegable azul con mango negro y muestras de color."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp20453914b50a4f4ab2183cb9c79ee59b.jpg",
+       "accessibility": "Paraguas azul marino abierto con ribete plateado y mango negro"
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp3bb4e2a268c14539892134f51f67cd71.jpg",
+       "accessibility": "Paraguas azul oscuro plegado con mango negro y correa"
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Categorías/Moda/Moda femenina/Accesorios/Paraguas",
+      "description": "<p>El <strong>paraguas de bolsillo ESMARA® con tiras reflectantes</strong> es una protección contra la lluvia compacta en formato de bolsillo que, con su sistema automático de apertura y cierre con una sola mano y elementos decorativos reflectantes, garantiza una mayor visibilidad en la penumbra y bajo la lluvia.</p><ul><li>Dimensiones compactas, cabe en la mochila y en el bolso</li><li>Sistema automático de una sola mano para una apertura y cierre rápidos</li><li>Las tiras reflectantes aumentan la visibilidad en el tráfico</li><li>Diámetro abierto de 95 cm para una protección fiable</li><li>Incluye funda protectora y correa de mano para un transporte seguro</li></ul>",
+      "fullTitle": "ESMARA® Paraguas de bolsillo",
+      "moreDetails": "Saber más",
+      "supplementalDescription": "<p><strong>Color</strong>: azul, rojo, negro<br /> <strong>Característica</strong>: elementos decorativos reflectantes<br /> <strong>Particularidad:&nbsp;</strong>sistema automático de una sola mano</p>",
+      "title": "Paraguas de bolsillo",
+      "wonCategoryPrimary": "Mundos de necesidad/Moda y accesorios/Maletas y accesorios de viaje",
+      "wonCategoryPrimaryPath": "0/15/1514"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "online": true,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "endDate": "2026-10-11T21:59:59Z",
+      "endDateExclusive": "2026-10-11T22:00Z",
+      "hasStar": false,
+      "hasVat": true,
+      "hasZeroVat": false,
+      "packaging": {},
+      "price": 4.49,
+      "showEndDate": false,
+      "specialTaxes": [],
+      "startDate": "2026-09-20T22:00Z",
+      "superscript": "",
+      "tax": "21",
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 100408617,
+     "productType": "HEAD_VARIANT",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "ratings": {
+      "average": 4.3,
+      "count": 6,
+      "recommendedNo": 0,
+      "recommendedYes": 5,
+      "sizePercentage": 0,
+      "topRated": false
+     },
+     "regionsPrices": {},
+     "ribbons": [],
+     "renderedTs": 1791114619,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 3,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "En tu tienda 02.10. - 14.10.",
+         "type": "ALSO_IN_STORE_PAST_DATE_RANGE"
+        },
+        {
+         "text": "Disponible online",
+         "type": "AVAILABLE_ONLINE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "En tu tienda 02.10. - 14.10.",
+          "type": "ALSO_IN_STORE_PAST_DATE_RANGE"
+         },
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ],
+        "validFrom": 1790892000,
+        "validUntil": 1792015199
+       },
+       {
+        "badges": [
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": true,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": true,
+      "backInStockNotificationSoldOut": true
+     },
+     "store": true,
+     "storeStartDate": 1790892000,
+     "storeEndDate": 1792015199,
+     "title": "Paraguas de bolsillo",
+     "timezoneId": "Europe/Madrid",
+     "zones": {
+      "BAL": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 4.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "BAL",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Baleares"
+      },
+      "CAN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": false,
+        "hasZeroVat": true,
+        "packaging": {},
+        "price": 4.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "0",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "zoneSurcharge": 3.0
+       },
+       "id": "CAN",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Islas Canarias"
+      },
+      "PEN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 4.49,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "PEN",
+       "isDefault": true,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Peninsula"
+      }
+     }
+    },
+    "productId": 100408617,
+    "meta": {
+     "sapProductCategory": {
+      "code": "46101019",
+      "name": "Paraguas",
+      "pathCode": "0/46/4610/461010/46101019",
+      "pathName": "Categorías/Moda/Moda femenina/Accesorios/Paraguas"
+     },
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10103552",
+        "name": "Prepárate para el Otoño: Chaquetas Ligeras",
+        "url": "/c/preparate-para-el-otono-chaquetas-ligeras/a10103552",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "ESMARA® Paraguas de bolsillo",
+     "gs1": {
+      "segment": {
+       "code": "64000000",
+       "family": {
+        "code": "64010000",
+        "clazz": {
+         "code": "64010200",
+         "brick": {
+          "code": "10001102",
+          "attributeGS1": []
+         }
+        }
+       }
+      }
+     },
+     "shopCategories": {
+      "shopCategory": [
+       {
+        "code": "46101019",
+        "name": "Paraguas",
+        "parent": "461010",
+        "superCategories": {
+         "category": [
+          {
+           "code": "461010",
+           "name": "Accesorios",
+           "parent": "4610"
+          },
+          {
+           "code": "4610",
+           "name": "Moda femenina",
+           "parent": "46"
+          },
+          {
+           "code": "46",
+           "name": "Moda",
+           "parent": "0"
+          },
+          {
+           "code": "0",
+           "name": "Categorías",
+           "parent": ""
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "wonCategoryBreadcrumbs": [
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067569",
+        "name": "Calzado y accesorios",
+        "url": "/h/calzado-y-accesorios/h10067569",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10084899",
+        "name": "Accesorios de moda",
+        "url": "/h/accesorios-de-moda/h10084899",
+        "hiddenCategory": false
+       }
+      ],
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067572",
+        "name": "Maletas y accesorios de viaje",
+        "url": "/h/maletas-y-accesorios-de-viaje/h10067572",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "worldOfNeeds": [
+      {
+       "code": "1514",
+       "isMain": true,
+       "name": "Maletas y accesorios de viaje",
+       "parent": "15",
+       "superCategories": [
+        {
+         "code": "15",
+         "name": "Moda y accesorios",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "100408617"
+   },
+   "tracking": {
+    "position": 2,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.100408617",
+     "searchTrackingTitle": "Paraguas+de+bolsillo",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.100408617",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 2,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Categorías/Moda/Moda femenina/Accesorios/Paraguas"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "11040383",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "4F21P0TdrPQcS5N8eNY98XZY52qsorkqc+jXwbwxtpeKrri+PJPiRJ139jo=",
+     "keywordScore": "m6rZiNNxzKR2mygrfdEVvhYOA4KhAZGj3k4N8tzQMFgoh1aBMLZjfoZiyKc=",
+     "semanticScore": "nW+wjASWiXA7j2iORxs7w60ECh0oE7vSPB311OVdFupnphW7CO5UJLqRg4A=",
+     "keywordScoreRaw": "UPtM9S7y1q2teAk6GdrT7xcLlsxK/P1qtZllSWSyMKZdkFR5QiQxDveHwYo=",
+     "ratingScore": "uUGmIalc6TbacDnK76OFaW+o8IwpWCJbxwh/tmMbCFiWx55zyY2CrXkCmeg=",
+     "freshnessScore": "IHfc0znaCdGS4mhpZwPJdDCMibvn4sy1m2IxtjApokhrKy+oufCXtDLRe6Q=",
+     "searchHubImpressions": "DiQhtmdnEMwecBr4vVXWOsevFaQRBTIC/wwJtOG0qcsichMOZUsTnEcmIDE=",
+     "searchHubClicks": "tlDo7OmSYGnGFVMeydJY/dz7/qJImJiPZGmpSZrISkvUdYvC+ZIBgbCM3Rs=",
+     "searchHubCarts": "lxY7qhc780e+v6JJeV3xTT5HuEl/jUjDttdb9ozV4ofuK+XMRUYkD0AvxT8=",
+     "businessRuleFactor": "SgB6O+smLOcPKMCHq6Cd13Bk4BZNO1c2JfkRZF4bunXrBwv8eUNDa5zqZuk="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1790592016013067,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": false,
+     "awards": [],
+     "brand": {
+      "showBrand": false
+     },
+     "canonicalPath": "/p/hamburguesas-black-angus/p11040383",
+     "canonicalUrl": "/p/hamburguesas-black-angus/p11040383",
+     "category": "Food",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_11040383_4644f8db",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "11040383",
+     "flashSales": false,
+     "fullTitle": "Hamburguesas Black Angus",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "5710716"
+     ],
+     "image": "https://www.lidl.es/assets/gcpdc2b7813640a4dd3bf177e3745bab085.png",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcpdc2b7813640a4dd3bf177e3745bab085.png",
+      "accessibility": "Hamburguesa de vacuno Black Angus envasada, con instrucciones para abrir y reciclar."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "itemId": 11040383,
+     "imageList": [
+      "https://www.lidl.es/assets/gcpdc2b7813640a4dd3bf177e3745bab085.png",
+      "https://www.lidl.es/assets/gcp6cae8ff5ec904d3885a9d9ae199465c4.png",
+      "https://www.lidl.es/assets/gcp8e6de34f7bd44731a0ab83a4f1b8a8c7.png"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcpdc2b7813640a4dd3bf177e3745bab085.png",
+       "accessibility": "Hamburguesa de vacuno Black Angus envasada, con instrucciones para abrir y reciclar."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp6cae8ff5ec904d3885a9d9ae199465c4.png",
+       "accessibility": "Paquete de hamburguesas de ternera Black Angus con la etiqueta 'Pack Ahorro XXL'."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp8e6de34f7bd44731a0ab83a4f1b8a8c7.png",
+       "accessibility": "Envase de carne picada de ternera para hamburguesas con la etiqueta 'XXL AHORRO'."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Food",
+      "description": "<ul><li>2 variedades: vacuno Black Angus o vacuno Black Angus y cerdo ibérico.</li></ul>",
+      "fullTitle": "Hamburguesas Black Angus",
+      "moreDetails": "Saber más",
+      "title": "Hamburguesas Black Angus",
+      "wonCategoryPrimary": "Mundos de necesidad/Comida y cerca de la comida/Carne y aves/Carne de vacuno",
+      "wonCategoryPrimaryPath": "0/17/1738/173811"
+     },
+     "lidlPlus": [
+      {
+       "price": {
+        "basePrice": {
+         "prefix": false
+        },
+        "displayedCurrency": "€",
+        "hasStar": false,
+        "hasVat": false,
+        "packaging": {
+         "text": "180g"
+        },
+        "price": 2.55,
+        "priceTheme": "red_yellow",
+        "specialTaxes": [],
+        "superscript": ""
+       },
+       "lidlPlusText": "Con Lidl Plus"
+      }
+     ],
+     "multipack": false,
+     "online": false,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "hasStar": false,
+      "hasVat": false,
+      "specialTaxes": [],
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 11040383,
+     "productType": "RETAIL_HEAD",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "regions": [
+      44,
+      45,
+      46,
+      47,
+      48,
+      51,
+      52,
+      10,
+      11,
+      12,
+      56,
+      13,
+      57,
+      14,
+      58,
+      15,
+      59,
+      16,
+      17,
+      18,
+      19,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+     ],
+     "regionsV2": {
+      "44": {
+       "regionName": "Málaga",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "45": {
+       "regionName": "Jaén",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "46": {
+       "regionName": "Granada",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "47": {
+       "regionName": "Almería",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "48": {
+       "regionName": "Palma de mallorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "49": {
+       "regionName": "Santa Cruz de Tenerife",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "50": {
+       "regionName": "Las Palmas",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "51": {
+       "regionName": "Ceuta ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "52": {
+       "regionName": "Melilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "53": {
+       "regionName": "Fuerteventura",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "10": {
+       "regionName": "Valladolid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "54": {
+       "regionName": "Lanzarote",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "11": {
+       "regionName": "Segovia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "55": {
+       "regionName": "Gran Canaria",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "12": {
+       "regionName": "Soria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "56": {
+       "regionName": "Vit 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "13": {
+       "regionName": "Burgos",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "57": {
+       "regionName": "Cat 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "14": {
+       "regionName": "Palencia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "58": {
+       "regionName": "Menorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "15": {
+       "regionName": "Cantabria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "59": {
+       "regionName": "Ibiza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "16": {
+       "regionName": "Vizcaya",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "17": {
+       "regionName": "Guipuzcoa",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "18": {
+       "regionName": "Álava",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "19": {
+       "regionName": "La Rioja",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "1": {
+       "regionName": "A Coruña",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "2": {
+       "regionName": "Pontevedra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "3": {
+       "regionName": "Lugo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "4": {
+       "regionName": "Ourense",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "5": {
+       "regionName": "Asturias",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "6": {
+       "regionName": "León",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "7": {
+       "regionName": "Zamora",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "8": {
+       "regionName": "Salamanca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "9": {
+       "regionName": "Ávila",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "20": {
+       "regionName": "Navarra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "21": {
+       "regionName": "Huesca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "22": {
+       "regionName": "Zaragoza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "23": {
+       "regionName": "Teruel",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "24": {
+       "regionName": "Lleida",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "25": {
+       "regionName": "Tarragona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "26": {
+       "regionName": "Barcelona",
+       "isDefault": true,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "27": {
+       "regionName": "Girona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "28": {
+       "regionName": "Madrid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "29": {
+       "regionName": "Cáceres",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "30": {
+       "regionName": "Bádajoz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "31": {
+       "regionName": "Toledo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "32": {
+       "regionName": "Ciudad Real",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "33": {
+       "regionName": "Guadalajara",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "34": {
+       "regionName": "Cuenca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "35": {
+       "regionName": "Albacete",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "36": {
+       "regionName": "Castellón",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "37": {
+       "regionName": "Valencia ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "38": {
+       "regionName": "Alicante",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "39": {
+       "regionName": "Murcia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "40": {
+       "regionName": "Huelva",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "41": {
+       "regionName": "Sevilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "42": {
+       "regionName": "Cádiz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "43": {
+       "regionName": "Córdoba",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      }
+     },
+     "regionsPrices": {
+      "1": {
+       "currentLidlPlusPrice": {
+        "price": {
+         "basePrice": {
+          "prefix": false
+         },
+         "currencyCode": "EUR",
+         "currencyCodeSecond": "",
+         "currencySymbol": "€",
+         "currencySymbolSecond": "",
+         "discount": {
+          "absoluteDiscount": 0.44,
+          "deletedPrice": 2.99,
+          "discountHasStar": false,
+          "fromNormalPriceForLidlPlus": false,
+          "fromRecommendedPrice": false,
+          "hideBargainHint": false,
+          "bargainHintEnabled": false,
+          "bargainHintText": "Megadescuento",
+          "percentageDiscount": 14,
+          "showDiscount": true,
+          "showFrom": false,
+          "showPercentage": true,
+          "showUpTo": false
+         },
+         "displayedCurrency": "€",
+         "endDate": "2026-10-04T21:59:59Z",
+         "endDateExclusive": "2026-10-04T22:00Z",
+         "hasStar": false,
+         "hasVat": true,
+         "oldPrice": 2.99,
+         "packaging": {
+          "text": "180g"
+         },
+         "price": 2.55,
+         "priceTheme": "white_red",
+         "specialTaxes": [],
+         "startDate": "2026-09-28T10:22:31.116Z",
+         "superscript": "",
+         "variantsHaveDifferentPrices": false
+        },
+        "lidlPlusText": "Con Lidl Plus",
+        "highlightText": "-14%"
+       },
+       "futureLidlPlusPrices": []
+      }
+     },
+     "ribbons": [],
+     "renderedTs": 1790592015,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 0,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "En tienda",
+         "type": "IN_STORE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "En tienda",
+          "type": "IN_STORE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": false,
+      "minOrderableQuantity": 0,
+      "backInStockNotification": false,
+      "backInStockNotificationSoldOut": false
+     },
+     "store": true,
+     "title": "Hamburguesas Black Angus",
+     "timezoneId": "Europe/Madrid",
+     "zones": {}
+    },
+    "productId": 11040383,
+    "meta": {
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10089449",
+        "name": "Ofertas semanales",
+        "url": "/c/ofertas-semanales/a10089449",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "Hamburguesas Black Angus",
+     "ean": "4056489122449",
+     "retailLists": [
+      [
+       {
+        "id": 0
+       }
+      ]
+     ],
+     "lists": [
+      0
+     ],
+     "wonCategoryBreadcrumbs": [],
+     "worldOfNeeds": [
+      {
+       "code": "173811",
+       "isMain": true,
+       "name": "Carne de vacuno",
+       "parent": "1738",
+       "superCategories": [
+        {
+         "code": "1738",
+         "name": "Carne y aves",
+         "parent": "17"
+        },
+        {
+         "code": "17",
+         "name": "Comida y cerca de la comida",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "11040383"
+   },
+   "tracking": {
+    "position": 51,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.11040383",
+     "searchTrackingTitle": "Hamburguesas+Black+Angus",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.11040383",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 51,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Food"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "100407584",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "DSTHWSFuAL0TJ84w8wtigMtHwkqQJ4u5Zc54XKe3viJUIkXDye1+fjDSnWI=",
+     "keywordScore": "9K3Rx5bTlAh67fZy68CdYDAYFPeIJmlMRcyuRuW1n0Hzdvxw9kvbJS80OYs=",
+     "semanticScore": "4Pn68utWF7jBqlR8p4iAPMabcuI9rKXv4KdqX7h0reh6AVlngbRdduwTzQg=",
+     "keywordScoreRaw": "vPQFBvu53ZyrnkXka6Yuea0jWxSulK9BRIA8oLVKUEmw8EAN0RE+V6o0RHA=",
+     "ratingScore": "gp2VMUulGoNO45k5tx0gtEAuQDEH7pRbyTK6IY+9pDYMpwt/3zbNBm0FvmQ=",
+     "freshnessScore": "kJqVracVf4pw+SgHJNe+Up2EXlkB6LFQT/knIeDpTddWnx9gmctb6Lka7Cw=",
+     "searchHubImpressions": "+SV5Sgz9NOuw/oELzFxwbiZlpb0vIhCBdlRJz9L9jTuxgsVJal+TNTrIuts=",
+     "searchHubClicks": "v+EZuceU/6QEQipeOe0olykOc94SGw2Bg/4i2hHF9rEgpzs/LaBD6iPAwNY=",
+     "searchHubCarts": "Su6mYDzk9a5+cNxLzkq5m7DHnUo9Shj2oSZPrbxilK/vm1kUOF8OjA0U61Y=",
+     "businessRuleFactor": "ZK7jjFsVpq4DTYrwRa+BTXQWcYERKRbpGmirCE83TcsKYV5AoTDjKIHlcKs="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1791083892674607,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": true,
+     "awards": [],
+     "brand": {
+      "logo": "https://www.lidl.es/assets/gcp58cd41f624e94d54b72a94572d82c227.png",
+      "name": "ESMARA®",
+      "url": "https://www.lidl.es/q/brand/esmara/b172",
+      "id": "ESMA",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/esmara-cazadora-bomber-de-terciopelo-para-mujer/p100407584",
+     "canonicalUrl": "/p/esmara-cazadora-bomber-de-terciopelo-para-mujer/p100407584",
+     "category": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Chaquetas de cuero",
+     "categorySecondaryPath": "0/46/4610/461018/46101812",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_100407584_f52d05f4",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "100407584",
+     "flashSales": false,
+     "fullTitle": "ESMARA® Cazadora bomber de terciopelo para mujer",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "546435"
+     ],
+     "image": "https://www.lidl.es/assets/gcpa33df3c168e9439bbb7a5acd55bb4794.jpg",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcpa33df3c168e9439bbb7a5acd55bb4794.jpg",
+      "accessibility": "Chaqueta marrón de efecto ante con hombreras y dos muestras de color"
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "imageList": [
+      "https://www.lidl.es/assets/gcpa33df3c168e9439bbb7a5acd55bb4794.jpg"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcpa33df3c168e9439bbb7a5acd55bb4794.jpg",
+       "accessibility": "Chaqueta marrón de efecto ante con hombreras y dos muestras de color"
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Chaquetas de cuero",
+      "description": "<p><strong>Cazadora bomber de terciopelo para mujer ESMARA®</strong> combina un suave aspecto de terciopelo con una forma bomber deportiva y es ideal para el día a día y la ciudad</p><ul><li>Elegante tejido de terciopelo con superficie aterciopelada</li><li>94 % poliéster, 6 % elastano para una agradable elasticidad</li><li>Cuello Kent y solapa cortavientos con botones a presión para una mejor protección</li><li>Trabas en los hombros y fruncido en el dobladillo como detalle de moda</li><li>Disponible en marrón y caqui, tallas XS(32/34) - L(44/46)</li></ul>",
+      "fullTitle": "ESMARA® Cazadora bomber de terciopelo para mujer",
+      "moreDetails": "Saber más",
+      "supplementalDescription": "<p><strong>Color</strong>: marrón; caqui<br /> <strong>Característica</strong>: cuello Kent<br /> <strong>Característica especial</strong>: poliéster reciclado</p>",
+      "title": "Cazadora bomber de terciopelo para mujer",
+      "wonCategoryPrimary": "Mundos de necesidad/Moda y accesorios/Moda femenina",
+      "wonCategoryPrimaryPath": "0/15/1510"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "online": true,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "endDate": "2026-10-04T21:59:59Z",
+      "endDateExclusive": "2026-10-04T22:00Z",
+      "hasStar": false,
+      "hasVat": true,
+      "hasZeroVat": false,
+      "packaging": {},
+      "price": 16.99,
+      "showEndDate": false,
+      "specialTaxes": [],
+      "startDate": "2026-09-20T22:00Z",
+      "superscript": "",
+      "tax": "21",
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 100407584,
+     "productType": "HEAD_VARIANT",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "ratings": {
+      "average": 4.7,
+      "count": 15,
+      "recommendedNo": 0,
+      "recommendedYes": 13,
+      "sizeType": "FITS_PERFECTLY",
+      "sizePercentage": 64,
+      "topRated": false
+     },
+     "regionsPrices": {},
+     "ribbons": [],
+     "renderedTs": 1791083892,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 1,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "Desde 02.10. también en tienda",
+         "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+        },
+        {
+         "text": "Agotado online",
+         "type": "SOLDOUT_ONLINE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "Desde 02.10. también en tienda",
+          "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+         },
+         {
+          "text": "Agotado online",
+          "type": "SOLDOUT_ONLINE"
+         }
+        ],
+        "validFrom": 1790892000
+       },
+       {
+        "badges": [
+         {
+          "text": "Agotado online",
+          "type": "SOLDOUT_ONLINE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": false,
+      "minOrderableQuantity": 0,
+      "backInStockNotification": true,
+      "backInStockNotificationSoldOut": true
+     },
+     "store": true,
+     "storeStartDate": 1790892000,
+     "title": "Cazadora bomber de terciopelo para mujer",
+     "timezoneId": "Europe/Madrid",
+     "zones": {
+      "BAL": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-04T21:59:59Z",
+        "endDateExclusive": "2026-10-04T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 17.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99
+       },
+       "id": "BAL",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Baleares"
+      },
+      "CAN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-04T21:59:59Z",
+        "endDateExclusive": "2026-10-04T22:00Z",
+        "hasStar": false,
+        "hasVat": false,
+        "hasZeroVat": true,
+        "packaging": {},
+        "price": 17.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "0",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "zoneSurcharge": 3.0
+       },
+       "id": "CAN",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Islas Canarias"
+      },
+      "PEN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-04T21:59:59Z",
+        "endDateExclusive": "2026-10-04T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 16.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": false,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99
+       },
+       "id": "PEN",
+       "isDefault": true,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Peninsula"
+      }
+     }
+    },
+    "productId": 100407584,
+    "meta": {
+     "sapProductCategory": {
+      "code": "46101812",
+      "name": "Chaquetas de cuero",
+      "pathCode": "0/46/4610/461018/46101812",
+      "pathName": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Chaquetas de cuero"
+     },
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10103552",
+        "name": "Prepárate para el Otoño: Chaquetas Ligeras",
+        "url": "/c/preparate-para-el-otono-chaquetas-ligeras/a10103552",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "ESMARA® Cazadora bomber de terciopelo para mujer",
+     "gs1": {
+      "segment": {
+       "code": "67000000",
+       "family": {
+        "code": "67010000",
+        "clazz": {
+         "code": "67010800",
+         "brick": {
+          "code": "10001350",
+          "attributeGS1": []
+         }
+        }
+       }
+      }
+     },
+     "shopCategories": {
+      "shopCategory": [
+       {
+        "code": "46101812",
+        "name": "Chaquetas de cuero",
+        "parent": "461018",
+        "superCategories": {
+         "category": [
+          {
+           "code": "461018",
+           "name": "Chaquetas y abrigos",
+           "parent": "4610"
+          },
+          {
+           "code": "4610",
+           "name": "Moda femenina",
+           "parent": "46"
+          },
+          {
+           "code": "46",
+           "name": "Moda",
+           "parent": "0"
+          },
+          {
+           "code": "0",
+           "name": "Categorías",
+           "parent": ""
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "wonCategoryBreadcrumbs": [
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067567",
+        "name": "Moda mujer",
+        "url": "/h/moda-femenina/h10067567",
+        "hiddenCategory": false
+       }
+      ],
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067567",
+        "name": "Moda mujer",
+        "url": "/h/moda-femenina/h10067567",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10084885",
+        "name": "Abrigos y chaquetas ",
+        "url": "/h/abrigos-y-chaquetas-para-mujer/h10084885",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "worldOfNeeds": [
+      {
+       "code": "1510",
+       "isMain": true,
+       "name": "Moda femenina",
+       "parent": "15",
+       "superCategories": [
+        {
+         "code": "15",
+         "name": "Moda y accesorios",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "100407584"
+   },
+   "tracking": {
+    "position": 3,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.100407584",
+     "searchTrackingTitle": "Cazadora+bomber+de+terciopelo+para+mujer",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.100407584",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 3,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Chaquetas de cuero"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "11138328",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "H7+H1CTIztmoeHGSgeizaDU6eceeL2xd3So5wkxpB65UCVy/xZzdBFPHtUk=",
+     "keywordScore": "cgUPJAXgmRuwZb4CDmczkcDDvjcofYaoP6A6uo/mMs/E0AWQAXV7czS+6k0=",
+     "semanticScore": "1THh/hZkGyL+nuqtu292PT9RYPjARm5HLairbO6yFnDdJhh6gNJyk9X0z3k=",
+     "keywordScoreRaw": "J96WXbPOG3QEUa5E3Arpn2adCOL4MsXzIboOox8eKy9RTglaUJAZG2pE53E=",
+     "ratingScore": "UHluymJTfG6KoilPvNqJFu1lr17iGPYhUQH5bhRq17sp/NaLcdSCvreQgA4=",
+     "freshnessScore": "5U+wlSYGHhOUWi3/hDBzKU6sxdYuPxj+yfg0CrOBeoabrpc7XatytpnCKqE=",
+     "searchHubImpressions": "2PiNa//a6e72+W5HkKCCe2mr1V+nbBa+Bh8o3Ccx4jMgBEKCrL9oE6m33y4=",
+     "searchHubClicks": "aOjllJXphUQXFs752IcmsfD3mrq17eofnlwHX117TMsDbUaqwn9vRweuILw=",
+     "searchHubCarts": "urcJRl+6bVmiktHGIJ4CO5xmh1PUYCS4/qzmQ/ru1HYagwrlWezYU+4LLwE=",
+     "businessRuleFactor": "HXCyTt26XoOf4celwtktP+BPcEUTOTj2t6h8JnQX60CWS4V5Wp+vyfnp4yA="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1790894956133176,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": false,
+     "awards": [],
+     "brand": {
+      "name": "-",
+      "url": "/q/search?q=-",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/mejillon-vivo-y-limpio/p11138328",
+     "canonicalUrl": "/p/mejillon-vivo-y-limpio/p11138328",
+     "category": "Food",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_11138328_1ddae0b8",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "11138328",
+     "flashSales": false,
+     "fullTitle": "- Mejillón vivo y limpio",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "5714505"
+     ],
+     "image": "https://www.lidl.es/assets/gcp38de775e269e44eaafae98f7da6c8efd.png",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcp38de775e269e44eaafae98f7da6c8efd.png",
+      "accessibility": "Envase de mejillones frescos XXL, vivos y limpios, con etiqueta nutricional e instrucciones de cocción."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "itemId": 11138328,
+     "imageList": [
+      "https://www.lidl.es/assets/gcp38de775e269e44eaafae98f7da6c8efd.png",
+      "https://www.lidl.es/assets/gcpc63e859c27414faa928556287d0f328f.png",
+      "https://www.lidl.es/assets/gcp9f81804c1e3b4b0c83b4693fe78ac13c.png"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcp38de775e269e44eaafae98f7da6c8efd.png",
+       "accessibility": "Envase de mejillones frescos XXL, vivos y limpios, con etiqueta nutricional e instrucciones de cocción."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcpc63e859c27414faa928556287d0f328f.png",
+       "accessibility": "Mejillones al vapor en un cuenco con perejil y limón"
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp9f81804c1e3b4b0c83b4693fe78ac13c.png",
+       "accessibility": "Mejillones cocidos con tomates cherry y perejil en un plato."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Food",
+      "description": "<ul><li>1,4 kg</li></ul>",
+      "fullTitle": "- Mejillón vivo y limpio",
+      "moreDetails": "Saber más",
+      "title": "Mejillón vivo y limpio",
+      "wonCategoryPrimary": "Mundos de necesidad/Comida y cerca de la comida/Pescado y marisco",
+      "wonCategoryPrimaryPath": "0/17/1733"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "nat": "5714505",
+     "online": false,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "discount": {
+       "absoluteDiscount": 0.45,
+       "deletedPrice": 4.04,
+       "discountHasStar": false,
+       "fromRecommendedPrice": false,
+       "hideBargainHint": false,
+       "bargainHintEnabled": false,
+       "bargainHintText": "Megadescuento",
+       "percentageDiscount": 11,
+       "showDiscount": true,
+       "showFrom": false,
+       "showPercentage": true,
+       "showUpTo": false
+      },
+      "displayedCurrency": "€",
+      "hasStar": false,
+      "hasVat": false,
+      "oldPrice": 4.04,
+      "packaging": {
+       "text": "1,4 kg"
+      },
+      "price": 3.59,
+      "priceTheme": "white_red",
+      "specialTaxes": [],
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 11138328,
+     "productType": "RETAIL",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "regions": [
+      44,
+      45,
+      46,
+      47,
+      48,
+      51,
+      52,
+      10,
+      11,
+      12,
+      56,
+      13,
+      57,
+      14,
+      58,
+      15,
+      59,
+      16,
+      17,
+      18,
+      19,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+     ],
+     "regionsV2": {
+      "44": {
+       "regionName": "Málaga",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "45": {
+       "regionName": "Jaén",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "46": {
+       "regionName": "Granada",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "47": {
+       "regionName": "Almería",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "48": {
+       "regionName": "Palma de mallorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "49": {
+       "regionName": "Santa Cruz de Tenerife",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "50": {
+       "regionName": "Las Palmas",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "51": {
+       "regionName": "Ceuta ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "52": {
+       "regionName": "Melilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "53": {
+       "regionName": "Fuerteventura",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "10": {
+       "regionName": "Valladolid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "54": {
+       "regionName": "Lanzarote",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "11": {
+       "regionName": "Segovia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "55": {
+       "regionName": "Gran Canaria",
+       "isDefault": false,
+       "status": "ONLINE",
+       "hasVat": false,
+       "priceHasZeroVat": true
+      },
+      "12": {
+       "regionName": "Soria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "56": {
+       "regionName": "Vit 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "13": {
+       "regionName": "Burgos",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "57": {
+       "regionName": "Cat 2",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "14": {
+       "regionName": "Palencia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "58": {
+       "regionName": "Menorca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "15": {
+       "regionName": "Cantabria",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "59": {
+       "regionName": "Ibiza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "16": {
+       "regionName": "Vizcaya",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "17": {
+       "regionName": "Guipuzcoa",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "18": {
+       "regionName": "Álava",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "19": {
+       "regionName": "La Rioja",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "1": {
+       "regionName": "A Coruña",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "2": {
+       "regionName": "Pontevedra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "3": {
+       "regionName": "Lugo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "4": {
+       "regionName": "Ourense",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "5": {
+       "regionName": "Asturias",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "6": {
+       "regionName": "León",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "7": {
+       "regionName": "Zamora",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "8": {
+       "regionName": "Salamanca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "9": {
+       "regionName": "Ávila",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "20": {
+       "regionName": "Navarra",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "21": {
+       "regionName": "Huesca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "22": {
+       "regionName": "Zaragoza",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "23": {
+       "regionName": "Teruel",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "24": {
+       "regionName": "Lleida",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "25": {
+       "regionName": "Tarragona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "26": {
+       "regionName": "Barcelona",
+       "isDefault": true,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "27": {
+       "regionName": "Girona",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "28": {
+       "regionName": "Madrid",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "29": {
+       "regionName": "Cáceres",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "30": {
+       "regionName": "Bádajoz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "31": {
+       "regionName": "Toledo",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "32": {
+       "regionName": "Ciudad Real",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "33": {
+       "regionName": "Guadalajara",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "34": {
+       "regionName": "Cuenca",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "35": {
+       "regionName": "Albacete",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "36": {
+       "regionName": "Castellón",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "37": {
+       "regionName": "Valencia ",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "38": {
+       "regionName": "Alicante",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "39": {
+       "regionName": "Murcia",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "40": {
+       "regionName": "Huelva",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "41": {
+       "regionName": "Sevilla",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "42": {
+       "regionName": "Cádiz",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      },
+      "43": {
+       "regionName": "Córdoba",
+       "isDefault": false,
+       "regionPriceId": "1",
+       "status": "ONLINE",
+       "hasVat": true,
+       "priceHasZeroVat": false
+      }
+     },
+     "regionsPrices": {
+      "1": {
+       "currentPrice": {
+        "basePrice": {
+         "prefix": false
+        },
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "discount": {
+         "absoluteDiscount": 0.45,
+         "deletedPrice": 4.04,
+         "discountHasStar": false,
+         "fromNormalPriceForLidlPlus": false,
+         "fromRecommendedPrice": false,
+         "hideBargainHint": false,
+         "bargainHintEnabled": false,
+         "bargainHintText": "Megadescuento",
+         "percentageDiscount": 11,
+         "showDiscount": true,
+         "showFrom": false,
+         "showPercentage": true,
+         "showUpTo": false
+        },
+        "displayedCurrency": "€",
+        "endDate": "2026-10-04T21:59:59Z",
+        "endDateExclusive": "2026-10-04T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "oldPrice": 4.04,
+        "packaging": {
+         "text": "1,4 kg"
+        },
+        "price": 3.59,
+        "priceTheme": "white_red",
+        "specialTaxes": [],
+        "startDate": "2026-10-01T22:00Z",
+        "superscript": "",
+        "variantsHaveDifferentPrices": false
+       },
+       "futureLidlPlusPrices": []
+      }
+     },
+     "ribbons": [],
+     "renderedTs": 1790894956,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 0,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "En tienda",
+         "type": "IN_STORE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "En tienda",
+          "type": "IN_STORE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": false,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": false,
+      "backInStockNotificationSoldOut": false
+     },
+     "store": true,
+     "title": "Mejillón vivo y limpio",
+     "timezoneId": "Europe/Madrid",
+     "zones": {}
+    },
+    "productId": 11138328,
+    "meta": {
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10091217",
+        "name": "XXL",
+        "url": "/c/xxl/a10091217",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "- Mejillón vivo y limpio",
+     "ean": "4056489574194",
+     "retailLists": [
+      [
+       {
+        "id": 0
+       },
+       {
+        "id": 23731
+       },
+       {
+        "id": 31892
+       }
+      ]
+     ],
+     "lists": [
+      0,
+      23731,
+      31892
+     ],
+     "wonCategoryBreadcrumbs": [],
+     "worldOfNeeds": [
+      {
+       "code": "1733",
+       "isMain": true,
+       "name": "Pescado y marisco",
+       "parent": "17",
+       "superCategories": [
+        {
+         "code": "17",
+         "name": "Comida y cerca de la comida",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "11138328"
+   },
+   "tracking": {
+    "position": 59,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.11138328",
+     "searchTrackingTitle": "Mejill%C3%B3n+vivo+y+limpio",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.11138328",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 59,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Food"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,1000 @@
+{
+ "type": "search",
+ "version": "v2.0.0",
+ "numFound": 8,
+ "offset": 6,
+ "fetchsize": 60,
+ "items": [
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "100409570",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "igK9tFIr7bMxK2XoD8AJz1W/10Gx2gmixr4XYN5x2PUjs60rOS8rkaB3Fek=",
+     "keywordScore": "C6Jlqui7JxJU1Px75Xq1KUBmyBZPcxhvcrRT+dMgCK6ftRMjWDv9BJJQIL8=",
+     "semanticScore": "RhDeo638kmLJCKsFkNjMn1Pb2uAjSZYsmCFFsEVC4A+m491ENyp0yXpmi7w=",
+     "keywordScoreRaw": "712uwPAD+3eyjBsX+F6rkfwi6PPxhLYQlaH7HAeYmaEZ/uieQw20YHkU1Zo=",
+     "ratingScore": "fqajWg55eqYheF7lYwRB7KM7DqjmZiVuRpVRmL7YKKGahYa3d1CnHInz9sE=",
+     "freshnessScore": "1lqShLqN1HgVTdD38VKQE5gfbfXMy3NS/03qfzD8VhL7LI57wHakvwDhiAE=",
+     "searchHubImpressions": "QrgjWAhstZ3NXlyrHKhV35u+I09JXKveGQmpdob75s4UuA/8dsPka8c5bIs=",
+     "searchHubClicks": "yzcGKCUQq8BZH12L+H8Ko+5CM1zE5pfnJGqsbEdJ0bTk3wVOAlUw+OmOg9Q=",
+     "searchHubCarts": "KjlYlp1dtzmNGtaoxhECwwQVlBGhT5odo6dIp9ZrrlrECTpk9waLOsSXQVQ=",
+     "businessRuleFactor": "V2n0U51m+50JLTIiqAg5JwmbFoctbo7ZXSZsy9ehW2os5gnvItctpcPFGF8="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1791121831498596,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": true,
+     "awards": [],
+     "brand": {
+      "logo": "https://www.lidl.es/assets/a7a71c1385d69152f9617b791958f715.jpeg",
+      "name": "LUPILU®",
+      "url": "https://www.lidl.es/q/brand/lupilu/b226",
+      "id": "LUPI",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/lupilu-chaqueta-ligera-infantil/p100409570",
+     "canonicalUrl": "/p/lupilu-chaqueta-ligera-infantil/p100409570",
+     "category": "Categorías/Moda/Moda infantil/Niñas pequeñas/Chaquetas",
+     "categorySecondaryPath": "0/46/4613/461317/46131723",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_100409570_1c32be35",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "100409570",
+     "flashSales": false,
+     "fullTitle": "LUPILU® Chaqueta ligera infantil",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "516765"
+     ],
+     "image": "https://www.lidl.es/assets/gcp69ec8d3364594d88b96e55bb28a99d4b.jpg",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcp69ec8d3364594d88b96e55bb28a99d4b.jpg",
+      "accessibility": "Chaqueta acolchada beige claro con capucha y cremallera, con muestras de color."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "imageList": [
+      "https://www.lidl.es/assets/gcp69ec8d3364594d88b96e55bb28a99d4b.jpg",
+      "https://www.lidl.es/assets/gcp0eff5f7fdade4c479c8c69cbcfd771c5.jpg",
+      "https://www.lidl.es/assets/gcp6a41cf6e9dc148beb2ddd5cb3eb23a61.jpg"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcp69ec8d3364594d88b96e55bb28a99d4b.jpg",
+       "accessibility": "Chaqueta acolchada beige claro con capucha y cremallera, con muestras de color."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp0eff5f7fdade4c479c8c69cbcfd771c5.jpg",
+       "accessibility": "Chaqueta acolchada beige claro con capucha y cremallera"
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp6a41cf6e9dc148beb2ddd5cb3eb23a61.jpg",
+       "accessibility": "Niña sonriente con chaqueta acolchada beige y vaqueros, saltando junto a un cilindro morado."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Categorías/Moda/Moda infantil/Niñas pequeñas/Chaquetas",
+      "description": "<p>La <strong>chaqueta ligera infantil</strong> es una chaqueta de entretiempo ligera, que ofrece protecci&oacute;n contra el viento y la lluvia ligera y es adecuada para el d&iacute;a a d&iacute;a y para jugar</p> <ul> <li>Material exterior repelente al agua para una ligera protecci&oacute;n contra la lluvia</li> <li>Material especialmente ligero y guata c&aacute;lida</li> <li>Con capucha, protecci&oacute;n para la barbilla y cremallera YKK de alta calidad</li> <li>El estampado reflectante aumenta la visibilidad en el tr&aacute;fico rodado</li> <li>Bolsillos laterales y apta para secadora</li> </ul>",
+      "fullTitle": "LUPILU® Chaqueta ligera infantil",
+      "moreDetails": "Saber más",
+      "supplementalDescription": "<p><strong>Color</strong>: beige; caqui; azul marino; rosa<br /> <strong>Característica</strong>: Capucha<br /> <strong>Particularidad</strong>: repelente al agua</p>",
+      "title": "Chaqueta ligera infantil",
+      "wonCategoryPrimary": "Mundos de necesidad/Bebés, niños y juguetes/Ropa para niños de 2 a 8 años",
+      "wonCategoryPrimaryPath": "0/16/1612"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "online": true,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "endDate": "2026-10-11T21:59:59Z",
+      "endDateExclusive": "2026-10-11T22:00Z",
+      "hasStar": false,
+      "hasVat": true,
+      "hasZeroVat": false,
+      "packaging": {},
+      "price": 9.99,
+      "showEndDate": false,
+      "specialTaxes": [],
+      "startDate": "2026-09-20T22:00Z",
+      "superscript": "",
+      "tax": "21",
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 100409570,
+     "productType": "HEAD_VARIANT",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "ratings": {
+      "average": 4.7,
+      "count": 3,
+      "recommendedNo": 0,
+      "recommendedYes": 3,
+      "sizePercentage": 0,
+      "topRated": false
+     },
+     "regionsPrices": {},
+     "ribbons": [],
+     "renderedTs": 1791121830,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 3,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "Desde 02.10. también en tienda",
+         "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+        },
+        {
+         "text": "Disponible online",
+         "type": "AVAILABLE_ONLINE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "Desde 02.10. también en tienda",
+          "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+         },
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ],
+        "validFrom": 1790892000
+       },
+       {
+        "badges": [
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": true,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": true,
+      "backInStockNotificationSoldOut": true
+     },
+     "store": true,
+     "storeStartDate": 1790892000,
+     "title": "Chaqueta ligera infantil",
+     "timezoneId": "Europe/Madrid",
+     "zones": {
+      "BAL": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 10.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": true,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": true,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": true,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "BAL",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Baleares"
+      },
+      "CAN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": false,
+        "hasZeroVat": true,
+        "packaging": {},
+        "price": 9.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "0",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "zoneSurcharge": 3.0
+       },
+       "id": "CAN",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Islas Canarias"
+      },
+      "PEN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 9.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": true,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": true,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": true,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "PEN",
+       "isDefault": true,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Peninsula"
+      }
+     }
+    },
+    "productId": 100409570,
+    "meta": {
+     "sapProductCategory": {
+      "code": "46131723",
+      "name": "Chaquetas",
+      "pathCode": "0/46/4613/461317/46131723",
+      "pathName": "Categorías/Moda/Moda infantil/Niñas pequeñas/Chaquetas"
+     },
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10103552",
+        "name": "Prepárate para el Otoño: Chaquetas Ligeras",
+        "url": "/c/preparate-para-el-otono-chaquetas-ligeras/a10103552",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "LUPILU® Chaqueta ligera infantil",
+     "gs1": {
+      "segment": {
+       "code": "67000000",
+       "family": {
+        "code": "67010000",
+        "clazz": {
+         "code": "67010800",
+         "brick": {
+          "code": "10001350",
+          "attributeGS1": []
+         }
+        }
+       }
+      }
+     },
+     "shopCategories": {
+      "shopCategory": [
+       {
+        "code": "46131723",
+        "name": "Chaquetas",
+        "parent": "461317",
+        "superCategories": {
+         "category": [
+          {
+           "code": "461317",
+           "name": "Niñas pequeñas",
+           "parent": "4613"
+          },
+          {
+           "code": "4613",
+           "name": "Moda infantil",
+           "parent": "46"
+          },
+          {
+           "code": "46",
+           "name": "Moda",
+           "parent": "0"
+          },
+          {
+           "code": "0",
+           "name": "Categorías",
+           "parent": ""
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "wonCategoryBreadcrumbs": [
+      [
+       {
+        "id": "10067767",
+        "name": "Bebé, infantil y juguetes",
+        "url": "/c/bebe-infantil-y-juguetes/s10067767",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067575",
+        "name": "Moda infantil",
+        "url": "/h/ropa-para-ninos-de-2-a-8-anos/h10067575",
+        "hiddenCategory": false
+       }
+      ],
+      [
+       {
+        "id": "10067767",
+        "name": "Bebé, infantil y juguetes",
+        "url": "/c/bebe-infantil-y-juguetes/s10067767",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067575",
+        "name": "Moda infantil",
+        "url": "/h/ropa-para-ninos-de-2-a-8-anos/h10067575",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10084939",
+        "name": "Chaquetas y abrigos infantiles",
+        "url": "/h/chaquetas-y-abrigos-infantiles/h10084939",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "worldOfNeeds": [
+      {
+       "code": "1612",
+       "isMain": true,
+       "name": "Ropa para niños de 2 a 8 años",
+       "parent": "16",
+       "superCategories": [
+        {
+         "code": "16",
+         "name": "Bebés, niños y juguetes",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "100409570"
+   },
+   "tracking": {
+    "position": 4,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.100409570",
+     "searchTrackingTitle": "Chaqueta+ligera+infantil",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.100409570",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 4,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Categorías/Moda/Moda infantil/Niñas pequeñas/Chaquetas"
+    }
+   }
+  },
+  {
+   "resultClass": "product",
+   "type": "product",
+   "code": "100409108",
+   "label": "",
+   "url": "",
+   "xPayload": {
+    "metaData": {
+     "relevancyScore": "25xnu4e6rSMVEk6DI8hPzc9oDAIne0aIAxnCJX+WOo0ss+0qW+REkQt30JQ=",
+     "keywordScore": "N9Fn2oGeKA5XGwyDcGSfBbAZ0I2VClbc/DA1EW8GTNfpzjBiuJhXMCt9uO4=",
+     "semanticScore": "fwoXHptlU6hiftJ3LtNjvB5o0nKOSsLXgttL2YjTqKS6fM4qfmcMDCjRSXA=",
+     "keywordScoreRaw": "nDYGRquQVenIPjzwU4n+0MHLozc18a2jpfKVNUjPyEOOKrEGtge4rwPtVP4=",
+     "ratingScore": "NqzNQa22z8T1gOUu3Rz3kPLdPVxP6QFBpVXNYT7INtWY8tCZC68CnyIJ0Z4=",
+     "freshnessScore": "xxjmNVLExsderQYL9fQCO1wnUoqN7CJaEjYtVH4tJnBMqgOwLIXWicAPR5A=",
+     "searchHubImpressions": "HbhcwxtV8HqfndvzTAuBpOr9b12gIi/doG520nEsQGUXi8eWGPHHeoY6iKk=",
+     "searchHubClicks": "kKLqd8TtOYkKPutTLh0R3dM+fuhcgEnQgzwPrbX2SMpvPwJSZB1D8ZoQ2Jo=",
+     "searchHubCarts": "QNG9x42Vi7rowOpw1pdSBdl4puxbvMCnQwG+Y54mzhVyrJsyKR5cfZilB3E=",
+     "businessRuleFactor": "tYKHfiq3fZI4P0q86mZHfnqePpUw8nAlah3hB3G/NV1OL2CxJPSLS5rYC74="
+    }
+   },
+   "gridbox": {
+    "country": "ES",
+    "sequence": 1790981340041989,
+    "data": {
+     "ageRestriction": false,
+     "hasColors": true,
+     "awards": [],
+     "brand": {
+      "logo": "https://www.lidl.es/assets/gcp58cd41f624e94d54b72a94572d82c227.png",
+      "name": "ESMARA®",
+      "url": "https://www.lidl.es/q/brand/esmara/b172",
+      "id": "ESMA",
+      "showBrand": true
+     },
+     "canonicalPath": "/p/esmara-chaleco-acolchado-para-mujer/p100409108",
+     "canonicalUrl": "/p/esmara-chaleco-acolchado-para-mujer/p100409108",
+     "category": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Oeste",
+     "categorySecondaryPath": "0/46/4610/461018/46101815",
+     "cutoutimageV2": [],
+     "dealOfDay": {
+      "active": false
+     },
+     "designTheme": "default",
+     "disclaimers": [
+      {
+       "id": "code_100409108_cbd1729f",
+       "type": "CODE",
+       "value": "Basic"
+      }
+     ],
+     "displayFreeDelivery": false,
+     "energyLabels": [],
+     "erpNumber": "100409108",
+     "flashSales": false,
+     "fullTitle": "ESMARA® Chaleco acolchado para mujer",
+     "gs1Attributes": [],
+     "guaranteeLabels": [],
+     "havingPrice": true,
+     "havingThreesixty": false,
+     "havingVideos": false,
+     "highlightedSeals": 0,
+     "ians": [
+      "514207"
+     ],
+     "image": "https://www.lidl.es/assets/gcpde292e9c0aed4cc2a97e8cfe3e271a89.jpg",
+     "image_V1": {
+      "image": "https://www.lidl.es/assets/gcpde292e9c0aed4cc2a97e8cfe3e271a89.jpg",
+      "accessibility": "Chaleco largo acolchado con capucha en beige, con opciones de color en marrón, burdeos y negro."
+     },
+     "isLidlGiftCard": false,
+     "isUsedProduct": false,
+     "imageList": [
+      "https://www.lidl.es/assets/gcpde292e9c0aed4cc2a97e8cfe3e271a89.jpg",
+      "https://www.lidl.es/assets/gcp35c7cd41a8ac43f487b87ad574ab6686.jpg",
+      "https://www.lidl.es/assets/gcpb03d74aa9e4e4291b3414b2689c1fc5c.jpg"
+     ],
+     "imageList_V1": [
+      {
+       "image": "https://www.lidl.es/assets/gcpde292e9c0aed4cc2a97e8cfe3e271a89.jpg",
+       "accessibility": "Chaleco largo acolchado con capucha en beige, con opciones de color en marrón, burdeos y negro."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcp35c7cd41a8ac43f487b87ad574ab6686.jpg",
+       "accessibility": "Chaleco largo acolchado beige para mujer con capucha."
+      },
+      {
+       "image": "https://www.lidl.es/assets/gcpb03d74aa9e4e4291b3414b2689c1fc5c.jpg",
+       "accessibility": "Mujer con chaleco largo acolchado beige, jersey blanco y vaqueros, con gorra gris."
+      }
+     ],
+     "keyfacts": {
+      "analyticsCategory": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Oeste",
+      "description": "",
+      "fullTitle": "ESMARA® Chaleco acolchado para mujer",
+      "moreDetails": "Saber más",
+      "supplementalDescription": "<p><strong>Color</strong>: beige; burdeos; negro<br /> <strong>Característica</strong>: cuello alzado<br /> <strong>Particularidad</strong>: repelente al agua</p>",
+      "title": "Chaleco acolchado para mujer",
+      "wonCategoryPrimary": "Mundos de necesidad/Moda y accesorios/Moda femenina",
+      "wonCategoryPrimaryPath": "0/15/1510"
+     },
+     "lidlPlus": [],
+     "multipack": false,
+     "online": true,
+     "preventSelling": false,
+     "price": {
+      "currencyCode": "EUR",
+      "currencyCodeSecond": "",
+      "currencySymbol": "€",
+      "currencySymbolSecond": "",
+      "displayedCurrency": "€",
+      "endDate": "2026-10-11T21:59:59Z",
+      "endDateExclusive": "2026-10-11T22:00Z",
+      "hasStar": false,
+      "hasVat": true,
+      "hasZeroVat": false,
+      "packaging": {},
+      "price": 14.99,
+      "showEndDate": false,
+      "specialTaxes": [],
+      "startDate": "2026-09-20T22:00Z",
+      "superscript": "",
+      "tax": "21",
+      "variantsHaveDifferentPrices": false
+     },
+     "productId": 100409108,
+     "productType": "HEAD_VARIANT",
+     "productOrigin": "progress_event",
+     "quickAddToCart": false,
+     "ratings": {
+      "average": 4.5,
+      "count": 11,
+      "recommendedNo": 2,
+      "recommendedYes": 7,
+      "sizeType": "FITS_PERFECTLY",
+      "sizePercentage": 73,
+      "topRated": false
+     },
+     "regionsPrices": {},
+     "ribbons": [],
+     "renderedTs": 1790981339,
+     "seals": [],
+     "stockAvailability": {
+      "availabilityIndicator": 3,
+      "badgeInfo": {
+       "badges": [
+        {
+         "text": "Desde 02.10. también en tienda",
+         "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+        },
+        {
+         "text": "Disponible online",
+         "type": "AVAILABLE_ONLINE"
+        }
+       ]
+      },
+      "badgeInfoV2": [
+       {
+        "badges": [
+         {
+          "text": "Desde 02.10. también en tienda",
+          "type": "ALSO_IN_STORE_FROM_DATE_PAST"
+         },
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ],
+        "validFrom": 1790892000
+       },
+       {
+        "badges": [
+         {
+          "text": "Disponible online",
+          "type": "AVAILABLE_ONLINE"
+         }
+        ]
+       }
+      ],
+      "onlineAvailable": true,
+      "minOrderableQuantity": 1,
+      "backInStockNotification": true,
+      "backInStockNotificationSoldOut": true
+     },
+     "store": true,
+     "storeStartDate": 1790892000,
+     "title": "Chaleco acolchado para mujer",
+     "timezoneId": "Europe/Madrid",
+     "zones": {
+      "BAL": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 15.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": true,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": true,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": true,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "BAL",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Baleares"
+      },
+      "CAN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": false,
+        "hasZeroVat": true,
+        "packaging": {},
+        "price": 15.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "0",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": false,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": false,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": false,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "zoneSurcharge": 3.0
+       },
+       "id": "CAN",
+       "isDefault": false,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Islas Canarias"
+      },
+      "PEN": {
+       "currentPrice": {
+        "currencyCode": "EUR",
+        "currencyCodeSecond": "",
+        "currencySymbol": "€",
+        "currencySymbolSecond": "",
+        "displayedCurrency": "€",
+        "endDate": "2026-10-11T21:59:59Z",
+        "endDateExclusive": "2026-10-11T22:00Z",
+        "hasStar": false,
+        "hasVat": true,
+        "hasZeroVat": false,
+        "packaging": {},
+        "price": 14.99,
+        "showEndDate": false,
+        "specialTaxes": [],
+        "startDate": "2026-09-20T22:00Z",
+        "superscript": "",
+        "tax": "21",
+        "variantsHaveDifferentPrices": false
+       },
+       "dealOfDay": {
+        "active": false
+       },
+       "deliveryCharges": {
+        "absoluteDeliveryCharge": 0,
+        "additiveDeliveryCharge": 0,
+        "defaultDeliveryCharge": 4.99,
+        "freeDelivery": false,
+        "someFreeOfDeliveryCharges": false,
+        "someHaveDifferentAbsoluteCharges": false,
+        "someHaveDifferentZoneSurcharges": false,
+        "someHaveDifferentAdditiveCharges": false,
+        "someHaveDifferentAdditionalCharges": false,
+        "someHaveDifferentDefaultCharges": false,
+        "someHaveDifferentHomeDeliveryCharges": false,
+        "someHaveDifferentParcelShopCharges": true,
+        "someHaveDifferentParcelLockerCharges": true,
+        "someHaveDifferentparcelLockerLidlParkingLotDeliveryCharges": true,
+        "someHaveDifferentParcelLockerLidlParkingLotLidlPlusDeliveryCharge": true,
+        "homeDeliveryCharge": 4.99,
+        "parcelShopDeliveryCharge": 2.99,
+        "parcelLockerDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotDeliveryCharge": 2.99,
+        "parcelLockerLidlParkingLotLidlPlusDeliveryCharge": 0.0
+       },
+       "id": "PEN",
+       "isDefault": true,
+       "margin": {},
+       "statusDisplayStorefront": "DISPLAY",
+       "statusOnlineActual": "ONLINE",
+       "zone": "Peninsula"
+      }
+     }
+    },
+    "productId": 100409108,
+    "meta": {
+     "sapProductCategory": {
+      "code": "46101815",
+      "name": "Oeste",
+      "pathCode": "0/46/4610/461018/46101815",
+      "pathName": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Oeste"
+     },
+     "categoryPaths": [],
+     "campaignPaths": [
+      [
+       {
+        "id": "10103552",
+        "name": "Prepárate para el Otoño: Chaquetas Ligeras",
+        "url": "/c/preparate-para-el-otono-chaquetas-ligeras/a10103552",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "fullTitle": "ESMARA® Chaleco acolchado para mujer",
+     "gs1": {
+      "segment": {
+       "code": "67000000",
+       "family": {
+        "code": "67010000",
+        "clazz": {
+         "code": "67010800",
+         "brick": {
+          "code": "10001350",
+          "attributeGS1": []
+         }
+        }
+       }
+      }
+     },
+     "shopCategories": {
+      "shopCategory": [
+       {
+        "code": "46101815",
+        "name": "Oeste",
+        "parent": "461018",
+        "superCategories": {
+         "category": [
+          {
+           "code": "461018",
+           "name": "Chaquetas y abrigos",
+           "parent": "4610"
+          },
+          {
+           "code": "4610",
+           "name": "Moda femenina",
+           "parent": "46"
+          },
+          {
+           "code": "46",
+           "name": "Moda",
+           "parent": "0"
+          },
+          {
+           "code": "0",
+           "name": "Categorías",
+           "parent": ""
+          }
+         ]
+        }
+       }
+      ]
+     },
+     "wonCategoryBreadcrumbs": [
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067567",
+        "name": "Moda mujer",
+        "url": "/h/moda-femenina/h10067567",
+        "hiddenCategory": false
+       }
+      ],
+      [
+       {
+        "id": "10067765",
+        "name": "Moda y accesorios",
+        "url": "/c/moda-y-accesorios/s10067765",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10067567",
+        "name": "Moda mujer",
+        "url": "/h/moda-femenina/h10067567",
+        "hiddenCategory": false
+       },
+       {
+        "id": "10084885",
+        "name": "Abrigos y chaquetas ",
+        "url": "/h/abrigos-y-chaquetas-para-mujer/h10084885",
+        "hiddenCategory": false
+       }
+      ]
+     ],
+     "worldOfNeeds": [
+      {
+       "code": "1510",
+       "isMain": true,
+       "name": "Moda femenina",
+       "parent": "15",
+       "superCategories": [
+        {
+         "code": "15",
+         "name": "Moda y accesorios",
+         "parent": "0"
+        },
+        {
+         "code": "0",
+         "name": "Mundos de necesidad",
+         "parent": ""
+        }
+       ]
+      }
+     ],
+     "preview": false
+    },
+    "action": "UPDATE",
+    "language": "es",
+    "eventType": "GRIDBOX",
+    "id": "100409108"
+   },
+   "tracking": {
+    "position": 5,
+    "xPayload": {
+     "searchTrackingMasterId": "Product.100409108",
+     "searchTrackingTitle": "Chaleco+acolchado+para+mujer",
+     "searchTrackingPageSize": 60,
+     "searchTrackingPage": 1,
+     "searchTrackingEvent": "click",
+     "list": "search",
+     "searchTrackingId": "Product.100409108",
+     "searchTrackingOrigPos": 1,
+     "searchTrackingPos": 5,
+     "searchTrackingOrigPageSize": 60,
+     "searchTrackingChannel": "ES",
+     "category": "Categorías/Moda/Moda femenina/Chaquetas y abrigos/Oeste"
+    }
+   }
+  }
+ ]
+}
