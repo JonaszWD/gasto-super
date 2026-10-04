@@ -1,0 +1,43 @@
+name: Consum first run
+
+# One-off: reads the live Consum catalogue with the new adapter (no database) and commits the
+# results to docs/consum-first-run/ on the branch it ran on. Safe to delete afterwards.
+on:
+  push:
+    branches: [claude/peaceful-cray-ur92n4]
+    paths: [.github/workflows/consum-first-run.yml, .github/scripts/consum_first_run.py]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect-prices
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      SOURCES_USER_AGENT: ${{ vars.SOURCES_USER_AGENT || 'GastoSuper/0.1 (personal price comparison)' }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.2.0
+        with:
+          version: "0.11.24"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --locked --no-dev
+      - name: Read the Consum catalogue
+        run: PYTHONPATH=. uv run --no-sync python .github/scripts/consum_first_run.py
+      - name: Commit the results
+        if: always()
+        run: |
+          [ -d docs/consum-first-run ] || exit 0
+          cat docs/consum-first-run/summary.md >> "$GITHUB_STEP_SUMMARY" || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add docs/consum-first-run
+          git commit -m "Consum first run results" || exit 0
+          git push
