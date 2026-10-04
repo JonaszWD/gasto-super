@@ -18,7 +18,7 @@ from app.services.synonyms import query_groups, relevance, sql_filter
 from app.services.text import normalize
 
 # Chains that have a price source. Others (Eroski, Consum...) only appear via "precio pagado".
-COMPARED_CHAINS = ["mercadona", "carrefour", "dia", "lidl", "alcampo"]
+COMPARED_CHAINS = ["mercadona", "carrefour", "dia", "lidl", "alcampo", "consum"]
 
 
 @dataclass

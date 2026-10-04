@@ -26,7 +26,7 @@ Success means a user can decide quickly which store to go to and trust that the 
 
 ## Positioning
 
-- One comparison across Mercadona, Carrefour, Dia, Lidl and Alcampo, keyed to the user's postal code.
+- One comparison across Mercadona, Carrefour, Dia, Lidl, Alcampo and Consum, keyed to the user's postal code.
 - Unit-price-first: "cheapest" is decided by unit price, and only when at least two prices exist.
 - Price history is recorded only when prices change, and the app shows how recent each price is. Prices not seen for more than 7 days are marked as stale, not hidden.
 - Real paid prices from the user's own scans sit next to prices collected from the chains.

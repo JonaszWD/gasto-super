@@ -10,7 +10,7 @@ from app.sources.base import PoliteClient
 from collectors import __main__ as cli
 from collectors.runner import RunStats, run_source
 from tests.sources_helpers import fixture, no_sleep
-from tests.test_sources import alcampo_handler, easycompra_handler, mercadona_handler
+from tests.test_sources import alcampo_handler, consum_handler, easycompra_handler, mercadona_handler
 
 
 def client_for(handler) -> PoliteClient:  # type: ignore[no-untyped-def]
@@ -75,6 +75,15 @@ async def test_alcampo_blocked_run_fails_with_a_clear_message(clean_db: Engine) 
         assert s.exec(select(CollectorRun)).one().status == "failed"
 
 
+async def test_consum_run_stores_listings_with_eans(clean_db: Engine) -> None:
+    stats = await run_source(clean_db, "consum", http=client_for(consum_handler))
+    assert stats.status == "ok" and stats.products_checked == 10 and stats.new_listings == 10
+    with Session(clean_db) as s:
+        listings = s.exec(select(Listing)).all()
+        assert {li.postal_code for li in listings} == {""}  # not location-specific
+        assert next(li for li in listings if li.chain_product_id == "1669").ean == "8423230065137"
+
+
 async def test_easycompra_stale_chain_is_partial(clean_db: Engine) -> None:
     stats = await run_source(clean_db, "easycompra", chains={"carrefour", "dia"}, http=client_for(easycompra_handler))
     assert stats.status == "partial" and stats.products_checked == 3
@@ -98,7 +107,7 @@ def test_cli_isolates_sources_and_writes_summary(
     summary = tmp_path / "summary.md"
     monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(summary))
     code = cli.main(["run", "--all"])
-    assert calls == ["mercadona", "easycompra", "openprices", "alcampo"]  # a crash doesn't stop the others
+    assert calls == ["mercadona", "easycompra", "openprices", "alcampo", "consum"]  # a crash doesn't stop the others
     assert code == 1  # but the job is marked failed
     text = summary.read_text()
     assert "| mercadona |" in text and "| failed |" in text
@@ -112,4 +121,4 @@ def test_cli_chain_without_source(monkeypatch: pytest.MonkeyPatch, capsys: pytes
 def test_cli_list(capsys: pytest.CaptureFixture[str]) -> None:
     assert cli.main(["list"]) == 0
     out = capsys.readouterr().out
-    assert "mercadona" in out and "easycompra" in out and "alcampo" in out
+    assert "mercadona" in out and "easycompra" in out and "alcampo" in out and "consum" in out

@@ -1,0 +1,478 @@
+{
+ "totalCount": 10,
+ "hasMore": false,
+ "products": [
+  {
+   "id": 4743,
+   "productType": 1,
+   "code": "162925",
+   "ean": "8410728180120",
+   "type": "product",
+   "productData": {
+    "name": "Agua Mineral Natural. Botella",
+    "brand": {
+     "id": "LANJARON",
+     "name": "LANJARON",
+     "url": "lanjaron",
+     "landing": false
+    },
+    "url": "https://tienda.consum.es/es/p/agua-mineral-natural-botella/162925",
+    "imageURL": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/162925.jpg?t=20260827095217",
+    "description": "Agua Mineral Natural. Botella 1,5 L",
+    "seo": "agua-mineral-natural-botella",
+    "seoTitle": "",
+    "seoDescription": "agua-mineral-natural-botella",
+    "attributeGroups": [
+     {
+      "code": "group.attribute.default",
+      "name": "Información del producto",
+      "tooltip": "",
+      "visibility": true,
+      "infoProduct": true,
+      "attributes": [
+       {
+        "code": "formato.agua",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "1,5L"
+          ]
+         }
+        ],
+        "detailProductImageTopRight": {
+         "image": "https://cdn-consum.aktiosdigitalservices.com/assets/product/es/formatoAgua.png",
+         "name": "",
+         "tooltip": "",
+         "remarks": "",
+         "showValue": true,
+         "colorBackground": "#077fbf"
+        },
+        "widgetProductBottomRight": {
+         "image": "https://cdn-consum.aktiosdigitalservices.com/assets/product/es/formatoAgua.png",
+         "name": "",
+         "tooltip": "",
+         "remarks": "",
+         "showValue": true,
+         "colorBackground": "#077fbf"
+        }
+       },
+       {
+        "code": "hidden.midiadia",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "1"
+          ]
+         }
+        ]
+       },
+       {
+        "code": "filter.id.brand.distributor",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "0"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "attributes": [
+     {
+      "code": "formato.agua",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "1,5L"
+        ]
+       }
+      ],
+      "detailProductImageTopRight": {
+       "image": "https://cdn-consum.aktiosdigitalservices.com/assets/product/es/formatoAgua.png",
+       "name": "",
+       "tooltip": "",
+       "remarks": "",
+       "showValue": true,
+       "colorBackground": "#077fbf"
+      },
+      "widgetProductBottomRight": {
+       "image": "https://cdn-consum.aktiosdigitalservices.com/assets/product/es/formatoAgua.png",
+       "name": "",
+       "tooltip": "",
+       "remarks": "",
+       "showValue": true,
+       "colorBackground": "#077fbf"
+      }
+     },
+     {
+      "code": "hidden.midiadia",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "1"
+        ]
+       }
+      ]
+     },
+     {
+      "code": "filter.id.brand.distributor",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "0"
+        ]
+       }
+      ]
+     }
+    ],
+    "format": "",
+    "novelty": false,
+    "featured": false,
+    "sponsored": false,
+    "actions": [],
+    "containAllergensIntolernacies": false,
+    "availability": "1",
+    "temporaryOutOfStock": false
+   },
+   "media": [
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/162925_001.jpg?t=20251028091502",
+     "order": 1,
+     "type": "P"
+    },
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/162925_002.jpg?t=20241112091502",
+     "order": 2,
+     "type": "P"
+    }
+   ],
+   "priceData": {
+    "prices": [
+     {
+      "id": "PRICE",
+      "toDate": "2099-12-31T22:59:59Z",
+      "value": {
+       "centAmount": 0.75,
+       "centUnitAmount": 0.5
+      }
+     }
+    ],
+    "taxPercentage": 10.0,
+    "priceUnitType": "",
+    "unitPriceUnitType": "1 L",
+    "minimumUnit": 1.0,
+    "maximumUnit": 49.0,
+    "intervalUnit": 1.0
+   },
+   "purchaseData": {
+    "allowComments": false
+   },
+   "categories": [
+    {
+     "id": 2752,
+     "name": "Agua sin gas : botella",
+     "type": 0
+    },
+    {
+     "id": 999991690,
+     "name": "Ofertas en bebidas",
+     "type": 1
+    }
+   ],
+   "offers": [
+    {
+     "id": 13250731,
+     "from": "2026-09-25T12:50:00.000Z",
+     "to": "2038-01-01T22:59:00.000Z",
+     "minDescription": "Oferta",
+     "shortDescription": "Oferta Pack",
+     "longDescription": "<div class='pack'><span class='pack-title'>En pack</span><span class='pack-number'> 6  unidades </span><span class='pack-price'>0.72 €/ud</span></div>",
+     "sectionUnits": 6.0,
+     "image": "https://cdn-consum.aktiosdigitalservices.com/assets/promotion/es/icon-pack.png",
+     "promotionId": 436521309,
+     "promotionType": 0,
+     "inmediate": true,
+     "applicationTargetType": 1,
+     "applicationActionType": 2,
+     "visiblePromotionWidget": false,
+     "visibleValidate": true,
+     "visibleProductWidget": true,
+     "amount": 0.72,
+     "pictoType": "html"
+    }
+   ],
+   "coupons": []
+  },
+  {
+   "id": 4720,
+   "productType": 1,
+   "code": "97956",
+   "ean": "8410436392754",
+   "type": "product",
+   "productData": {
+    "name": "Lejía Multiusos Floral",
+    "brand": {
+     "id": "CONEJO",
+     "name": "CONEJO",
+     "url": "conejo",
+     "landing": false
+    },
+    "url": "https://tienda.consum.es/es/p/lejia-multiusos-floral/97956",
+    "imageURL": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/97956.jpg?t=20260812080129",
+    "description": "Lejía Multiusos Floral 2 L",
+    "seo": "lejia-multiusos-floral",
+    "seoTitle": "",
+    "seoDescription": "lejia-multiusos-floral",
+    "attributeGroups": [
+     {
+      "code": "group.attribute.default",
+      "name": "Información del producto",
+      "tooltip": "",
+      "visibility": true,
+      "infoProduct": true,
+      "attributes": [
+       {
+        "code": "hidden.midiadia",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "1"
+          ]
+         }
+        ]
+       },
+       {
+        "code": "filter.id.brand.distributor",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "0"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "attributes": [
+     {
+      "code": "hidden.midiadia",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "1"
+        ]
+       }
+      ]
+     },
+     {
+      "code": "filter.id.brand.distributor",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "0"
+        ]
+       }
+      ]
+     }
+    ],
+    "format": "",
+    "novelty": false,
+    "featured": false,
+    "sponsored": false,
+    "actions": [],
+    "containAllergensIntolernacies": false,
+    "availability": "1",
+    "temporaryOutOfStock": false
+   },
+   "media": [
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/97956_001.jpg?t=20250606091504",
+     "order": 1,
+     "type": "P"
+    },
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/97956_002.jpg?t=20250606091504",
+     "order": 2,
+     "type": "P"
+    }
+   ],
+   "priceData": {
+    "prices": [
+     {
+      "id": "PRICE",
+      "toDate": "2099-12-31T22:59:59Z",
+      "value": {
+       "centAmount": 2.99,
+       "centUnitAmount": 1.5
+      }
+     }
+    ],
+    "taxPercentage": 21.0,
+    "priceUnitType": "",
+    "unitPriceUnitType": "1 L",
+    "minimumUnit": 1.0,
+    "maximumUnit": 20.0,
+    "intervalUnit": 1.0
+   },
+   "purchaseData": {
+    "allowComments": false
+   },
+   "categories": [
+    {
+     "id": 5075,
+     "name": "Lejías y amoniacos",
+     "type": 0
+    }
+   ],
+   "offers": [],
+   "coupons": []
+  },
+  {
+   "id": 4729,
+   "productType": 3,
+   "code": "140814",
+   "ean": "8436041980308",
+   "type": "product",
+   "productData": {
+    "name": "Pechuga de Pollo",
+    "brand": {
+     "id": "CONSUM",
+     "name": "CONSUM",
+     "url": "consum",
+     "landing": false
+    },
+    "url": "https://tienda.consum.es/es/p/pechuga-de-pollo/140814",
+    "imageURL": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/140814.jpg?t=20260812080129",
+    "description": "Pechuga de Pollo",
+    "seo": "pechuga-de-pollo",
+    "seoTitle": "",
+    "seoDescription": "pechuga-de-pollo",
+    "attributeGroups": [
+     {
+      "code": "group.attribute.default",
+      "name": "Información del producto",
+      "tooltip": "",
+      "visibility": true,
+      "infoProduct": true,
+      "attributes": [
+       {
+        "code": "hidden.midiadia",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "1"
+          ]
+         }
+        ]
+       },
+       {
+        "code": "filter.id.brand.distributor",
+        "languages": [
+         {
+          "lang": "00",
+          "values": [
+           "0"
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ],
+    "attributes": [
+     {
+      "code": "hidden.midiadia",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "1"
+        ]
+       }
+      ]
+     },
+     {
+      "code": "filter.id.brand.distributor",
+      "languages": [
+       {
+        "lang": "00",
+        "values": [
+         "0"
+        ]
+       }
+      ]
+     }
+    ],
+    "format": "Bandeja 800 g aprox",
+    "novelty": false,
+    "featured": false,
+    "sponsored": false,
+    "actions": [],
+    "containAllergensIntolernacies": false,
+    "availability": "1",
+    "temporaryOutOfStock": false
+   },
+   "media": [
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/140814_001.jpg?t=20251210170002",
+     "order": 1,
+     "type": "P"
+    },
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/140814_002.jpg?t=20251210170002",
+     "order": 2,
+     "type": "P"
+    },
+    {
+     "url": "https://cdn-consum.aktiosdigitalservices.com/tol/consum/media/product/img/300x300/140814_003.jpg?t=20260718041502",
+     "order": 3,
+     "type": "P"
+    }
+   ],
+   "priceData": {
+    "prices": [
+     {
+      "id": "PRICE",
+      "toDate": "2099-12-31T22:59:59Z",
+      "value": {
+       "centAmount": 5.56,
+       "centUnitAmount": 6.95
+      }
+     }
+    ],
+    "taxPercentage": 10.0,
+    "priceUnitType": "",
+    "unitPriceUnitType": "1 Kg",
+    "minimumUnit": 1.0,
+    "maximumUnit": 6.0,
+    "intervalUnit": 1.0
+   },
+   "purchaseData": {
+    "allowComments": false
+   },
+   "categories": [
+    {
+     "id": 2156,
+     "name": "Aves",
+     "type": 0
+    }
+   ],
+   "offers": [],
+   "coupons": []
+  }
+ ]
+}

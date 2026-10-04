@@ -63,3 +63,18 @@ food = [
 ]
 drink = ["Bebidas"]
 household = ["Droguería"]
+
+# Storefront REST API, the whole catalogue in pages of 100 (about 90 requests).
+[consum]
+enabled = true
+min_interval_seconds = 1.5
+# Products in a category whose name contains one of these words are not collected.
+skip_categories = [
+    "perfumeria", "higiene", "cosmetica", "maquillaje", "parafarmacia", "farmacia",
+    "mascotas", "animales", "perro", "perros", "gato", "gatos", "panales", "bazar", "textil",
+]
+
+# Category-name word -> department (first match wins); otherwise guessed from the product name.
+[consum.departments]
+drink = ["bebidas", "aguas", "refrescos", "cervezas", "vinos", "zumos", "licores", "bodega"]
+household = ["drogueria", "limpieza", "detergentes"]

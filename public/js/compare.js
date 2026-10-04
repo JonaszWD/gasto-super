@@ -7,7 +7,7 @@ import { Scanner, scanFeedback } from "./scanner.js";
 import { closeSheet, errorMessage, h, icon, openSheet, toast } from "./ui.js";
 
 // Colour follows the chain, never its rank (validated categorical slots, see app.css).
-const CHAIN_SLOT = { mercadona: 1, carrefour: 2, dia: 3, lidl: 4, alcampo: 5 };
+const CHAIN_SLOT = { mercadona: 1, carrefour: 2, dia: 3, lidl: 4, alcampo: 5, consum: 6 };
 const cstate = { query: "", results: null, types: [], postalCode: "" };
 
 function unitPrice(row) {
