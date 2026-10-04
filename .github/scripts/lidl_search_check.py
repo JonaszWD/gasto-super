@@ -1,16 +1,21 @@
-"""One-off: is searching Lidl for our common grocery terms better than reading the whole catalogue?
+"""One-off: which way of reading Lidl finds its grocery products best?
 
-Strategy A: walk the full catalogue (q=*), keep food (category "Food" or "F+V").
-Strategy B: search each term from sources.toml (alcampo.search_terms) and each product type name
-            (app/product_types.toml), keep food the same way.
-Writes docs/lidl-check/: summary.md, products.csv (every food product, which strategy found it),
-raw_catalog_page.json (first catalogue page verbatim) and raw_food_items.json (food items verbatim).
+A: the whole catalogue (q=*).
+B: a search for each term in sources.toml (alcampo.search_terms) and each product type name.
+C: the whole catalogue filtered to products sold in shops (store=1, "En tienda").
+
+Food can't be told apart reliably yet (the `category` field is a path now), so every item is
+saved as a slim record and classified afterwards. Results are written after each strategy, and
+dropped connections are retried, so one failure doesn't lose the run. Output in docs/lidl-check/:
+  items_A.jsonl, items_B.jsonl, items_C.jsonl   one slim record per item (B also has the term)
+  raw_store_page.json                           first store=1 page, verbatim (fixture material)
+  summary.md                                    requests, time and counts per strategy
 """
 
-import csv
 import json
 import time
 import tomllib
+from collections import Counter
 from pathlib import Path
 
 import httpx
@@ -21,40 +26,91 @@ HEADERS = {
     "Accept": "*/*",
     "Accept-Language": "es-ES,es;q=0.9",
 }
-FOOD = {"Food", "F+V"}
 OUT = Path("docs/lidl-check")
 GAP = 1.0
+summary: list[str] = ["# Lidl: three ways of reading the catalogue", ""]
 
 
-def page(client: httpx.Client, q: str, offset: int, size: int, stats: dict) -> dict:
-    time.sleep(GAP)
-    stats["requests"] += 1
-    r = client.get(API, params={"q": q, "assortment": "ES", "locale": "es_ES", "version": "2.1.0",
-                                "fetchsize": size, "offset": offset})
-    r.raise_for_status()
-    return r.json()
+def get(client: httpx.Client, params: dict, stats: dict) -> dict:
+    for attempt in range(5):
+        time.sleep(GAP if attempt == 0 else 2**attempt)
+        stats["requests"] += 1
+        try:
+            r = client.get(API, params={"assortment": "ES", "locale": "es_ES", "version": "2.1.0", **params})
+        except httpx.TransportError as exc:
+            stats["retries"] += 1
+            last = exc
+            continue
+        if r.status_code in (429, 500, 502, 503, 504):
+            stats["retries"] += 1
+            last = RuntimeError(f"HTTP {r.status_code}")
+            continue
+        r.raise_for_status()
+        return r.json()
+    raise last
 
 
-def walk(client: httpx.Client, q: str, size: int, stats: dict, max_pages: int, first: list | None = None):
+def walk(client, params: dict, size: int, stats: dict, max_pages: int, keep_first: list | None = None):
     offset = 0
     for _ in range(max_pages):
-        data = page(client, q, offset, size, stats)
-        if first is not None and not first:
-            first.append(data)
+        data = get(client, {**params, "fetchsize": size, "offset": offset}, stats)
+        if keep_first is not None and not keep_first:
+            keep_first.append(data)
         items = data.get("items") or []
-        for item in items:
-            yield item
+        yield from items
         offset += len(items)
         if not items or offset >= (data.get("numFound") or 0):
             return
 
 
-def data_of(item: dict) -> dict:
-    return (item.get("gridbox") or {}).get("data") or {}
+def slim(item: dict, **extra) -> dict:
+    d = (item.get("gridbox") or {}).get("data") or {}
+    pr = d.get("price") or {}
+    lp = next(((o.get("price") or {}) for o in d.get("lidlPlus") or [] if o.get("price")), {})
+    return {
+        **extra,
+        "id": str(d.get("productId") or d.get("erpNumber") or ""),
+        "title": d.get("fullTitle") or d.get("title"),
+        "brand": (d.get("brand") or {}).get("name"),
+        "category": d.get("category"),
+        "analytics_category": (d.get("keyfacts") or {}).get("analyticsCategory"),
+        "secondary": d.get("categorySecondaryPath"),
+        "store": d.get("store"),
+        "online": d.get("online"),
+        "price": pr.get("price"),
+        "old_price": pr.get("oldPrice"),
+        "packaging": (pr.get("packaging") or {}).get("text"),
+        "base_price": (pr.get("basePrice") or {}).get("text"),
+        "lidl_plus_price": lp.get("price"),
+        "price_start": pr.get("startDate"),
+        "price_end": pr.get("endDate"),
+        "store_start": d.get("storeStartDate"),
+        "store_end": d.get("storeEndDate"),
+        "zones": sorted((d.get("zones") or {}).keys()),
+        "url": d.get("canonicalUrl"),
+    }
 
 
-def pid(d: dict) -> str:
-    return str(d.get("productId") or d.get("erpNumber") or d.get("itemId") or d.get("fullTitle"))
+def save(name: str, rows: list[dict]) -> None:
+    with (OUT / name).open("w", encoding="utf-8") as f:
+        for row in rows:
+            f.write(json.dumps(row, ensure_ascii=False) + "\n")
+
+
+def report(label: str, stats: dict, rows: list[dict], seconds: float) -> None:
+    ids = {r["id"] for r in rows}
+    cats = Counter((r["category"] or "").split("/")[1] if "/" in (r["category"] or "") else (r["category"] or "") for r in rows)
+    summary.extend([
+        f"## {label}", "",
+        f"- Requests: {stats['requests']} ({stats['retries']} retries), time: {round(seconds)} s",
+        f"- Items read: {len(rows)}, unique: {len(ids)}",
+        f"- Top-level categories: {cats.most_common(12)}",
+        f"- Sold in shops (store=true): {sum(1 for r in rows if r['store'])}; with packaging: "
+        f"{sum(1 for r in rows if r['packaging'])}; with base price: {sum(1 for r in rows if r['base_price'])}",
+        "",
+    ])
+    (OUT / "summary.md").write_text("\n".join(summary) + "\n", encoding="utf-8")
+    print("\n".join(summary[-8:]), flush=True)
 
 
 def main() -> None:
@@ -64,84 +120,34 @@ def main() -> None:
     terms = list(dict.fromkeys(
         list(sources["alcampo"]["search_terms"]) + [t["es"].lower() for t in types["types"].values()]
     ))
-    food: dict[str, dict] = {}
-    found_by: dict[str, set] = {}
-    a = {"requests": 0, "items": 0, "food": 0}
-    b = {"requests": 0, "items": 0, "food": 0, "nonfood": 0, "terms_with_food": 0}
-    first: list = []
     with httpx.Client(headers=HEADERS, timeout=30, follow_redirects=True) as client:
-        t0 = time.time()
-        for item in walk(client, "*", 100, a, 200, first):
-            a["items"] += 1
-            d = data_of(item)
-            if d.get("category") in FOOD:
-                a["food"] += 1
-                food.setdefault(pid(d), item)
-                found_by.setdefault(pid(d), set()).add("A")
-        a["seconds"] = round(time.time() - t0)
-        (OUT / "raw_catalog_page.json").write_text(json.dumps(first[0] if first else {}, ensure_ascii=False, indent=1), encoding="utf-8")
+        # C first: it's the cheapest and the most likely winner.
+        stats, t0, first = {"requests": 0, "retries": 0}, time.time(), []
+        rows = [slim(i) for i in walk(client, {"q": "*", "store": "1"}, 100, stats, 50, first)]
+        save("items_C.jsonl", rows)
+        (OUT / "raw_store_page.json").write_text(json.dumps(first[0] if first else {}, ensure_ascii=False, indent=1), encoding="utf-8")
+        report("C: catalogue, sold in shops only (store=1)", stats, rows, time.time() - t0)
 
-        t0 = time.time()
-        per_term = []
+        stats, t0, rows, failed = {"requests": 0, "retries": 0}, time.time(), [], []
         for term in terms:
-            n_food = 0
-            for item in walk(client, term, 50, b, 10):
-                b["items"] += 1
-                d = data_of(item)
-                if d.get("category") in FOOD:
-                    n_food += 1
-                    food.setdefault(pid(d), item)
-                    found_by.setdefault(pid(d), set()).add("B")
-                else:
-                    b["nonfood"] += 1
-            b["food"] += n_food
-            b["terms_with_food"] += n_food > 0
-            per_term.append((term, n_food))
-        b["seconds"] = round(time.time() - t0)
+            try:
+                rows += [slim(i, term=term) for i in walk(client, {"q": term}, 50, stats, 10)]
+            except Exception as exc:  # noqa: BLE001 - one term failing must not lose the run
+                failed.append(f"{term} ({exc})")
+        save("items_B.jsonl", rows)
+        report(f"B: {len(terms)} grocery term searches", stats, rows, time.time() - t0)
+        if failed:
+            summary.append(f"Failed terms: {', '.join(failed)}\n")
 
-    only_a = [k for k, v in found_by.items() if v == {"A"}]
-    only_b = [k for k, v in found_by.items() if v == {"B"}]
-    both = [k for k, v in found_by.items() if v == {"A", "B"}]
-    (OUT / "raw_food_items.json").write_text(json.dumps(list(food.values()), ensure_ascii=False, indent=1), encoding="utf-8")
-
-    with (OUT / "products.csv").open("w", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        w.writerow(["found_by", "id", "title", "brand", "category", "price", "old_price", "lidl_plus_price",
-                    "packaging", "base_price", "store_start", "store_end", "url"])
-        for k, item in sorted(food.items(), key=lambda kv: "".join(sorted(found_by[kv[0]]))):
-            d = data_of(item)
-            pr = d.get("price") or {}
-            lp = next(((o.get("price") or {}).get("price") for o in d.get("lidlPlus") or [] if o.get("price")), None)
-            w.writerow(["+".join(sorted(found_by[k])), k, d.get("fullTitle") or d.get("title"),
-                        (d.get("brand") or {}).get("name"), d.get("category"), pr.get("price"), pr.get("oldPrice"), lp,
-                        (pr.get("packaging") or {}).get("text"), (pr.get("basePrice") or {}).get("text"),
-                        d.get("storeStartDate"), d.get("storeEndDate"), d.get("canonicalUrl")])
-
-    datas = [data_of(i) for i in food.values()]
-    lines = [
-        "# Lidl: full catalogue vs searching our grocery terms", "",
-        f"Unique food products found overall: {len(food)}", "",
-        "| | Full catalogue (A) | Term searches (B) |", "|---|---|---|",
-        f"| Requests | {a['requests']} | {b['requests']} |",
-        f"| Time | {a['seconds']} s | {b['seconds']} s |",
-        f"| Items read | {a['items']} | {b['items']} |",
-        f"| Unique food products | {len(only_a) + len(both)} | {len(only_b) + len(both)} |",
-        f"| Found only by this strategy | {len(only_a)} | {len(only_b)} |",
-        "",
-        f"- Found by both: {len(both)}",
-        f"- Term searches: {len(terms)} terms, {b['terms_with_food']} returned any food; {b['nonfood']} non-food results read",
-        f"- Food products with a price: {sum(1 for d in datas if (d.get('price') or {}).get('price') is not None)}; "
-        f"with Lidl Plus price only: {sum(1 for d in datas if (d.get('price') or {}).get('price') is None and d.get('lidlPlus'))}",
-        f"- With basePrice (Lidl's own unit price): {sum(1 for d in datas if (d.get('price') or {}).get('basePrice'))}; "
-        f"with packaging text: {sum(1 for d in datas if ((d.get('price') or {}).get('packaging') or {}).get('text'))}",
-        f"- With an old price (on offer): {sum(1 for d in datas if (d.get('price') or {}).get('oldPrice'))}; "
-        f"with store dates: {sum(1 for d in datas if d.get('storeStartDate'))}",
-        "", "## Food found per term (top 25)", "",
-    ] + [f"- {t}: {n}" for t, n in sorted(per_term, key=lambda x: -x[1])[:25]] + [
-        "", f"Terms with no food at all: {', '.join(t for t, n in per_term if n == 0)}",
-    ]
-    (OUT / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print("\n".join(lines))
+        stats, t0 = {"requests": 0, "retries": 0}, time.time()
+        rows = []
+        try:
+            for i in walk(client, {"q": "*"}, 100, stats, 200):
+                rows.append(slim(i))
+        except Exception as exc:  # noqa: BLE001
+            summary.append(f"A stopped early: {exc}\n")
+        save("items_A.jsonl", rows)
+        report("A: whole catalogue (q=*)", stats, rows, time.time() - t0)
 
 
 if __name__ == "__main__":
