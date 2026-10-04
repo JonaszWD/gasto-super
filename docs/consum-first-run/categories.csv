@@ -1,0 +1,849 @@
+category,department,products
+Ofertas en despensa,food,380
+Vinos,drink,281
+Ofertas en productos de cuidado personal,food,260
+Ofertas en bebidas,drink,214
+Coloración,food,147
+Ofertas en frescos,food,117
+Ojos,food,102
+Ofertas en droguería y limpieza,household,96
+Labiales,food,93
+Blanco DO,drink,87
+Femeninas,food,83
+Especias,food,77
+Ofertas en congelados y helados,food,76
+Champú,food,75
+Bombones,food,74
+Tinto otras DO,drink,72
+Limpieza hogar,household,71
+Cereales,food,65
+Galletas de chocolate,food,64
+Snacks y otros aperitivos,food,61
+Hidratación,food,61
+Aceitunas con hueso,food,59
+Barras,food,59
+Body-lociones,food,58
+Eye liner y perfiladores,food,57
+Compresas y protegeslips,food,56
+Tostadas y minibiscotes,food,55
+Peines y accesorios,food,55
+Aves,food,54
+Licores y cremas,drink,54
+Uñas,food,54
+Gominolas,food,53
+Cavas y sidras,drink,52
+Dentífricos,food,52
+Otros,food,52
+Despensa,food,52
+Comida Húmeda,food,51
+Surimis y salazones,food,51
+Gel de baño,food,51
+Chocolatinas,food,50
+Masculinas,food,50
+Pescado congelado,food,49
+Salsas frías,food,49
+Cerdo,food,49
+Harina,food,48
+Zumos y néctares no refrigerados,drink,48
+Limpieza y desmaquilladores,household,48
+Limpieza calzado y accesorios,household,48
+Rubios,food,47
+Fitoterapia,food,47
+Frescos y para ensaladas,food,46
+"Rosquilletas, picos y snacks",food,45
+Cola,drink,45
+Mermeladas y confituras,food,45
+Caramelos,food,45
+Snacks,food,45
+Hogar,food,45
+Chocolate con Leche,food,44
+Picadas y hamburguesas,food,44
+Tomate frito,food,44
+Mexicano,food,43
+Desayuno y maría,food,43
+Spray,food,43
+Chicles,food,43
+Ofertas en productos infantiles,food,43
+Accesorios y complementos,food,43
+Atún y bonito,food,42
+Eléctricos y automáticos,household,41
+Alimentación infantil,food,40
+Bebidas vegetales,drink,40
+Patatas fritas,food,39
+Jamón,food,39
+Ofertas en despensa,drink,38
+A máquina líquido,household,38
+Pizza congelada,food,37
+Especial Navidad,food,37
+Caldo liquido,food,37
+Preparados de pasta,food,37
+Pescado en bandeja,food,37
+Nutrición deportiva,food,37
+Paté de carne,food,36
+Ofertas en platos preparados,food,35
+Té,drink,35
+Laca de uñas,food,35
+Velas,food,34
+Limpiadores,household,33
+Tomate,food,33
+Comida Seca,SKIPPED,33
+Tarrinas,food,33
+Otros elaborados,food,33
+Cápsulas sistema Nespresso,drink,33
+Rostro,food,33
+Roll on,food,32
+Zumos y néctares sin azúcar,drink,32
+Pouches,food,31
+Chorizo,food,31
+Preparados de carne y pescado,food,31
+Mayonesa,food,30
+En lonchas,food,30
+Sin amoniaco,food,30
+Comida Seca,food,30
+Barritas y galletas,food,30
+Jamón cocido - york,food,29
+Chocolate Negro,food,29
+Cepillos de dientes,food,29
+Agua sin gas : botella,drink,28
+Pizzas  ,food,28
+Galletas saludables,food,28
+Tinto DO Ribera del Duero,drink,28
+Pastelitos,food,28
+Preparados de legumbres y hortalizas,food,27
+Tinto DO Rioja,drink,27
+Otros vegetales,food,27
+Maíz tostado y cocktail,food,27
+Bazar,SKIPPED,27
+Decoración postres,food,27
+Yogur especial salud,food,27
+Cocidos de pavo,food,26
+Ofertas en productos para mascotas,SKIPPED,26
+"Macarrones, espaguetis y tallarines",food,26
+Bocaditos,food,26
+Tratamiento,food,26
+Panes especiales,food,26
+Asiático,food,26
+Salsas calientes,food,25
+Sopas en sobre,food,25
+Tortitas,food,25
+Vacuno,food,25
+Quesos Para untar,food,25
+Tartas y bizcochos,food,25
+Sazonadores,food,25
+Cremas de desayuno,food,25
+Otros limpiadores específicos,household,25
+Suavizante,household,25
+Brillos,food,25
+Energéticas,drink,24
+Aceite de oliva intenso y suave,food,24
+Marrones,food,24
+Patés,food,24
+Gel y cera,food,24
+Mascarillas cabello,food,24
+Otros limpiadores específicos,food,24
+Marisco congelado,food,24
+Rostro,SKIPPED,24
+Maquillaje fluido,SKIPPED,24
+Cordones y plantillas,household,24
+Mascara de pestañas,food,24
+Fundidos y porciones,food,23
+Whisky,drink,23
+Magdalenas,food,23
+Batidos,food,23
+Embutido,food,23
+Acondicionadores,food,23
+Continuos y decorativos,household,23
+Yogur griego,food,23
+Ginebra,drink,22
+Limón y lima-limón,drink,22
+Otras infusiones,food,22
+Otras infusiones,drink,22
+Refrescos sin gas,drink,22
+Otras verduras,food,22
+Refrescos,drink,22
+No permanente,food,22
+Desayuno y merienda infantil,food,22
+Puericultura,food,22
+Bífidus,food,21
+Preparados de carne  ,food,21
+Noodles,food,21
+Fregasuelos,household,21
+Salchichón y salami,food,21
+Pequeñas mascotas,SKIPPED,21
+Pilas,food,21
+Rubia lata,drink,20
+Salchichas,food,20
+Café Soluble,drink,20
+Quesos Rallados,food,20
+Lavavajillas a máquina,household,20
+Ensaladas y brotes,food,20
+Preservativos,food,20
+Limpiacristales y multiusos,household,20
+Ensaladas preparadas y guacamole,food,20
+Limpiadores calzado,household,20
+Quitamanchas,food,20
+Cacao soluble,food,19
+Postres en polvo,food,19
+Maquinillas de afeitar,food,19
+Mortadela y chopped,food,19
+Sal,food,19
+Leches especiales,food,19
+Accesorios de baño,food,19
+Ensaladas y humus,food,19
+Tartas ,food,19
+Dulces de Navidad,food,19
+Máquina pastilla,household,19
+Zumos frescos,drink,19
+Junior: Talla de 4 a 6,food,19
+Lejías y amoniacos,household,18
+Tomate natural,food,18
+Wafer y barquillos,food,18
+Fideos y sopas,food,18
+Cabello normal,food,18
+Pan rallado,food,18
+Bollería,food,18
+Pasta fresca,food,18
+Toallitas húmedas,food,18
+Fruta de temporada,food,17
+"Cebollas, ajos y puerros",food,17
+Lacas,food,17
+Zumos con leche,drink,17
+Sardinas,food,17
+Despensa,drink,17
+Conos,food,17
+Cuña curado,food,17
+Foie y paté de ave,food,17
+Pipas,food,17
+"Serums, aceites y otros",food,17
+Lavavajillas a mano,household,17
+Tomates,food,16
+Patatas,food,16
+Café Molido natural,drink,16
+Tónica,drink,16
+Mejillones,food,16
+Antisépticos y enjuagues,food,16
+"Almejas, berberechos y navajas",food,16
+Base pasta,food,16
+Cereales y barritas,food,16
+Quesos Nacionales,food,16
+Manicura y pedicura,food,16
+Sombras,food,16
+"Manzana, pera y uva",food,15
+Otros postres,food,15
+Fruta tropical,food,15
+Rubia botella,drink,15
+Espumoso,drink,15
+Tampones,food,15
+Alubias cocidas,food,15
+Frutas en almíbar y en su jugo,food,15
+Leches infantiles,food,15
+Bases y masas,food,15
+Accesorios,food,15
+"Bayetas, gamuzas y plumeros",household,15
+Afeitado y cuidado masculino,food,15
+Hidratación facial,food,15
+Cabello dañado y frágil,food,15
+Preparados refrigerados,food,15
+Yogur natural y azucarado,food,14
+Isotónicas,drink,14
+Tinto mesa,drink,14
+Ron,drink,14
+Agua con gas,drink,14
+Limpieza baños,household,14
+Yogures,food,14
+Vinagre y aliños,food,14
+Cremas,food,14
+Limpiacristales y multiusos,food,14
+Sangrías y combinados base vino,food,14
+Bebidas refrescantes,drink,14
+Bocadillos y sándwiches,food,14
+Cocidos de pollo,food,14
+Panecillos,food,14
+Aceite de oliva virgen y virgen extra,food,14
+Polos de hielo,food,14
+Menaje cocina,food,14
+Menaje,food,14
+Toallitas,food,14
+"Brochas, pinceles y esponjas",food,14
+Zanahorias y otras raíces,food,13
+Pasta italiana,food,13
+Potitos de fruta y postres,food,13
+Potitos de Carne,food,13
+Nata para cocinar,food,13
+Ternera y añojo,food,13
+Perro Mini,SKIPPED,13
+Cuidado manos y pies,food,13
+Cremas de manos,food,13
+Huevos frescos,food,13
+Membrillos y compotas,food,13
+Aseo íntimo,food,13
+Guantes domésticos,food,13
+Maquinillas y recambios,food,13
+Edulcorantes,food,13
+Pescado blanco,food,13
+Eléctricos,household,13
+Quitagrasas,household,13
+Yogur proteinas,food,13
+Croquetas y empanadillas,food,12
+Yogur sabores,food,12
+Naranja,drink,12
+Importación ,drink,12
+Potitos y platos preparados,food,12
+Estropajos,household,12
+Hojaldres,food,12
+Sobrasada,food,12
+Quesos de Oveja,food,12
+Cordero,food,12
+Vermut y aperitivo,drink,12
+Mantequilla,food,12
+Garbanzos cocidos,food,12
+Papel higiénico,food,12
+Gel de manos,food,12
+Lomo,food,12
+"Brie, camembert y cremosos",food,12
+Yogur vegetal,food,12
+Natural,food,12
+Quesos de importación,food,12
+Ofertas en ecológico y saludable,food,12
+Otros cocidos,food,12
+Ipa y artesana,drink,12
+Corrector,food,12
+Galletas y Snacks,food,12
+Platos para llevar,food,12
+Pizzas y hojaldres,food,12
+Entera,food,11
+"Fino, dulce y de licor",drink,11
+Longaniza,food,11
+Gelatinas,food,11
+Antical,household,11
+"0,0",drink,11
+Perro Mediano,SKIPPED,11
+Perro Grande,SKIPPED,11
+Arroz cocido,food,11
+Espárragos y palmitos,food,11
+Bandas protectoras adhesivas,food,11
+Banderillas y cocktails,food,11
+Cuidado y Bienestar,food,11
+Pasta blanda cabra,food,11
+Sticks Dentales,food,11
+Comida étnica,food,11
+Sándwich,food,11
+Pan Integral y otras semillas,food,11
+Rosado DO,drink,11
+Repostería ,food,11
+Aerosol spray o pistola,household,11
+Anticaspa y anticaída,food,11
+Empanadillas,food,11
+Ketchup,food,11
+"Sepia, pulpo y calamares",food,11
+Cabello seco,food,11
+Raíces y cejas,food,11
+Solares,food,11
+Semidesnatada,food,10
+Fuet,food,10
+Blanco mesa,drink,10
+Caldo en pastillas,food,10
+Condensada,food,10
+"Cremas, lociones y colonia",food,10
+Horchatas,drink,10
+Pan rústico,food,10
+Lentejas secas,food,10
+Miel,food,10
+Infantil,food,10
+Natillas,food,10
+Pimiento,food,10
+Especial,drink,10
+L-casei,food,10
+Cacahuetes,food,10
+Cápsulas sistema Dolce Gusto,food,10
+Cápsulas sistema Dolce Gusto,drink,10
+Ofertas en productos de horno,food,10
+Comida Húmeda,SKIPPED,10
+Higiene bucal,SKIPPED,10
+Senior,food,10
+Sabores y Proteínas,food,10
+Gel WC,household,10
+Salteados y revueltos,food,10
+Pan de molde y rebanado,food,10
+Pañuelos y tissues,food,10
+Escoba y recogedor,food,10
+"Crema, gel y spray",food,10
+Eléctricos y automáticos,food,10
+Infantiles,food,10
+Crema de pies,food,10
+"Tortillas, croquetas y patatas",food,10
+"0,0 tostada",drink,10
+Croissants y ensaimadas,food,10
+Cera ,food,10
+Bebé: Talla de 0 a 3,food,10
+Decoración y fiestas,food,10
+Pepino y pimiento,food,9
+"Brócoli, col y coliflor",food,9
+Leche con calcio,food,9
+Tostada,drink,9
+Lejía normal y multiusos,household,9
+Gazpachos,food,9
+Panes y tostadas,food,9
+Café Grano,drink,9
+Ofertas en productos de cuidado personal,household,9
+Cuña tierno y saludable,food,9
+"Pan de hamburguesa, hot dog y wraps",food,9
+Ofertas en productos de cuidado personal,SKIPPED,9
+Berlinas,food,9
+Desatascador limpia tuberías,household,9
+Bollería rellena y donuts,food,9
+Otros aceites,food,9
+Paté pescado y marisco,food,9
+Espumas y mousses,food,9
+Fruta desecada,food,9
+Yogur líquido,food,9
+"Judías, habas y otras legumbres",food,8
+Cítricos,food,8
+Lechuga y endibias,food,8
+"Guisantes, judías y habas",food,8
+Bacon y panceta,food,8
+Yogur desnatado,food,8
+Base arroz,food,8
+Con corteza,food,8
+Mostaza,food,8
+Arroz especial,food,8
+Levadura,food,8
+Azúcar,food,8
+"Calabaza, calabacín y berenjena",food,8
+Batidos,drink,8
+Setas y champiñones,food,8
+Papel de cocina,household,8
+Servilletas de papel,household,8
+Alcachofa,food,8
+Otros frutos secos,food,8
+Caballa y melva,food,8
+Fregonas,food,8
+Cafés refrigerados,food,8
+Napolitanas y hojaldres,food,8
+Negros,food,8
+Verduras microondas,food,8
+Bolsas y sacos de basura,SKIPPED,8
+Almendras,food,8
+Quitamanchas,household,8
+Servilletas de papel,food,8
+Bolsas de conservación,household,8
+Esponjas,food,8
+Galletas saladas,food,8
+"Sin azúcar, veganos y saludables",food,8
+"Barbacoa, carbón y encendido",food,8
+Curados especialidades,food,8
+Papillas,food,8
+Cocas y bizcochos,food,8
+Spray voladores,household,8
+Otros quesos importación,food,8
+Frescos y refrigerados,food,8
+Isotónicas,food,8
+Gel y champú,food,8
+Lejía con detergente,household,8
+Perfiladores,food,8
+Suavizante,food,8
+Nueces,food,7
+Desnatada,food,7
+Gaseosas y sodas,drink,7
+Isotónicas lata,drink,7
+Rojos,food,7
+Protector labial,food,7
+Bálsamos,food,7
+Después afeitado,food,7
+Agua sin gas : garrafa,drink,7
+Preparados lácteos,food,7
+Aceitunas sin hueso,food,7
+Flanes,food,7
+Croissants,food,7
+"Alcohol, agua oxigenada y otros",food,7
+Quesos,food,7
+Patés,SKIPPED,7
+Crema y barra,food,7
+"Espinacas,coles y alcachofas",food,7
+Pan común,food,7
+Estuches,food,7
+Esterilizados,food,7
+Anís,food,7
+Mundo Acuático,SKIPPED,7
+Cuidado personal,SKIPPED,7
+Parafarmacia,SKIPPED,7
+"Bola, edam, gouda, maasdam",food,7
+Droguería y limpieza,household,7
+Cavas y sidras,food,7
+Bollería dulce,food,7
+Productos protésicos,food,7
+Cabello rizado,food,7
+Pasta integral,food,7
+"Platos, bandejas y cuencos",food,7
+Chocolate a la taza,food,6
+Café Molido descafeinado,drink,6
+Complementos higiene,SKIPPED,6
+Descalcificadores lavadora,food,6
+Carnicería,food,6
+Petit e infantiles,food,6
+Pescado y marisco,food,6
+Rosado mesa,drink,6
+Sabor limón,drink,6
+Arroz largo y vaporizado,food,6
+Lentejas cocidas,food,6
+Aditivos y limpiamáquinas,household,6
+Pan de molde integral y cereales,food,6
+Carne,food,6
+Pepinillos,food,6
+Chocolate para postres,food,6
+"Bayetas, gamuzas y plumeros",food,6
+Papel de cocina,food,6
+Oriental,food,6
+Braguita noche,food,6
+Verduras,food,6
+Pasta blanda vaca,food,6
+Champiñones y setas,food,6
+Menestras y ensaladillas,food,6
+Vodka,drink,6
+Conejo,food,6
+Anti hormigas y cucarachicidas,food,6
+Pescado azul,food,6
+Calamar y sepia,food,6
+Antical,food,6
+Garbanzos secos,food,6
+Alubias secas,food,6
+Prelavado y blanqueador,food,6
+Guisantes,food,6
+Recambios hojas afeitar,food,6
+Brandy,food,6
+Combinados,food,6
+Absorbe olores y antihumedad,food,6
+Aditivos para el lavado,food,6
+Fruta preparada,food,6
+Cuidado personal,food,6
+Otros utensilios de limpieza,household,6
+Maíz,food,6
+Pascua,food,6
+Yogur enriquecido,food,6
+Cafés refrigerados,drink,6
+Quitaesmaltes,food,6
+Máquina polvo,household,6
+Jabón en pastillas,food,6
+Cremas y sopas,food,6
+Moldes y recipientes,food,6
+Espuma de afeitar,food,6
+Fruta helada,food,6
+Femeninas,drink,6
+Textil,SKIPPED,6
+Potitos de Pescado,food,5
+Prendas delicadas,household,5
+Judía verde,food,5
+Preparados lácteos,drink,5
+Surtidos,food,5
+Pasta ensaladas,food,5
+"Bloques, tartas y Nata",food,5
+Frutos rojos,food,5
+Resto de encurtidos,food,5
+Estropajos,food,5
+Base pescado,food,5
+Pan hamburguesas y perritos,food,5
+Higiene,SKIPPED,5
+Salsas y siropes,food,5
+Carnes,food,5
+Cápsulas otros sistemas,drink,5
+Ofertas en ecológico y saludable,drink,5
+Marisco,food,5
+Quesos de Barra,food,5
+Quesos de Cabra,food,5
+Pastas de té,food,5
+Membrillo,food,5
+Isotónicas lata,food,5
+Menaje cocina,drink,5
+Menaje,drink,5
+Aceite de girasol,food,5
+Aditivos para el lavado,SKIPPED,5
+Desinfectante Textil,SKIPPED,5
+Herméticos,food,5
+Junior,food,5
+Pistachos,food,5
+Toallitas húmedas,household,5
+Fruta congelada,food,5
+Sin filtrar,drink,5
+Polvos,food,5
+En seco,food,5
+Otros limpiadores específicos,drink,5
+Ahumados,food,5
+Familiar,drink,5
+Arroz Redondo,food,4
+Brandy,drink,4
+Café Molido mezcla,drink,4
+Trigo,drink,4
+"Buey, toro y vaca",food,4
+Leche fresca,food,4
+Sin corteza,food,4
+Canelones y lasagnas,food,4
+Seda dental,food,4
+Pañal adulto y protectores,food,4
+Cuña semicurado,food,4
+Tabletas,food,4
+Mopas,food,4
+Avellanas y anacardos,food,4
+Arenas,food,4
+Papel higiénico,household,4
+Paleta,food,4
+Conejos/Roedores,SKIPPED,4
+Guindillas,food,4
+Gelatina,food,4
+Tablas,food,4
+Sin gluten,drink,4
+Mousse,food,4
+Nata en Spray,food,4
+Específico,food,4
+Cremas y aguas de peinado,drink,4
+Ofertas en productos bazar,SKIPPED,4
+Sangrías y combinados base vino,drink,4
+Cepillos y esponjas,household,4
+Antipolillas y carcoma,food,4
+Canarios,SKIPPED,4
+Bifásico,food,4
+Depilación hombre,food,4
+Periquitos,SKIPPED,4
+Limpiador suelo madera,household,4
+Preparados de pasta y arroz,food,4
+A mano y jabón común,food,4
+Mosto,drink,4
+Marisco congelado,drink,4
+Larga Duración,food,4
+Limpia vitrocerámica,household,4
+Esterilizados,SKIPPED,4
+Charcutería origen vegetal,food,4
+Agua con sabores,drink,4
+Cabello dañado y teñido,food,4
+Cubiertos,SKIPPED,4
+Yogur proteinas,drink,4
+Accesorios de baño,household,4
+Coloretes,food,4
+Margarina,food,4
+Palillos y pajitas,food,4
+Preparados de arroz,food,4
+Bases congeladas,food,4
+Continuos y decorativos,food,4
+Pasta sin gluten,food,4
+Semillas,food,4
+Cepillos eléctricos y a pilas,food,4
+Cabello liso,food,4
+Gel y jabón de afeitado,food,4
+Plátano y banana,food,3
+Nata para montar,food,3
+Bitter y ginger ale,food,3
+Abrillantador suelos,household,3
+Cera suelos,household,3
+Arreglos,food,3
+Aromatizada,drink,3
+Patatas fritas,household,3
+Vinagre y aliños,drink,3
+Tender y planchar,food,3
+Chocolate blanco,food,3
+Papel aluminio,SKIPPED,3
+Vendas gasas esterilizadas,food,3
+Base verdura,food,3
+Horchatas y granizados,food,3
+Mechas y decolorante,food,3
+Cuajada,food,3
+Preparado paella y hervido,food,3
+Cebollitas,food,3
+Untables,food,3
+Anti hormigas y cucarachicidas,household,3
+Arroz integral,food,3
+Bocaditos,SKIPPED,3
+Otras conservas pescado,food,3
+Guantes domésticos,household,3
+Film transparente,food,3
+Polos de hielo,drink,3
+Copa,food,3
+Condimentos,food,3
+Complementos nutricionales,food,3
+Papel horno,SKIPPED,3
+Otros licores,drink,3
+Purés,food,3
+Café Soluble,food,3
+Otras frutas,food,3
+Limpiadores muebles,food,3
+Roquefort y azules,food,3
+Bollería salada,food,3
+Café con Leche,food,3
+Accesorios y utensilios limpieza,household,3
+Otros insecticidas,food,3
+Bicarbonato,food,3
+Otros huevos y claras de huevo,food,3
+Toallitas,household,3
+Tratamiento uñas,food,3
+Vasos y copas,SKIPPED,3
+Familiar,food,3
+Napolitanas y croissants,food,3
+Accesorios de baño,drink,3
+Líquidos,food,3
+Nutrición deportiva,drink,3
+Hombre,food,3
+Cuidado facial,food,3
+Emmental y gruyere,food,3
+Preparados de verdura,food,3
+Antiparasitarios,food,3
+Pan sin gluten,food,3
+Aerosol spray o pistola,food,3
+Cuidado del cabello,food,3
+Hidratación,household,3
+Bolsas y sacos de basura,food,3
+Melón y sandía,food,2
+Pasta al huevo,food,2
+Potitos de verdura,food,2
+Cereales solubles,food,2
+Otras pastas secas,food,2
+Aromáticos,food,2
+Bechamel,food,2
+Esparadrapo,food,2
+Arroz basmati,food,2
+Arroz bomba,food,2
+Bolsas y sacos de basura,household,2
+Bolsas de conservación,SKIPPED,2
+Hidratación,drink,2
+Alcaparras,food,2
+Pilas,SKIPPED,2
+"Pan, churros y porras",food,2
+Parmesano,food,2
+Horchatas y granizados,drink,2
+Otros insecticidas,household,2
+Batidos y cremas,food,2
+Premios y Galletas,food,2
+Ofertas en congelados y helados,drink,2
+Cuidado y Bienestar,SKIPPED,2
+Snacks,SKIPPED,2
+Cuidados Especiales,food,2
+Anís,drink,2
+Ofertas en ecológico y saludable,household,2
+Botiquín,food,2
+Paté de ave,food,2
+Cápsulas otros sistemas,food,2
+Pañuelos y tissues,household,2
+Pan de horno,food,2
+Eléctricos,food,2
+Natural,SKIPPED,2
+Ofertas en droguería y limpieza,SKIPPED,2
+A mano y jabón común,household,2
+Espárragos,food,2
+Amoniacos,food,2
+Lejías y amoniacos,food,2
+Carnicería corte,food,2
+Bombones,drink,2
+Ofertas en productos infantiles,household,2
+Frescos y refrigerados,drink,2
+Cubos y barreños,food,2
+Café con Leche,drink,2
+Bañadores,food,2
+Rebozados,food,2
+Base carne,food,2
+Decoración y fiestas,household,2
+Amoniacos,household,2
+Afeitado y cuidado masculino,household,2
+Hidratación facial,household,2
+Ecológico y saludable,food,2
+Ofertas en productos de cuidado personal,drink,2
+Esponjas,SKIPPED,2
+Accesorios y complementos,SKIPPED,2
+Cubiertos,food,2
+Maquillaje compacto,SKIPPED,2
+Desodorantes,food,2
+"Cremas, lociones y colonia",drink,2
+Hielo,drink,2
+Otras Aves,SKIPPED,2
+Limpieza cocina,household,2
+Menaje de mesa,food,2
+Combinados,drink,2
+Iluminador,food,2
+Crema de afeitado,food,2
+Peluquería,food,2
+Galletas de chocolate,drink,2
+Desayuno y merienda infantil,drink,2
+Spray voladores,food,2
+Naturales,food,2
+Refrigeradas,food,2
+Conservación alimentos y moldes,food,2
+Higiene íntima,SKIPPED,2
+Cápsulas sistema Nespresso,food,2
+Desechables,food,1
+Productos planchado,drink,1
+"Harina, levadura y pan rallado",food,1
+Baja graduación,drink,1
+Conservación alimentos y moldes,household,1
+Arroz con leche,food,1
+Evaporada,food,1
+Bitter y ginger ale,drink,1
+Frutas y Verduras,food,1
+Vendas gasas esterilizadas,SKIPPED,1
+Horchatas,food,1
+Limpiadores muebles,household,1
+Gaseosas y sodas,food,1
+Complementos nutricionales,drink,1
+Hielo,household,1
+"Bloques, tartas y Nata",drink,1
+Otros aceites,drink,1
+Senior,SKIPPED,1
+Sticks Dentales,SKIPPED,1
+Negra,drink,1
+Cepillos y esponjas,food,1
+Leche en polvo y deshidratada,food,1
+Espumas y mousses,drink,1
+Paté de cerdo,food,1
+Junior,SKIPPED,1
+Mousse,drink,1
+Cuña curado,drink,1
+Manteles,food,1
+Aditivos y complementos,food,1
+Legumbres Texturizadas,food,1
+Lejía con detergente,food,1
+Palillos y pajitas,SKIPPED,1
+Salazones y marinados,food,1
+Labiales,drink,1
+Perfiladores,drink,1
+Promocionales,SKIPPED,1
+Cuidado personal,household,1
+Ecológico y saludable,household,1
+"Platos, bandejas y cuencos",SKIPPED,1
+Ginebra,food,1
+Film transparente,household,1
+Brochas,food,1
+Lejía normal y multiusos,food,1
+Cuidado corporal,food,1
+Limpia vitrocerámica,food,1
+Cuidados Especiales,SKIPPED,1
+Flanes,drink,1
+Fijación capilar,drink,1
+De pasta y arroz,food,1
+Tratamiento,household,1
+Desayuno y maría,drink,1
+Productos planchado,food,1
+Postres,food,1
+Pan rústico,drink,1
+Palillos y pajitas,household,1
+Yogur líquido,drink,1
+Tónica,food,1
+Algodón,food,1
+Ofertas en productos infantiles,drink,1
+Naturales,SKIPPED,1
+Caramelos,drink,1
+Cabello graso,food,1
+Coloración,drink,1
+Sin amoniaco,drink,1
+Fregonas,household,1
+Otros vegetales,drink,1
+Fijación capilar,food,1
+Platos preparados,food,1
+Bolsas de conservación,food,1
+Fitoterapia,drink,1
+Vasos y copas,household,1
+"Alcohol, agua oxigenada y otros",drink,1
+Tarrinas,drink,1
+Antiparasitarios,SKIPPED,1
+Accesorios,SKIPPED,1
+Frutos secos,food,1
+Aditivos y complementos,household,1
+Chocolatinas,drink,1
+Dentífricos,drink,1
+Miel,drink,1
+Vasos y copas,food,1
+Tartas ,drink,1
