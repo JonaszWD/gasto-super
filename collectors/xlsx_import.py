@@ -1,6 +1,6 @@
 """One-off import of supermarket catalogue exports (.xlsx) into the price-comparison tables.
 
-    uv run python -m collectors import-xlsx SupermaketData/products_dia_24092026-122757.xlsx
+    uv run python -m collectors import-xlsx catalogue_exports/products_dia_24092026-122757.xlsx
     uv run python -m collectors import-xlsx FILE... --dry-run        # parse only, no database
 
 Expected sheet columns: Id, Nombre, Precio, Precio Pack, Formato, Categoria, Supermercado, Url, Url_imagen.

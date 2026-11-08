@@ -57,7 +57,7 @@ Success means a user can decide quickly which store to go to and trust that the 
 
 ## Evidence on Hand
 
-- Real price data from the nightly collectors, plus catalogue exports in `SupermaketData/` (Carrefour, Dia, Mercadona xlsx).
+- Real price data from the nightly collectors, plus catalogue exports in `catalogue_exports/` (Carrefour, Dia, Mercadona xlsx).
 - No testimonials, user counts, savings figures or press. Do not make them up.
 
 ## Product Principles
