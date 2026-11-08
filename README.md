@@ -1,9 +1,20 @@
 # Gasto Súper
 
+[![CI](https://github.com/JonaszWD/gasto-super/actions/workflows/ci.yml/badge.svg)](https://github.com/JonaszWD/gasto-super/actions/workflows/ci.yml)
+
 Phone-first web app for supermarket spending in Spain, plus a price comparison across chains.
 
 - **Spending tracker:** scan a barcode with the iPhone camera, confirm the price, and it's logged against the current shopping trip. Includes history, stats and CSV export.
 - **Price comparison:** search a product (by text or barcode) and see its price at each chain near your postal code, the unit price (€/kg, €/L, €/ud), and when that price was last seen. It also has a shopping list with a total per chain and the best split across two stores.
+
+<p align="center">
+  <img src="docs/screenshots/compare.png" width="23%" alt="Price comparison across chains">
+  <img src="docs/screenshots/trip-detail.png" width="23%" alt="A shopping trip">
+  <img src="docs/screenshots/history.png" width="23%" alt="Trip history">
+  <img src="docs/screenshots/stats.png" width="23%" alt="Spending statistics">
+</p>
+
+*Screenshots use demo data.*
 
 ## Architecture
 
